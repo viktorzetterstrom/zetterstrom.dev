@@ -8,6 +8,11 @@ build:
   artifacts:
     - image: viktorzetterstrom/index-zetterstrom-dev
       context: index
+      sync:
+        infer:
+          - "**/*.html"
+          - "**/*.js"
+          - "**/*.css"
 deploy:
   kubeContext: docker-desktop
   kubectl:
