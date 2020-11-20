@@ -1,0 +1,23 @@
+apiVersion: skaffold/v2beta9
+kind: Config
+metadata:
+  name: zetterstrom-dev
+build:
+  local:
+    push: false
+  artifacts:
+    - image: viktorzetterstrom/index-zetterstrom-dev
+      context: index
+deploy:
+  kubeContext: docker-desktop
+  kubectl:
+    manifests:
+      - k8s/namespace.yaml
+      - k8s/index-depl.yaml
+      - k8s/ingress-srv.yaml
+portForward:
+  - resourceType: service
+    resourceName: index-srv
+    namespace: z-dev
+    port: 80
+    localPort: 3000
