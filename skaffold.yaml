@@ -14,7 +14,6 @@ deploy:
     manifests:
       - k8s/namespace.yaml
       - k8s/index-depl.yaml
-      - k8s/ingress-srv.yaml
 portForward:
   - resourceType: service
     resourceName: index-srv
