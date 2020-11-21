@@ -26,9 +26,11 @@ p {
   align-items: center;
 }
 
-.full-width-image {
+.top-image {
   width: 100%;
   height: auto;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 .heading {
@@ -47,4 +49,10 @@ p {
 
 .svg-icon:hover {
   color: rgb(30, 30, 30);
+}
+
+@media only screen and (max-width: 500px) {
+  .top-image {
+    border-radius: 0;
+  }
 }
