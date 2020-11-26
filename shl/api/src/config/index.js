@@ -1,7 +1,6 @@
 module.exports = {
-  port: 4000,
-  redisHost: process.env.REDIS_HOST,
-  redisPort: process.env.REDIS_PORT,
+  port: process.env.NODE_ENV === "development" ? 4001 : 80,
+  currentSeason: 2020,
   shlId: process.env.SHL_ID,
   shlSecret: process.env.SHL_SECRET,
   cacheLifeSpan: 600,

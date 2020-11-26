@@ -1,7 +1,7 @@
-const teamNames = require('./team-names');
+const teamNames = require("./team-names");
 
-const standings = apiResponse =>
-  apiResponse.map(position => ({
+const standings = (apiResponse) =>
+  apiResponse.map((position) => ({
     ...position,
     team: {
       ...position.team,
@@ -9,13 +9,13 @@ const standings = apiResponse =>
     },
   }));
 
-const games = apiResponse =>
+const games = (apiResponse) =>
   apiResponse
-    .map(game => ({
+    .map((game) => ({
       ...game,
       start_date_time: new Date(game.start_date_time),
     }))
-    .filter(game => {
+    .filter((game) => {
       const oneWeekAway = new Date();
       oneWeekAway.setDate(oneWeekAway.getDate() + 7);
       const twoWeeksAgo = new Date();
@@ -24,9 +24,9 @@ const games = apiResponse =>
       return twoWeeksAgo < gameDate && gameDate < oneWeekAway;
     });
 
-const winstreaks = apiResponse => {
+const winstreaks = (apiResponse) => {
   const playedGames = apiResponse.filter(
-    game => new Date() > new Date(game.start_date_time)
+    (game) => new Date() > new Date(game.start_date_time)
   );
   const teamWinstreaks = {};
   Object.entries(teamNames).forEach(([teamId, teamName]) => {
@@ -44,7 +44,7 @@ const winstreaks = apiResponse => {
   const hasLostHome = {};
   const hasLostAway = {};
 
-  playedGames.forEach(game => {
+  playedGames.forEach((game) => {
     const homeCode = game.home_team_code;
     const awayCode = game.away_team_code;
     const homeResult = game.home_team_result;
