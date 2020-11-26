@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import shlService from '../../shl-service';
-import TeamLogo from '../TeamLogo';
-import TableContainer from '../TableContainer';
-import Spinner from '../Spinner';
+import React, { useEffect, useState } from "react";
+import shlService from "../../shl-service";
+import TeamLogo from "../TeamLogo";
+import TableContainer from "../TableContainer";
+import Spinner from "../Spinner";
 
 const WinstreaksTableHead = () => (
   <thead>
@@ -39,13 +39,13 @@ const WinstreaksTable = ({ winstreaks, theme }) => (
   </TableContainer>
 );
 
-export default ({ theme }) => {
+const WinstreaksTableWithData = ({ theme }) => {
   const [winstreaks, setWinstreaks] = useState({ loading: true });
   useEffect(() => {
     shlService
       .winstreaks()
-      .then(res => setWinstreaks(res.data))
-      .catch(err => console.error(`Error fetching games: ${err}`));
+      .then((res) => setWinstreaks(res.data))
+      .catch((err) => console.error(`Error fetching games: ${err}`));
   }, []);
 
   return !winstreaks.loading ? (
@@ -54,3 +54,5 @@ export default ({ theme }) => {
     <Spinner theme={theme} />
   );
 };
+
+export default WinstreaksTableWithData;

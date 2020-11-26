@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`
   from { transform: rotate(0deg); }
@@ -17,12 +17,12 @@ const SpinnerPart = styled.div`
   width: 100px;
   height: 100px;
   border: 20px solid rgba(0, 0, 0, 0);
-  border-top: 20px solid ${props => props.theme.primary};
+  border-top: 20px solid ${(props) => props.theme.primary};
   border-radius: 50%;
-  animation: ${rotate} ${props => props.theme.speed} linear infinite;
+  animation: ${rotate} ${(props) => props.theme.speed} linear infinite;
 `;
 
-export default ({ theme }) => {
+const Spinner = ({ theme }) => {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const delay = setTimeout(() => setShow(true), 500);
@@ -31,11 +31,13 @@ export default ({ theme }) => {
 
   return show ? (
     <SpinnerContainer>
-      <SpinnerPart theme={{ ...theme, speed: '1s' }} />
-      <SpinnerPart theme={{ ...theme, speed: '1.5s' }} />
-      <SpinnerPart theme={{ ...theme, speed: '3s' }} />
+      <SpinnerPart theme={{ ...theme, speed: "1s" }} />
+      <SpinnerPart theme={{ ...theme, speed: "1.5s" }} />
+      <SpinnerPart theme={{ ...theme, speed: "3s" }} />
     </SpinnerContainer>
   ) : (
     <></>
   );
 };
+
+export default Spinner;

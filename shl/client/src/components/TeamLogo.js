@@ -1,5 +1,7 @@
-import React from 'react';
+import React from "react";
 
-export default ({ id, name }) => (
+const TeamLogo = ({ id, name }) => (
   <img src={`/img/${id.toLowerCase()}-30.png`} alt={`${name} logo`} />
 );
+
+export default TeamLogo;

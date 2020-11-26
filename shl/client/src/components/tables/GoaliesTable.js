@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import shlService from '../../shl-service';
-import TeamLogo from '../TeamLogo';
-import TableContainer from '../TableContainer';
-import Spinner from '../Spinner';
+import React, { useEffect, useState } from "react";
+import shlService from "../../shl-service";
+import TeamLogo from "../TeamLogo";
+import TableContainer from "../TableContainer";
+import Spinner from "../Spinner";
 
 const GoaliesTableHead = () => (
   <thead>
@@ -17,8 +17,8 @@ const GoaliesTableHead = () => (
   </thead>
 );
 
-const formatGaa = gaa => gaa.toFixed(2);
-const formatSvsperc = svsperc => `${svsperc.toFixed(2)}%`;
+const formatGaa = (gaa) => gaa.toFixed(2);
+const formatSvsperc = (svsperc) => `${svsperc.toFixed(2)}%`;
 
 const GoaliesTableRow = ({ goalie }) => (
   <tr>
@@ -44,13 +44,13 @@ const GoaliesTable = ({ goalies, theme }) => (
   </TableContainer>
 );
 
-export default ({ theme }) => {
+const GoaliesTableWithData = ({ theme }) => {
   const [goalies, setGoalies] = useState({ loading: true });
   useEffect(() => {
     shlService
       .goalies()
-      .then(res => setGoalies(res.data))
-      .catch(err => console.error(`Error fetching games: ${err}`));
+      .then((res) => setGoalies(res.data))
+      .catch((err) => console.error(`Error fetching games: ${err}`));
   }, []);
 
   return !goalies.loading ? (
@@ -59,3 +59,5 @@ export default ({ theme }) => {
     <Spinner theme={theme} />
   );
 };
+
+export default GoaliesTableWithData;

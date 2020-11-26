@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export default styled.div`
+const AppContainer = styled.div`
   position: relative;
-  color: ${props => props.primary};
-  background-color: ${props => props.secondary};
+  color: ${(props) => props.primary};
+  background-color: ${(props) => props.secondary};
   margin: 0 auto;
   text-align: center;
   min-height: 450px;
@@ -17,3 +17,5 @@ export default styled.div`
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
   }
 `;
+
+export default AppContainer;

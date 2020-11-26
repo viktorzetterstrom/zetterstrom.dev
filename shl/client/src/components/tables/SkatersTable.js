@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import shlService from '../../shl-service';
-import TeamLogo from '../TeamLogo';
-import TableContainer from '../TableContainer';
-import Spinner from '../Spinner';
+import React, { useEffect, useState } from "react";
+import shlService from "../../shl-service";
+import TeamLogo from "../TeamLogo";
+import TableContainer from "../TableContainer";
+import Spinner from "../Spinner";
 
 const SkatersTableHead = () => (
   <thead>
@@ -45,13 +45,13 @@ const SkatersTable = ({ skaters, theme }) => (
   </TableContainer>
 );
 
-export default ({ theme }) => {
+const SkatersTableWithData = ({ theme }) => {
   const [skaters, setSkaters] = useState({ loading: true });
   useEffect(() => {
     shlService
       .skaters()
-      .then(res => setSkaters(res.data))
-      .catch(err => console.error(`Error fetching games: ${err}`));
+      .then((res) => setSkaters(res.data))
+      .catch((err) => console.error(`Error fetching games: ${err}`));
   }, []);
 
   return !skaters.loading ? (
@@ -60,3 +60,5 @@ export default ({ theme }) => {
     <Spinner theme={theme} />
   );
 };
+
+export default SkatersTableWithData;
