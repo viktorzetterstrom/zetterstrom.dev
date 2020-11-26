@@ -13,15 +13,29 @@ build:
           - "**/*.html"
           - "**/*.js"
           - "**/*.css"
+    - image: viktorzetterstrom/shl-api-zetterstrom-dev
+      context: shl/api
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        infer:
+          - "**/*.js"
 deploy:
   kubeContext: docker-desktop
   kubectl:
     manifests:
       - k8s/namespace.yaml
       - k8s/index-depl.yaml
+      - k8s/shl-api-depl.yaml
+      - k8s/secrets/shl-api-secret.yaml
 portForward:
   - resourceType: service
     resourceName: index-srv
     namespace: z-dev
     port: 80
     localPort: 3000
+  - resourceType: service
+    resourceName: shl-api-srv
+    namespace: z-dev
+    port: 80
+    localPort: 4001
