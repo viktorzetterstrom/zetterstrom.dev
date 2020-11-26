@@ -7,24 +7,19 @@
   "scripts": {
     "test": "jest",
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js"
+    "dev": "NODE_ENV=development nodemon ./src/index.js"
   },
   "author": "Viktor Zetterström",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0",
-    "nodemon": "^2.0.2",
-    "redis": "^2.8.0"
+    "node-cache": "^5.1.2",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.2"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
     "jest": "^26.0.1",
     "prettier": "^1.19.1"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "singleQuote": true
   }
 }

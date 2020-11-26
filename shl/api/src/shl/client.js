@@ -7,7 +7,7 @@ class ShlClient {
     const base = `/seasons/${year}`;
     return {
       games: () => this.connection.get(`${base}/games`),
-      game: gameId => this.connection.get(`${base}/games/${gameId}`),
+      game: (gameId) => this.connection.get(`${base}/games/${gameId}`),
       statistics: {
         goalkeepers: () =>
           this.connection.get(
@@ -24,7 +24,7 @@ class ShlClient {
   }
 
   teams() {
-    return this.connection.get('/teams');
+    return this.connection.get("/teams");
   }
 
   team(teamId) {
@@ -32,11 +32,11 @@ class ShlClient {
   }
 
   videos() {
-    return this.connection.get('/videos');
+    return this.connection.get("/videos");
   }
 
   articles() {
-    return this.connection.get('articles');
+    return this.connection.get("articles");
   }
 }
 
