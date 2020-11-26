@@ -13,6 +13,15 @@ build:
           - "**/*.html"
           - "**/*.js"
           - "**/*.css"
+    - image: viktorzetterstrom/shl-client-zetterstrom-dev
+      context: shl/client
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        infer:
+          - "**/*.js"
+          - "**/*.css"
+          - "**/*.html"
     - image: viktorzetterstrom/shl-api-zetterstrom-dev
       context: shl/api
       docker:
@@ -26,6 +35,7 @@ deploy:
     manifests:
       - k8s/namespace.yaml
       - k8s/index-depl.yaml
+      - k8s/shl-client-depl.yaml
       - k8s/shl-api-depl.yaml
       - k8s/secrets/shl-api-secret.yaml
 portForward:
@@ -34,6 +44,11 @@ portForward:
     namespace: z-dev
     port: 80
     localPort: 3000
+  - resourceType: service
+    resourceName: shl-client-srv
+    namespace: z-dev
+    port: 80
+    localPort: 4000
   - resourceType: service
     resourceName: shl-api-srv
     namespace: z-dev

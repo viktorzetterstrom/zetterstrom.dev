@@ -1,19 +1,19 @@
-import React from 'react';
-import theme from './style/theme';
+import React from "react";
+import theme from "./style/theme";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from 'react-router-dom';
-import AppContainer from './components/AppContainer';
-import Header from './components/Header';
-import StandingsTable from './components/tables/StandingsTable';
-import GamesTable from './components/tables/GamesTable';
-import GoaliesTable from './components/tables/GoaliesTable';
-import SkatersTable from './components/tables/SkatersTable';
-import WinstreaksTable from './components/tables/WinstreaksTable';
-import Footer from './components/Footer';
+} from "react-router-dom";
+import AppContainer from "./components/AppContainer";
+import Header from "./components/Header";
+import StandingsTable from "./components/tables/StandingsTable";
+import GamesTable from "./components/tables/GamesTable";
+import GoaliesTable from "./components/tables/GoaliesTable";
+import SkatersTable from "./components/tables/SkatersTable";
+import WinstreaksTable from "./components/tables/WinstreaksTable";
+import Footer from "./components/Footer";
 
 const activeTheme = theme;
 

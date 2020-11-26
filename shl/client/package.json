@@ -6,12 +6,12 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "4.0.1",
     "styled-components": "^4.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "react-scripts start",
+    "start": "PORT=4000 react-scripts start",
+    "dev": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -32,12 +32,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-react": "^7.18.0",
     "prettier": "^1.19.1"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "singleQuote": true
   }
 }

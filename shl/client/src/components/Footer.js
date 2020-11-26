@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const FooterWrapper = styled.div`
   position: absolute;
@@ -17,17 +17,17 @@ const FooterWrapper = styled.div`
   }
 `;
 
-export default function Footer({ theme }) {
-  return (
-    <FooterWrapper {...theme}>
-      Data provided by the{' '}
-      <a
-        href="http://doc.openapi.shl.se/"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        open SHL api.
-      </a>
-    </FooterWrapper>
-  );
-}
+const Footer = ({ theme }) => (
+  <FooterWrapper {...theme}>
+    Data provided by the{" "}
+    <a
+      href="http://doc.openapi.shl.se/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      open SHL api.
+    </a>
+  </FooterWrapper>
+);
+
+export default Footer;

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import shlService from '../../shl-service';
-import TeamLogo from '../TeamLogo';
-import TableContainer from '../TableContainer';
-import Spinner from '../Spinner';
+import React, { useEffect, useState } from "react";
+import shlService from "../../shl-service";
+import TeamLogo from "../TeamLogo";
+import TableContainer from "../TableContainer";
+import Spinner from "../Spinner";
 
 const GamesTableHead = () => (
   <thead>
@@ -16,13 +16,13 @@ const GamesTableHead = () => (
   </thead>
 );
 
-const formatGameDate = date => new Date(date).toLocaleDateString('sv-SE');
-const formatGameTime = date =>
-  new Date(date).toLocaleTimeString('sv-SE').slice(0, -3);
-const displayResult = game =>
+const formatGameDate = (date) => new Date(date).toLocaleDateString("sv-SE");
+const formatGameTime = (date) =>
+  new Date(date).toLocaleTimeString("sv-SE").slice(0, -3);
+const displayResult = (game) =>
   new Date(game.start_date_time) < new Date()
     ? `${game.home_team_result} - ${game.away_team_result}`
-    : '-';
+    : "-";
 
 const GamesTableRow = ({ game }) => (
   <tr>
@@ -32,7 +32,7 @@ const GamesTableRow = ({ game }) => (
       <TeamLogo id={game.home_team_code} name={game.home_team_name} />
     </td>
     <td>
-      <TeamLogo id={game.away_team_code} name={game.away_team_name} />{' '}
+      <TeamLogo id={game.away_team_code} name={game.away_team_name} />{" "}
     </td>
     <td>{displayResult(game)}</td>
   </tr>
@@ -49,13 +49,13 @@ const GamesTable = ({ games, theme }) => (
   </TableContainer>
 );
 
-export default ({ theme }) => {
+const GamesTableWithData = ({ theme }) => {
   const [games, setGames] = useState({ loading: true });
   useEffect(() => {
     shlService
       .games()
-      .then(res => setGames(res.data))
-      .catch(err => console.error(`Error fetching games: ${err}`));
+      .then((res) => setGames(res.data))
+      .catch((err) => console.error(`Error fetching games: ${err}`));
   }, []);
 
   return !games.loading ? (
@@ -64,3 +64,5 @@ export default ({ theme }) => {
     <Spinner theme={theme} />
   );
 };
+
+export default GamesTableWithData;

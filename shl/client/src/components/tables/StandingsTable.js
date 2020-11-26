@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import shlService from '../../shl-service';
-import TeamLogo from '../TeamLogo';
-import TableContainer from '../TableContainer';
-import Spinner from '../Spinner';
+import React, { useEffect, useState } from "react";
+import shlService from "../../shl-service";
+import TeamLogo from "../TeamLogo";
+import TableContainer from "../TableContainer";
+import Spinner from "../Spinner";
 
 const StandingsTableHead = () => (
   <thead>
@@ -39,13 +39,13 @@ const StandingsTable = ({ standings, theme }) => (
   </TableContainer>
 );
 
-export default ({ theme }) => {
+const StandingsTableWithData = ({ theme }) => {
   const [standings, setStandings] = useState({ loading: true });
   useEffect(() => {
     shlService
       .standings()
-      .then(res => setStandings(res.data))
-      .catch(err => console.error(`Error fetching games: ${err}`));
+      .then((res) => setStandings(res.data))
+      .catch((err) => console.error(`Error fetching games: ${err}`));
   }, []);
 
   return !standings.loading ? (
@@ -54,3 +54,5 @@ export default ({ theme }) => {
     <Spinner theme={theme} />
   );
 };
+
+export default StandingsTableWithData;
