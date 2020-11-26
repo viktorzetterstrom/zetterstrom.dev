@@ -6,7 +6,6 @@ const app = express();
 const cache = require("./services/cache");
 
 const shlClient = shl.generateClient(config.shlId, config.shlSecret);
-app.use(require("cors")());
 
 app.get("/standings", cache.routeCacher, (req, res) =>
   shlClient
