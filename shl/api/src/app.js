@@ -8,7 +8,7 @@ const cache = require("./services/cache");
 
 const app = express();
 app.use(cors());
-app.use(morgan);
+app.use(morgan("short"));
 
 const shlClient = shl.generateClient(config.shlId, config.shlSecret);
 
