@@ -29,5 +29,5 @@ spec:
   ports:
     - name: shl-client
       protocol: TCP
-      port: 4000
+      port: 80
       targetPort: 4000
