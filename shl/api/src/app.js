@@ -7,7 +7,7 @@ const shl = require("./shl");
 const cache = require("./services/cache");
 
 const app = express();
-app.use(cors());
+process.env.NODE_ENV === "development" && app.use(cors());
 app.use(morgan("short"));
 
 const shlClient = shl.generateClient(config.shlId, config.shlSecret);
