@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const morgan = require("morgan");
 const formatter = require("./response-formatter/shl-res-formatter");
 const config = require("./config");
 const shl = require("./shl");
@@ -7,6 +8,7 @@ const cache = require("./services/cache");
 
 const app = express();
 app.use(cors());
+app.use(morgan);
 
 const shlClient = shl.generateClient(config.shlId, config.shlSecret);
 
