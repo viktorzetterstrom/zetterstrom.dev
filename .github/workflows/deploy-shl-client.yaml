@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd index && docker build -t viktorzetterstrom/shl-client-zetterstrom-dev .
+      - run: cd shl/client && docker build -t viktorzetterstrom/shl-client-zetterstrom-dev .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
