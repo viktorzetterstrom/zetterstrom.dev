@@ -19,11 +19,10 @@ const FooterWrapper = styled.div`
 
 const Footer = ({ theme }) => (
   <FooterWrapper {...theme}>
-    Data provided by the{" "}
     <a href="http://doc.openapi.shl.se/" rel="noreferrer" target="_blank">
-      open SHL api.
+      Open SHL api
     </a>
-    | Made by{" "}
+    {" | "}
     <a href="https://zetterstrom.dev" rel="noreferrer" target="_blank">
       zetterstrom.dev
     </a>
