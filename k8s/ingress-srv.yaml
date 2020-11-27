@@ -17,3 +17,15 @@ spec:
           - backend:
               serviceName: index-srv
               servicePort: 80
+    - host: shl.zetterstrom.dev
+      http:
+        paths:
+          - backend:
+              serviceName: shl-client-srv
+              servicePort: 80
+    - host: www.shl.zetterstrom.dev
+      http:
+        paths:
+          - backend:
+              serviceName: shl-client-srv
+              servicePort: 80

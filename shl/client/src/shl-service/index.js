@@ -1,13 +1,14 @@
+const apiUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:4001"
+    : "https://shl.zetterstrom.dev/api";
+
 const shl = {
-  standings: () =>
-    fetch("http://localhost:4001/standings").then((res) => res.json()),
-  games: () => fetch("http://localhost:4001/games").then((res) => res.json()),
-  goalies: () =>
-    fetch("http://localhost:4001/goalkeepers").then((res) => res.json()),
-  skaters: () =>
-    fetch("http://localhost:4001/skaters").then((res) => res.json()),
-  winstreaks: () =>
-    fetch("http://localhost:400/winstreaks").then((res) => res.json()),
+  standings: () => fetch(`${apiUrl}/standings`).then((res) => res.json()),
+  games: () => fetch(`${apiUrl}/games`).then((res) => res.json()),
+  goalies: () => fetch(`${apiUrl}/goalkeepers`).then((res) => res.json()),
+  skaters: () => fetch(`${apiUrl}/skaters`).then((res) => res.json()),
+  winstreaks: () => fetch(`${apiUrl}/winstreaks`).then((res) => res.json()),
 };
 
 export default shl;
