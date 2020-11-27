@@ -3,17 +3,28 @@ kind: Ingress
 metadata:
   name: ingress-srv
   namespace: z-dev
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   rules:
     - host: zetterstrom.dev
       http:
         paths:
-          - backend:
+          - path: /?(.*)
+            backend:
               serviceName: index-srv
               servicePort: 80
-    - host: www.zetterstrom.dev
+    - host: shl.zetterstrom.dev
       http:
         paths:
-          - backend:
-              serviceName: index-srv
+          - path: /api/?(.*)
+            backend:
+              serviceName: shl-api-srv
+              servicePort: 80
+          - path: /?(.*)
+            backend:
+              serviceName: shl-client-srv
               servicePort: 80
