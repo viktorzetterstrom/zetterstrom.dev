@@ -13,7 +13,8 @@ spec:
     - host: zetterstrom.dev
       http:
         paths:
-          - backend:
+          - path: /?(.*)
+            backend:
               serviceName: index-srv
               servicePort: 80
     - host: shl.zetterstrom.dev
