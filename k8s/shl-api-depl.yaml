@@ -16,6 +16,8 @@ spec:
       containers:
         - name: shl-api
           image: viktorzetterstrom/shl-api-zetterstrom-dev
+          ports:
+            - containerPort: 4001
           env:
             - name: SHL_ID
               valueFrom:
