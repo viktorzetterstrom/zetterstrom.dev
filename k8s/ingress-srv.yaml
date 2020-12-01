@@ -28,3 +28,14 @@ spec:
             backend:
               serviceName: shl-client-srv
               servicePort: 80
+    - host: trivia.zetterstrom.dev
+      http:
+        paths:
+          - path: /api/?(.*)
+            backend:
+              serviceName: trivia-api-srv
+              servicePort: 80
+          - path: /?(.*)
+            backend:
+              serviceName: trivia-client-srv
+              servicePort: 80
