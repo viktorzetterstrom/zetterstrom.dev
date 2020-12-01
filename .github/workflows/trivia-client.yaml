@@ -1,4 +1,4 @@
-name: deploy-trivia-client
+name: trivia-client
 
 on:
   push:

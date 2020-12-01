@@ -1,4 +1,4 @@
-name: deploy-shl-api
+name: shl-api
 
 on:
   push:

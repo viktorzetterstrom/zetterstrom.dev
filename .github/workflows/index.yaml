@@ -1,4 +1,4 @@
-name: deploy-index
+name: index
 
 on:
   push:

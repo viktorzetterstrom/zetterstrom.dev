@@ -1,4 +1,4 @@
-name: deploy-shl-client
+name: shl-client
 
 on:
   push:

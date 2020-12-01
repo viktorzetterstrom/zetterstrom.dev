@@ -1,4 +1,4 @@
-name: deploy-trivia-api
+name: trivia-api
 
 on:
   push:
