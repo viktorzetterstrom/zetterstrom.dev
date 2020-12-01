@@ -2,5 +2,6 @@
 
 ## Projects
 
-- [`index`](https://zetterstrom.dev) - personal page
+- [`index`](https://zetterstrom.dev) - Personal page
 - [`shl`](https://shl.zetterstrom.dev) - SHL statistics
+- [`trivia`](https://trivia.zetterstrom.dev) - Trivia game
