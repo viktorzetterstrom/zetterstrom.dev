@@ -8,12 +8,12 @@ const FooterWrapper = styled.div`
   margin-right: 0;
   left: 0;
   right: 0;
-  color: rgba(0, 0, 0, 0.25);
+  color: #222222;
   font-size: 10px;
   font-weight: 500;
   padding: 5px 0;
   a {
-    color: rgba(0, 0, 0, 0.25);
+    color: #222222;
   }
 `;
 
