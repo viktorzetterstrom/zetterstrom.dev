@@ -44,7 +44,7 @@ const MainMenu = ({ game, gameDispatch }) => {
     <>
       <Box m={2}>
         <Typography variant="h4" component="h1">
-          Open Trivia
+          Trivia Game
         </Typography>
       </Box>
 

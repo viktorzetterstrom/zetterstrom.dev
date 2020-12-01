@@ -9,6 +9,7 @@ import Game from "./Game";
 import ProgressBar from "./ProgressBar";
 
 import gameState from "../states/gameState";
+import FooterText from "./FooterText";
 
 const App = () => {
   const [game, gameDispatch] = useReducer(gameState.reducer, gameState.initial);
@@ -29,8 +30,8 @@ const App = () => {
                 <MainMenu game={game} gameDispatch={gameDispatch} />
               )}
             </Box>
+            <FooterText />
           </Paper>
-
           <ScoreBoard score={game.score} />
         </Container>
       </Box>
