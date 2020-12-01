@@ -29,6 +29,13 @@ build:
       sync:
         infer:
           - "**/*.js"
+    - image: viktorzetterstrom/trivia-api-zetterstrom-dev
+      context: trivia/api
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        infer:
+          - "**/*.js"
 deploy:
   kubeContext: docker-desktop
   kubectl:
@@ -38,6 +45,7 @@ deploy:
       - k8s/shl-client-depl.yaml
       - k8s/shl-api-depl.yaml
       - k8s/secrets/shl-api-secret.yaml
+      - k8s/trivia-api-depl.yaml
 portForward:
   - resourceType: service
     resourceName: index-srv
@@ -54,3 +62,8 @@ portForward:
     namespace: z-dev
     port: 80
     localPort: 4001
+  - resourceType: service
+    resourceName: trivia-api-srv
+    namespace: z-dev
+    port: 80
+    localPort: 5001
