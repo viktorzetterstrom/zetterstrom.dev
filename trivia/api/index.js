@@ -5,6 +5,8 @@ const app = express();
 app.use(require("helmet")());
 if (process.env.NODE_ENV === "development") app.use(require("cors")());
 
+app.get("/", (_, res) => res.send("trivia-api"));
+
 app.get("/questions", async ({ query }, res) => {
   const options = Object.keys(query).length > 0 ? query : { amount: 10 };
   const questions = await trivia.service.questions(options);

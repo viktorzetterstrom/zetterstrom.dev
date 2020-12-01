@@ -12,6 +12,8 @@ app.use(morgan("short"));
 
 const shlClient = shl.generateClient(config.shlId, config.shlSecret);
 
+app.get("/", (_, res) => res.send("shl-api"));
+
 app.get("/standings", cache.routeCacher, (req, res) =>
   shlClient
     .season(config.currentSeason)
