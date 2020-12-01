@@ -11,6 +11,10 @@ ul {
   font-weight: 300;
 }
 
+a {
+  color: rgb(30, 30, 30);
+}
+
 h1 {
   font-size: 24px;
 }
@@ -77,8 +81,8 @@ ul {
 
 @media only screen and (min-width: 481px) {
   .top-image {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    margin-top: 8px;
+    border-radius: 8px;
   }
   .content {
     padding: 0;
