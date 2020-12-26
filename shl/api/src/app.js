@@ -58,7 +58,7 @@ app.get("/skaters", cache.routeCacher, (req, res) =>
 
 app.get("/winstreaks", cache.routeCacher, (req, res) =>
   shlClient
-    .season(2019)
+    .season(config.currentSeason)
     .games()
     .then((apiResponse) => {
       const formattedResponse = formatter.winstreaks(apiResponse);
