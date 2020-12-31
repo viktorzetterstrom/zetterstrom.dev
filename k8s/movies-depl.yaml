@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: movies-depl
+  namespace: z-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movies
+  template:
+    metadata:
+      labels:
+        app: movies
+    spec:
+      containers:
+        - name: movies
+          image: viktorzetterstrom/movies-zetterstrom-dev
+          ports:
+            - containerPort: 7000
+          env:
+            - name: IMDB_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: movies-secret
+                  key: IMDB_EMAIL
+            - name: IMDB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: movies-secret
+                  key: IMDB_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: movies-srv
+  namespace: z-dev
+spec:
+  type: ClusterIP
+  selector:
+    app: movies
+  ports:
+    - name: movies
+      protocol: TCP
+      port: 80
+      targetPort: 7000

@@ -39,3 +39,10 @@ spec:
             backend:
               serviceName: trivia-client-srv
               servicePort: 80
+    - host: movies.zetterstrom.dev
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: movies-srv
+              servicePort: 80
