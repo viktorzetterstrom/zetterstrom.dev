@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 import morgan from "morgan";
 
-import { App } from "./components/app";
+import { Ratings } from "./components/ratings";
 import { getRatings } from "./ratings";
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(morgan("short"));
 
 app.get("/", async (req, res) => {
   const ratings = await getRatings();
-  const app = ReactDOMServer.renderToString(<App ratings={ratings} />);
+  const app = ReactDOMServer.renderToString(<Ratings ratings={ratings} />);
 
   const indexFile = await fs.promises.readFile("public/index.html", {
     encoding: "utf-8",

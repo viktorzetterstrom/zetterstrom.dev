@@ -1,26 +1,13 @@
 import fs from "fs";
 import parseCsv from "csv-parse/lib/sync";
 import NodeCache from "node-cache";
+import { Rating, ImdbRating } from "./types";
 
-export interface Rating {
-  const: string;
-  "Your Rating": string;
-  "Date Rated": string;
-  Title: string;
-  URL: string;
-  "Title Type": string;
-  "IMDb Rating": string;
-  "Runtime (mins)": string;
-  Year: string;
-  Genres: string;
-  "Num Votes": string;
-  "Release Date": string;
-  Directors: string;
-}
-
-const RATINGS_PATH = "./src/scripts/data/ratings.csv";
+const RATINGS_PATH = "./src/ratings/data/ratings.csv";
 const CACHE_TIME = 12 * 60 * 60;
 const CACHE_KEY = "ratings";
+const MIN_SCORE = 5;
+
 const _cache = new NodeCache();
 
 const cache = (fn: () => Rating[]): Rating[] => {
@@ -35,11 +22,25 @@ const cache = (fn: () => Rating[]): Rating[] => {
 const load = async (): Promise<string> =>
   await fs.promises.readFile(RATINGS_PATH, { encoding: "ascii" });
 
+const format = (r: ImdbRating): Rating => ({
+  rating: Number(r["Your Rating"]),
+  title: r.Title,
+  url: r.URL,
+  type: r["Title Type"],
+  imdbRating: Number(r["IMDb Rating"]),
+  imdbVotes: Number(r["Num Votes"]),
+  runtimeMinutes: Number(r["Runtime (mins)"]),
+  year: r.Year,
+  genres: r.Genres,
+  released: r["Release Date"],
+  directors: r.Directors,
+});
+
 const parse = (ratingsCsv: string): (() => Rating[]) => () =>
-  parseCsv(ratingsCsv, { columns: true }).sort(
-    (a: Rating, b: Rating) =>
-      Number(b["Your Rating"]) - Number(a["Your Rating"])
-  );
+  parseCsv(ratingsCsv, { columns: true })
+    .map(format)
+    .filter(({ rating }: Rating) => rating >= MIN_SCORE)
+    .sort((a: Rating, b: Rating) => b.rating - a.rating);
 
 export const getRatings = async (): Promise<Rating[]> =>
   cache(parse(await load()));
