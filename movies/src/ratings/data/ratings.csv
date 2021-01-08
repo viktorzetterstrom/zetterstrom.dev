@@ -1,10 +1,10 @@
 Const,Your Rating,Date Rated,Title,URL,Title Type,IMDb Rating,Runtime (mins),Year,Genres,Num Votes,Release Date,Directors
 tt0100802,7,2019-11-16,Total Recall,https://www.imdb.com/title/tt0100802/,movie,7.5,113,1990,"Action, Sci-Fi, Thriller",300881,1990-05-31,Paul Verhoeven
 tt10183816,6,2020-05-02,Dangerous Lies,https://www.imdb.com/title/tt10183816/,movie,5.2,96,2020,"Drama, Mystery, Thriller",13401,2020-04-30,Michael M. Scott
-tt1028532,8,2017-03-12,Hachi: A Dog's Tale,https://www.imdb.com/title/tt1028532/,movie,8.1,93,2009,"Biography, Drama, Family",251373,2009-06-13,Lasse Hallström
+tt1028532,8,2017-03-12,Hachi: A Dog's Tale,https://www.imdb.com/title/tt1028532/,movie,8.1,93,2009,"Biography, Drama, Family",251373,2009-06-13,Lasse HallstrÃ¶m
 tt0102926,10,2016-10-13,The Silence of the Lambs,https://www.imdb.com/title/tt0102926/,movie,8.6,118,1991,"Crime, Drama, Thriller",1261053,1991-01-30,Jonathan Demme
 tt0103064,10,2016-10-13,Terminator 2: Judgment Day,https://www.imdb.com/title/tt0103064/,movie,8.5,137,1991,"Action, Sci-Fi",990155,1991-07-01,James Cameron
-tt0103644,6,2019-05-04,Alien³,https://www.imdb.com/title/tt0103644/,movie,6.5,114,1992,"Action, Horror, Sci-Fi",276512,1992-05-19,David Fincher
+tt0103644,6,2019-05-04,AlienÂ³,https://www.imdb.com/title/tt0103644/,movie,6.5,114,1992,"Action, Horror, Sci-Fi",276512,1992-05-19,David Fincher
 tt1049413,7,2017-03-02,Up,https://www.imdb.com/title/tt1049413/,movie,8.2,96,2009,"Animation, Adventure, Comedy, Family",928529,2009-05-13,"Pete Docter, Bob Peterson"
 tt0105236,8,2017-03-02,Reservoir Dogs,https://www.imdb.com/title/tt0105236/,movie,8.3,99,1992,"Crime, Drama, Thriller",912563,1992-01-21,Quentin Tarantino
 tt0106158,10,2020-05-22,Tornado - en tittarstorm,https://www.imdb.com/title/tt0106158/,tvMiniSeries,7.0,300,1993,Comedy,277,1993-09-11,
@@ -13,7 +13,7 @@ tt0107290,8,2017-03-02,Jurassic Park,https://www.imdb.com/title/tt0107290/,movie
 tt0108252,9,2016-12-24,Sunes sommar,https://www.imdb.com/title/tt0108252/,movie,7.0,83,1993,"Comedy, Family",3988,1993-12-25,Stephan Apelgren
 tt0109830,8,2016-10-13,Forrest Gump,https://www.imdb.com/title/tt0109830/,movie,8.8,142,1994,"Drama, Romance",1793817,1994-06-23,Robert Zemeckis
 tt0110357,9,2016-10-13,The Lion King,https://www.imdb.com/title/tt0110357/,movie,8.5,88,1994,"Animation, Adventure, Drama, Family, Musical",934999,1994-06-12,"Rob Minkoff, Roger Allers"
-tt0110413,8,2017-03-02,Léon,https://www.imdb.com/title/tt0110413/,movie,8.5,110,1994,"Action, Crime, Drama, Thriller",1027830,1994-09-14,Luc Besson
+tt0110413,8,2017-03-02,LÃ©on,https://www.imdb.com/title/tt0110413/,movie,8.5,110,1994,"Action, Crime, Drama, Thriller",1027830,1994-09-14,Luc Besson
 tt0110912,9,2016-10-11,Pulp Fiction,https://www.imdb.com/title/tt0110912/,movie,8.9,154,1994,"Crime, Drama",1813443,1994-05-21,Quentin Tarantino
 tt0111161,8,2015-12-27,The Shawshank Redemption,https://www.imdb.com/title/tt0111161/,movie,9.3,142,1994,Drama,2325052,1994-09-10,Frank Darabont
 tt0112159,9,2019-07-13,Shin seiki evangerion,https://www.imdb.com/title/tt0112159/,tvSeries,8.5,24,1995,"Animation, Action, Drama, Fantasy, Sci-Fi, Thriller",49398,1995-10-04,
@@ -29,7 +29,7 @@ tt1170358,1,2016-10-11,The Hobbit: The Desolation of Smaug,https://www.imdb.com/
 tt0117571,5,2019-11-09,Scream,https://www.imdb.com/title/tt0117571/,movie,7.2,111,1996,"Horror, Mystery",286375,1996-12-18,Wes Craven
 tt1182345,9,2016-10-11,Moon,https://www.imdb.com/title/tt1182345/,movie,7.9,97,2009,"Drama, Mystery, Sci-Fi",333789,2009-01-23,Duncan Jones
 tt0118583,7,2019-05-08,Alien: Resurrection,https://www.imdb.com/title/tt0118583/,movie,6.2,109,1997,"Action, Horror, Sci-Fi",228037,1997-11-06,Jean-Pierre Jeunet
-tt0118799,10,2016-12-12,La vita è bella,https://www.imdb.com/title/tt0118799/,movie,8.6,116,1997,"Comedy, Drama, Romance, War",618803,1997-12-20,Roberto Benigni
+tt0118799,10,2016-12-12,La vita Ã¨ bella,https://www.imdb.com/title/tt0118799/,movie,8.6,116,1997,"Comedy, Drama, Romance, War",618803,1997-12-20,Roberto Benigni
 tt0118929,8,2020-01-05,Dark City,https://www.imdb.com/title/tt0118929/,movie,7.6,100,1998,"Mystery, Sci-Fi, Thriller",187267,1998-02-25,Alex Proyas
 tt0119217,9,2019-07-19,Good Will Hunting,https://www.imdb.com/title/tt0119217/,movie,8.3,126,1997,"Drama, Romance",855077,1997-12-02,Gus Van Sant
 tt0119488,9,2020-01-10,L.A. Confidential,https://www.imdb.com/title/tt0119488/,movie,8.2,138,1997,"Crime, Drama, Mystery, Thriller",529132,1997-05-14,Curtis Hanson
@@ -64,13 +64,13 @@ tt0167190,7,2020-02-15,Hellboy,https://www.imdb.com/title/tt0167190/,movie,6.8,1
 tt0167260,8,2016-10-11,The Lord of the Rings: The Return of the King,https://www.imdb.com/title/tt0167260/,movie,8.9,201,2003,"Action, Adventure, Drama, Fantasy",1631863,2003-12-01,Peter Jackson
 tt0167261,7,2016-10-13,The Lord of the Rings: The Two Towers,https://www.imdb.com/title/tt0167261/,movie,8.7,179,2002,"Action, Adventure, Drama, Fantasy",1475359,2002-12-05,Peter Jackson
 tt0167404,9,2017-03-02,The Sixth Sense,https://www.imdb.com/title/tt0167404/,movie,8.1,107,1999,"Drama, Mystery, Thriller",906992,1999-08-02,M. Night Shyamalan
-tt1675434,9,2016-12-30,Intouchables,https://www.imdb.com/title/tt1675434/,movie,8.5,112,2011,"Biography, Comedy, Drama",752497,2011-09-23,"Olivier Nakache, Éric Toledano"
+tt1675434,9,2016-12-30,Intouchables,https://www.imdb.com/title/tt1675434/,movie,8.5,112,2011,"Biography, Comedy, Drama",752497,2011-09-23,"Olivier Nakache, Ã‰ric Toledano"
 tt1690953,7,2019-03-30,Despicable Me 2,https://www.imdb.com/title/tt1690953/,movie,7.3,98,2013,"Animation, Adventure, Comedy, Crime, Family, Fantasy, Sci-Fi",368011,2013-06-16,"Chris Renaud, Pierre Coffin"
 tt0169547,9,2017-03-02,American Beauty,https://www.imdb.com/title/tt0169547/,movie,8.3,122,1999,Drama,1064143,1999-09-08,Sam Mendes
-tt0169858,9,2019-07-13,"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni",https://www.imdb.com/title/tt0169858/,movie,8.1,87,1997,"Animation, Action, Drama, Fantasy, Sci-Fi",38172,1997-07-19,"Kazuya Tsurumaki, Hideaki Anno"
+tt0169858,9,2019-07-13,"Shin seiki Evangelion GekijÃ´-ban: Air/Magokoro wo, kimi ni",https://www.imdb.com/title/tt0169858/,movie,8.1,87,1997,"Animation, Action, Drama, Fantasy, Sci-Fi",38172,1997-07-19,"Kazuya Tsurumaki, Hideaki Anno"
 tt0172495,10,2016-10-13,Gladiator,https://www.imdb.com/title/tt0172495/,movie,8.5,155,2000,"Action, Adventure, Drama",1332275,2000-05-01,Ridley Scott
 tt0180093,7,2017-03-02,Requiem for a Dream,https://www.imdb.com/title/tt0180093/,movie,8.3,102,2000,Drama,762031,2000-05-14,Darren Aronofsky
-tt0183869,7,2020-04-19,Taxi 2,https://www.imdb.com/title/tt0183869/,movie,6.5,88,2000,"Action, Comedy, Crime",50974,2000-03-25,Gérard Krawczyk
+tt0183869,7,2020-04-19,Taxi 2,https://www.imdb.com/title/tt0183869/,movie,6.5,88,2000,"Action, Comedy, Crime",50974,2000-03-25,GÃ©rard Krawczyk
 tt1853728,8,2017-03-02,Django Unchained,https://www.imdb.com/title/tt1853728/,movie,8.4,165,2012,"Drama, Western",1346449,2012-12-11,Quentin Tarantino
 tt1856101,9,2019-05-12,Blade Runner 2049,https://www.imdb.com/title/tt1856101/,movie,8.0,164,2017,"Action, Drama, Mystery, Sci-Fi, Thriller",455883,2017-10-03,Denis Villeneuve
 tt1880399,7,2018-05-18,Kodachrome,https://www.imdb.com/title/tt1880399/,movie,6.8,105,2017,Drama,11581,2017-09-08,Mark Raso
@@ -80,7 +80,7 @@ tt0208092,9,2017-03-02,Snatch,https://www.imdb.com/title/tt0208092/,movie,8.3,10
 tt2084970,3,2017-03-02,The Imitation Game,https://www.imdb.com/title/tt2084970/,movie,8.0,114,2014,"Biography, Drama, Thriller, War",680365,2014-08-29,Morten Tyldum
 tt0209144,10,2016-10-13,Memento,https://www.imdb.com/title/tt0209144/,movie,8.4,113,2000,"Mystery, Thriller",1118721,2000-09-05,Christopher Nolan
 tt2119532,5,2016-11-22,Hacksaw Ridge,https://www.imdb.com/title/tt2119532/,movie,8.1,139,2016,"Biography, Drama, History, War",430859,2016-09-04,Mel Gibson
-tt0213338,9,2018-07-03,Kaubôi bibappu,https://www.imdb.com/title/tt0213338/,tvSeries,8.9,24,1998,"Animation, Action, Adventure, Drama, Sci-Fi, Thriller",87958,1998-04-03,
+tt0213338,9,2018-07-03,KaubÃ´i bibappu,https://www.imdb.com/title/tt0213338/,tvSeries,8.9,24,1998,"Animation, Action, Adventure, Drama, Sci-Fi, Thriller",87958,1998-04-03,
 tt2267998,8,2017-03-02,Gone Girl,https://www.imdb.com/title/tt2267998/,movie,8.1,149,2014,"Drama, Mystery, Thriller",852564,2014-09-26,David Fincher
 tt2278388,8,2017-03-02,The Grand Budapest Hotel,https://www.imdb.com/title/tt2278388/,movie,8.1,99,2014,"Adventure, Comedy, Crime",701728,2014-02-06,Wes Anderson
 tt2293640,6,2019-04-10,Minions,https://www.imdb.com/title/tt2293640/,movie,6.4,91,2015,"Animation, Adventure, Comedy, Family, Sci-Fi",211028,2015-06-11,"Pierre Coffin, Kyle Balda"
@@ -99,10 +99,10 @@ tt2527336,1,2017-12-29,Star Wars: Episode VIII - The Last Jedi,https://www.imdb.
 tt2527338,6,2019-12-26,Star Wars: Episode IX - The Rise of Skywalker,https://www.imdb.com/title/tt2527338/,movie,6.6,141,2019,"Action, Adventure, Fantasy, Sci-Fi",366151,2019-12-16,J.J. Abrams
 tt2543164,8,2016-12-30,Arrival,https://www.imdb.com/title/tt2543164/,movie,7.9,116,2016,"Drama, Sci-Fi",589072,2016-09-01,Denis Villeneuve
 tt2543472,7,2018-04-28,Wonder,https://www.imdb.com/title/tt2543472/,movie,8.0,113,2017,"Drama, Family",139703,2017-11-14,Stephen Chbosky
-tt2562232,8,2019-01-18,Birdman or (The Unexpected Virtue of Ignorance),https://www.imdb.com/title/tt2562232/,movie,7.7,119,2014,"Comedy, Drama",576582,2014-08-27,Alejandro G. Iñárritu
+tt2562232,8,2019-01-18,Birdman or (The Unexpected Virtue of Ignorance),https://www.imdb.com/title/tt2562232/,movie,7.7,119,2014,"Comedy, Drama",576582,2014-08-27,Alejandro G. IÃ±Ã¡rritu
 tt2582802,10,2016-01-25,Whiplash,https://www.imdb.com/title/tt2582802/,movie,8.5,106,2014,"Drama, Music",709967,2014-01-16,Damien Chazelle
 tt2584384,10,2020-12-19,Jojo Rabbit,https://www.imdb.com/title/tt2584384/,movie,7.9,108,2019,"Comedy, Drama, War",287427,2019-09-08,Taika Waititi
-tt0261456,7,2020-05-22,Åke från Åstol,https://www.imdb.com/title/tt0261456/,tvMovie,6.7,50,1998,"Comedy, Drama",140,1998-10-06,Knut Agnred
+tt0261456,7,2020-05-22,Ã…ke frÃ¥n Ã…stol,https://www.imdb.com/title/tt0261456/,tvMovie,6.7,50,1998,"Comedy, Drama",140,1998-10-06,Knut Agnred
 tt2614722,8,2018-02-02,Umrika,https://www.imdb.com/title/tt2614722/,movie,6.7,98,2015,"Comedy, Drama",1218,2015-01-24,Prashant Nair
 tt0264464,8,2017-03-02,Catch Me If You Can,https://www.imdb.com/title/tt0264464/,movie,8.1,141,2002,"Biography, Crime, Drama",821762,2002-12-16,Steven Spielberg
 tt0266543,8,2017-03-02,Finding Nemo,https://www.imdb.com/title/tt0266543/,movie,8.1,100,2003,"Animation, Adventure, Comedy, Family",943587,2003-05-18,"Andrew Stanton, Lee Unkrich"
@@ -116,9 +116,9 @@ tt2924588,10,2020-06-13,Stinsen brinner,https://www.imdb.com/title/tt2924588/,vi
 tt2935510,6,2019-12-29,Ad Astra,https://www.imdb.com/title/tt2935510/,movie,6.5,123,2019,"Adventure, Drama, Mystery, Sci-Fi, Thriller",195601,2019-08-29,James Gray
 tt2948356,5,2017-03-02,Zootopia,https://www.imdb.com/title/tt2948356/,movie,8.0,108,2016,"Animation, Adventure, Comedy, Crime, Family, Mystery",430342,2016-02-11,"Rich Moore, Jared Bush, Byron Howard"
 tt0306414,10,2017-02-09,The Wire,https://www.imdb.com/title/tt0306414/,tvSeries,9.3,59,2002,"Crime, Drama, Thriller",281596,2002-06-02,
-tt3157466,1,2016-12-24,Sune i fjällen,https://www.imdb.com/title/tt3157466/,movie,3.9,91,2014,"Comedy, Family",754,2014-12-19,Gustaf Åkerblom
+tt3157466,1,2016-12-24,Sune i fjÃ¤llen,https://www.imdb.com/title/tt3157466/,movie,3.9,91,2014,"Comedy, Family",754,2014-12-19,Gustaf Ã…kerblom
 tt0316465,6,2018-11-17,Radio,https://www.imdb.com/title/tt0316465/,movie,6.9,109,2003,"Biography, Drama, Sport",38028,2003-10-24,Michael Tollin
-tt0317248,10,2015-12-27,Cidade de Deus,https://www.imdb.com/title/tt0317248/,movie,8.6,130,2002,"Crime, Drama",695729,2002-05-18,"Kátia Lund, Fernando Meirelles"
+tt0317248,10,2015-12-27,Cidade de Deus,https://www.imdb.com/title/tt0317248/,movie,8.6,130,2002,"Crime, Drama",695729,2002-05-18,"KÃ¡tia Lund, Fernando Meirelles"
 tt0032138,8,2017-03-02,The Wizard of Oz,https://www.imdb.com/title/tt0032138/,movie,8.0,102,1939,"Adventure, Family, Fantasy, Musical",370164,1939-08-10,"Mervyn LeRoy, George Cukor, King Vidor, Norman Taurog, Victor Fleming, Richard Thorpe"
 tt0325980,8,2017-03-02,Pirates of the Caribbean: The Curse of the Black Pearl,https://www.imdb.com/title/tt0325980/,movie,8.0,143,2003,"Action, Adventure, Fantasy",1011242,2003-06-28,Gore Verbinski
 tt0333766,8,2018-10-03,Garden State,https://www.imdb.com/title/tt0333766/,movie,7.4,102,2004,"Comedy, Drama, Romance",206252,2004-01-16,Zach Braff
@@ -131,7 +131,7 @@ tt3469046,6,2019-04-10,Despicable Me 3,https://www.imdb.com/title/tt3469046/,mov
 tt0361748,7,2016-10-16,Inglourious Basterds,https://www.imdb.com/title/tt0361748/,movie,8.3,153,2009,"Adventure, Drama, War",1256946,2009-05-20,Quentin Tarantino
 tt0364569,9,2017-03-02,Oldeuboi,https://www.imdb.com/title/tt0364569/,movie,8.4,120,2003,"Action, Drama, Mystery, Thriller",511540,2003-11-21,Chan-wook Park
 tt3659388,1,2016-10-21,The Martian,https://www.imdb.com/title/tt3659388/,movie,8.0,144,2015,"Adventure, Drama, Sci-Fi",754684,2015-09-11,Ridley Scott
-tt3672742,8,2016-12-26,Turbo Kid,https://www.imdb.com/title/tt3672742/,movie,6.7,93,2015,"Action, Adventure, Comedy, Horror, Sci-Fi",26179,2015-01-26,"François Simard, Anouk Whissell, Yoann-Karl Whissell"
+tt3672742,8,2016-12-26,Turbo Kid,https://www.imdb.com/title/tt3672742/,movie,6.7,93,2015,"Action, Adventure, Comedy, Horror, Sci-Fi",26179,2015-01-26,"FranÃ§ois Simard, Anouk Whissell, Yoann-Karl Whissell"
 tt0370263,6,2019-06-02,AVP: Alien vs. Predator,https://www.imdb.com/title/tt0370263/,movie,5.6,101,2004,"Action, Adventure, Horror, Sci-Fi, Thriller",183951,2004-08-12,Paul W.S. Anderson
 tt0372784,8,2017-03-02,Batman Begins,https://www.imdb.com/title/tt0372784/,movie,8.2,140,2005,"Action, Adventure",1300239,2005-05-31,Christopher Nolan
 tt3748528,5,2017-02-19,Rogue One,https://www.imdb.com/title/tt3748528/,movie,7.8,133,2016,"Action, Adventure, Sci-Fi",551019,2016-12-10,Gareth Edwards
@@ -147,7 +147,7 @@ tt0407887,8,2016-10-13,The Departed,https://www.imdb.com/title/tt0407887/,movie,
 tt0409591,7,2019-06-23,Naruto,https://www.imdb.com/title/tt0409591/,tvSeries,8.3,24,2002,"Animation, Action, Adventure, Comedy, Fantasy",68560,2002-10-03,
 tt0411008,7,2019-06-23,Lost,https://www.imdb.com/title/tt0411008/,tvSeries,8.3,44,2004,"Adventure, Drama, Fantasy, Mystery, Sci-Fi, Thriller",491153,2004-09-22,
 tt0421357,7,2019-06-23,Hagane no renkinjutsushi,https://www.imdb.com/title/tt0421357/,tvSeries,8.5,24,2003,"Animation, Action, Adventure, Comedy, Drama, Fantasy, Sci-Fi",61378,2003-10-04,
-tt0423731,8,2019-06-23,Samurai chanpurû,https://www.imdb.com/title/tt0423731/,tvSeries,8.5,24,2004,"Animation, Action, Adventure, Comedy, Drama, Thriller",40116,2004-05-19,
+tt0423731,8,2019-06-23,Samurai chanpurÃ»,https://www.imdb.com/title/tt0423731/,tvSeries,8.5,24,2004,"Animation, Action, Adventure, Comedy, Drama, Thriller",40116,2004-05-19,
 tt0435761,8,2017-03-02,Toy Story 3,https://www.imdb.com/title/tt0435761/,movie,8.3,103,2010,"Animation, Adventure, Comedy, Family, Fantasy",752372,2010-06-12,Lee Unkrich
 tt4425200,6,2020-03-28,John Wick: Chapter 2,https://www.imdb.com/title/tt4425200/,movie,7.5,122,2017,"Action, Crime, Thriller",362537,2017-01-30,Chad Stahelski
 tt0443680,7,2016-12-15,The Assassination of Jesse James by the Coward Robert Ford,https://www.imdb.com/title/tt0443680/,movie,7.5,160,2007,"Biography, Crime, Drama, History, Western",168305,2007-09-02,Andrew Dominik
@@ -232,7 +232,7 @@ tt0903624,2,2016-10-11,The Hobbit: An Unexpected Journey,https://www.imdb.com/ti
 tt0903747,10,2017-02-09,Breaking Bad,https://www.imdb.com/title/tt0903747/,tvSeries,9.5,49,2008,"Crime, Drama, Thriller",1438260,2008-01-20,
 tt0090478,10,2020-05-22,Macken,https://www.imdb.com/title/tt0090478/,tvSeries,7.3,40,1986,"Comedy, Musical",1200,1986-08-23,
 tt0090605,9,2019-04-14,Aliens,https://www.imdb.com/title/tt0090605/,movie,8.3,137,1986,"Action, Adventure, Sci-Fi, Thriller",649470,1986-07-14,James Cameron
-tt0910970,8,2017-03-02,WALL·E,https://www.imdb.com/title/tt0910970/,movie,8.4,98,2008,"Animation, Adventure, Family, Sci-Fi",992522,2008-06-21,Andrew Stanton
+tt0910970,8,2017-03-02,WALLÂ·E,https://www.imdb.com/title/tt0910970/,movie,8.4,98,2008,"Animation, Adventure, Family, Sci-Fi",992522,2008-06-21,Andrew Stanton
 tt0091369,7,2017-02-12,Labyrinth,https://www.imdb.com/title/tt0091369/,movie,7.4,101,1986,"Adventure, Family, Fantasy, Musical",123384,1986-06-27,Jim Henson
 tt9243946,9,2019-11-12,El Camino: A Breaking Bad Movie,https://www.imdb.com/title/tt9243946/,movie,7.3,122,2019,"Action, Crime, Drama",180593,2019-10-07,Vince Gilligan
 tt0093058,10,2017-03-02,Full Metal Jacket,https://www.imdb.com/title/tt0093058/,movie,8.3,116,1987,"Drama, War",671055,1987-06-17,Stanley Kubrick
@@ -244,8 +244,8 @@ tt0095016,9,2017-03-02,Die Hard,https://www.imdb.com/title/tt0095016/,movie,8.2,
 tt0095327,10,2017-03-02,Hotaru no haka,https://www.imdb.com/title/tt0095327/,movie,8.5,89,1988,"Animation, Drama, War",232669,1988-04-16,Isao Takahata
 tt0096283,10,2016-11-25,Tonari no Totoro,https://www.imdb.com/title/tt0096283/,movie,8.2,86,1988,"Animation, Family, Fantasy",287745,1988-04-16,Hayao Miyazaki
 tt0096874,9,2016-10-16,Back to the Future Part II,https://www.imdb.com/title/tt0096874/,movie,7.8,108,1989,"Adventure, Comedy, Sci-Fi",478674,1989-11-20,Robert Zemeckis
-tt0097814,9,2018-08-21,Majo no takkyûbin,https://www.imdb.com/title/tt0097814/,movie,7.8,103,1989,"Animation, Adventure, Drama, Family, Fantasy",122539,1989-07-29,Hayao Miyazaki
-tt0988824,4,2019-06-23,Naruto: Shippûden,https://www.imdb.com/title/tt0988824/,tvSeries,8.6,24,2007,"Animation, Action, Adventure, Comedy, Drama, Fantasy",80264,2007-02-15,
+tt0097814,9,2018-08-21,Majo no takkyÃ»bin,https://www.imdb.com/title/tt0097814/,movie,7.8,103,1989,"Animation, Adventure, Drama, Family, Fantasy",122539,1989-07-29,Hayao Miyazaki
+tt0988824,4,2019-06-23,Naruto: ShippÃ»den,https://www.imdb.com/title/tt0988824/,tvSeries,8.6,24,2007,"Animation, Action, Adventure, Comedy, Drama, Fantasy",80264,2007-02-15,
 tt0098904,10,2018-01-02,Seinfeld,https://www.imdb.com/title/tt0098904/,tvSeries,8.8,22,1989,Comedy,252575,1989-07-05,
 tt0099088,10,2016-10-21,Back to the Future Part III,https://www.imdb.com/title/tt0099088/,movie,7.4,118,1990,"Adventure, Comedy, Sci-Fi, Western",403199,1990-05-25,Robert Zemeckis
 tt0993846,6,2017-03-02,The Wolf of Wall Street,https://www.imdb.com/title/tt0993846/,movie,8.2,180,2013,"Biography, Crime, Drama",1172074,2013-12-09,Martin Scorsese

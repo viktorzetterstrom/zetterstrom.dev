@@ -20,7 +20,7 @@ const cache = (fn: () => Rating[]): Rating[] => {
 };
 
 const load = async (): Promise<string> =>
-  await fs.promises.readFile(RATINGS_PATH, { encoding: "ascii" });
+  await fs.promises.readFile(RATINGS_PATH, { encoding: "utf-8" });
 
 const format = (r: ImdbRating): Rating => ({
   rating: Number(r["Your Rating"]),
