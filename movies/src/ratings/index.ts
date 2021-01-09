@@ -40,6 +40,7 @@ const parse = (ratingsCsv: string): (() => Rating[]) => () =>
   parseCsv(ratingsCsv, { columns: true })
     .map(format)
     .filter(({ rating }: Rating) => rating >= MIN_SCORE)
+    .sort((a: Rating, b: Rating) => a.title.localeCompare(b.title))
     .sort((a: Rating, b: Rating) => b.rating - a.rating);
 
 export const getRatings = async (): Promise<Rating[]> =>
