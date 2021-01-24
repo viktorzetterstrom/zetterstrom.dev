@@ -1,19 +1,10 @@
 import React from "react";
 import { Rating, FormatType } from "../ratings/types";
 
-const generateRating = ({
-  title,
-  rating,
-  url,
-  year,
-  runtimeMinutes,
-}: Rating) => (
+const generateRating = ({ title, rating, year, runtimeMinutes }: Rating) => (
   <li key={title}>
     <span className={`rating rating-${rating}`}>{rating}</span>
-    <a target="_blank" href={url}>
-      {title}
-    </a>{" "}
-    - {year} - {runtimeMinutes}m
+    {title} - {year} - {runtimeMinutes}m
   </li>
 );
 
