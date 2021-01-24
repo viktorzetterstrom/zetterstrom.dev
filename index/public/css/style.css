@@ -7,7 +7,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: rgb(30, 30, 30);
-    --text-color: rgb(150, 150, 150);
+    --text-color: rgb(185, 185, 185);
     --icon-color: rgb(160, 98, 0);
   }
 }
@@ -72,6 +72,7 @@ ul {
   text-align: center;
   font-size: 16px;
   margin-top: 0;
+  text-shadow: 0 0 2px var(--text-color), 0 0 5px var(--text-color);
 }
 
 .icon-container {
@@ -96,5 +97,31 @@ ul {
   }
   .content {
     padding: 0 0 32px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .root-container {
+    max-width: 900px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  li {
+    font-size: 16px;
+  }
+
+  .heading-companion-text {
+    font-size: 24px;
   }
 }
