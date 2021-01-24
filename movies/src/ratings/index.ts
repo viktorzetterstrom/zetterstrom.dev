@@ -6,7 +6,7 @@ import { Rating, ImdbRating } from "./types";
 const RATINGS_PATH = "./src/ratings/data/ratings.csv";
 const CACHE_TIME = 12 * 60 * 60;
 const CACHE_KEY = "ratings";
-const MIN_SCORE = 5;
+const MIN_SCORE = 7;
 
 const _cache = new NodeCache();
 
