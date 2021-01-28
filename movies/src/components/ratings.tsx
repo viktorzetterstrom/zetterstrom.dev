@@ -1,10 +1,27 @@
 import React from "react";
 import { Rating, FormatType } from "../ratings/types";
 
-const generateRating = ({ title, rating, year, runtimeMinutes }: Rating) => (
+const generateMovieRating = ({
+  title,
+  rating,
+  year,
+  runtimeMinutes,
+}: Rating) => (
   <li key={title}>
     <span className={`rating rating-${rating}`}>{rating}</span>
     {title} - {year} - {runtimeMinutes}m
+  </li>
+);
+
+const generateTvSeriesRating = ({
+  title,
+  rating,
+  year,
+  runtimeMinutes,
+}: Rating) => (
+  <li key={title}>
+    <span className={`rating rating-${rating}`}>{rating}</span>
+    {title} - {year}
   </li>
 );
 
@@ -17,7 +34,7 @@ export const Ratings: React.FC<RatingProps> = ({ ratings }) => (
       <ul>
         {ratings
           .filter(({ type }) => type === FormatType.MOVIE)
-          .map(generateRating)}
+          .map(generateMovieRating)}
       </ul>
     </div>
     <p>--------------------------------------------------------------------</p>
@@ -26,7 +43,7 @@ export const Ratings: React.FC<RatingProps> = ({ ratings }) => (
       <ul>
         {ratings
           .filter(({ type }) => type === FormatType.SERIES)
-          .map(generateRating)}
+          .map(generateTvSeriesRating)}
       </ul>
     </div>
   </div>
