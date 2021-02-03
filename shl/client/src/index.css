@@ -1,10 +1,12 @@
 @font-face {
   font-family: "Roboto";
   src: local("Roboto"), url(./fonts/Roboto/Roboto-Medium.ttf) format("woff");
+  font-display: swap;
 }
 @font-face {
   font-family: "Anton";
   src: local("Anton"), url(./fonts/Anton/Anton-Regular.ttf) format("woff");
+  font-display: swap;
 }
 
 body {
