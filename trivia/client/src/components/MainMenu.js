@@ -18,7 +18,7 @@ const categories = config.categories;
 
 const useStyles = makeStyles((theme) => ({
   startButton: {
-    color: theme.palette.text.primary,
+    color: "rgba(0, 0, 0, 0.87)",
   },
 }));
 
