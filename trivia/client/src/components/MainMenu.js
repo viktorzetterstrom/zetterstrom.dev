@@ -59,12 +59,11 @@ const MainMenu = ({ game, gameDispatch }) => {
 
       <Box m={2}>
         <Typography variant="h5" component="p">
-          Category
+          <label for="category-select">Category</label>
         </Typography>
         <FormControl>
           <Select
             id="category-select"
-            label="Select category"
             native
             value={game.config.category}
             onChange={(e) => changeCategory(e.target.value)}
