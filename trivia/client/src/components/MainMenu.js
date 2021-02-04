@@ -6,6 +6,7 @@ import {
   ButtonGroup,
   Select,
   FormControl,
+  makeStyles,
 } from "@material-ui/core";
 
 import triviaService from "../trivia-service";
@@ -15,7 +16,15 @@ const difficulties = config.difficulties;
 const numberOfQuestions = config.numberOfQuestions;
 const categories = config.categories;
 
+const useStyles = makeStyles((theme) => ({
+  startButton: {
+    color: theme.palette.text.primary,
+  },
+}));
+
 const MainMenu = ({ game, gameDispatch }) => {
+  const classes = useStyles();
+
   const changeDifficulty = (d) =>
     gameDispatch({
       type: `difficulty`,
@@ -55,6 +64,7 @@ const MainMenu = ({ game, gameDispatch }) => {
         <FormControl>
           <Select
             id="category-select"
+            label="Select category"
             native
             value={game.config.category}
             onChange={(e) => changeCategory(e.target.value)}
@@ -121,10 +131,11 @@ const MainMenu = ({ game, gameDispatch }) => {
       <Box m={2}>
         <Button
           fullWidth
-          onClick={() => startGame()}
+          onClick={startGame}
           variant="contained"
           color="secondary"
           size="large"
+          className={classes.startButton}
         >
           Start
         </Button>

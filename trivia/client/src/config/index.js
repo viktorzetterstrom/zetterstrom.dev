@@ -1,6 +1,6 @@
 const config = {
   difficulties: ["easy", "medium", "hard"],
-  numberOfQuestions: [10, 20, 30],
+  numberOfQuestions: [5, 10, 15],
   categories: [
     { id: 0, name: "Any" },
     { id: 9, name: "General Knowledge" },

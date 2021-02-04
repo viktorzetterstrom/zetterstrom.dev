@@ -12,7 +12,7 @@ const FooterText = () => {
 
   return (
     <Box p={1}>
-      <Typography variant="subtitle2" align="center">
+      <Typography variant="body2" align="center">
         <a className={classes.link} noreferrer href="https://opentdb.com/">
           Open Trivia API
         </a>
