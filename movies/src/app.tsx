@@ -29,6 +29,6 @@ app.get("/", async (req, res) => {
   );
 });
 
-app.use(express.static("./public", { maxAge: 60 * 24 * 5 }));
+app.use(express.static("./public", { maxAge: 1000 * 60 * 24 * 5 }));
 
 export { app };
