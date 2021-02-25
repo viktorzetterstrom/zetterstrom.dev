@@ -4,7 +4,7 @@ const initial = {
   score: 0,
   config: {
     difficulty: "medium",
-    amount: 20,
+    amount: 10,
     category: 0, // id for the 'any'-category
   },
 };
