@@ -13,11 +13,19 @@ const FooterText = () => {
   return (
     <Box p={1}>
       <Typography variant="body2" align="center">
-        <a className={classes.link} noreferrer href="https://opentdb.com/">
+        <a
+          className={classes.link}
+          rel="noreferrer"
+          href="https://opentdb.com/"
+        >
           Open Trivia API
         </a>
         {" | "}
-        <a className={classes.link} noreferrer href="https://zetterstrom.dev/">
+        <a
+          className={classes.link}
+          rel="noreferrer"
+          href="https://zetterstrom.dev/"
+        >
           zetterstrom.dev
         </a>
       </Typography>

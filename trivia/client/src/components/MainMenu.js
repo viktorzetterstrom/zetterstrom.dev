@@ -59,7 +59,7 @@ const MainMenu = ({ game, gameDispatch }) => {
 
       <Box m={2}>
         <Typography variant="h5" component="p">
-          <label for="category-select">Category</label>
+          <label htmlFor="category-select">Category</label>
         </Typography>
         <FormControl>
           <Select
