@@ -1,5 +1,10 @@
 const teamNames = require("./team-names");
 
+const parseTeamCode = (teamCode) => {
+  if (teamCode === "SKE") return "SAIK";
+  return teamCode;
+};
+
 const standings = (apiResponse) =>
   apiResponse.map((position) => ({
     ...position,
@@ -45,8 +50,8 @@ const winstreaks = (apiResponse) => {
   const hasLostAway = {};
 
   playedGames.forEach((game) => {
-    const homeCode = game.home_team_code;
-    const awayCode = game.away_team_code;
+    const homeCode = parseTeamCode(game.home_team_code);
+    const awayCode = parseTeamCode(game.away_team_code);
     const homeResult = game.home_team_result;
     const awayResult = game.away_team_result;
 
