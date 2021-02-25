@@ -28,18 +28,18 @@ const WinstreaksTableRow = ({ team }) => (
   </tr>
 );
 
-const WinstreaksTable = ({ winstreaks, theme }) => (
-  <TableContainer {...theme}>
+const WinstreaksTable = ({ winstreaks }) => (
+  <TableContainer>
     <WinstreaksTableHead />
     <tbody>
       {winstreaks.map((team, i) => (
-        <WinstreaksTableRow key={i} team={team} theme={theme} />
+        <WinstreaksTableRow key={i} team={team} />
       ))}
     </tbody>
   </TableContainer>
 );
 
-const WinstreaksTableWithData = ({ theme }) => {
+const WinstreaksTableWithData = () => {
   const [winstreaks, setWinstreaks] = useState({ loading: true });
   useEffect(() => {
     shlService
@@ -49,9 +49,9 @@ const WinstreaksTableWithData = ({ theme }) => {
   }, []);
 
   return !winstreaks.loading ? (
-    <WinstreaksTable winstreaks={winstreaks} theme={theme} />
+    <WinstreaksTable winstreaks={winstreaks} />
   ) : (
-    <Spinner theme={theme} />
+    <Spinner />
   );
 };
 

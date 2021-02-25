@@ -38,12 +38,12 @@ const GamesTableRow = ({ game }) => (
   </tr>
 );
 
-const GamesTable = ({ games, theme }) => (
-  <TableContainer {...theme}>
+const GamesTable = ({ games }) => (
+  <TableContainer>
     <GamesTableHead />
     <tbody>
       {games.map((game, i) => (
-        <GamesTableRow key={i} game={game} theme={theme} />
+        <GamesTableRow key={i} game={game} />
       ))}
     </tbody>
   </TableContainer>
@@ -58,11 +58,7 @@ const GamesTableWithData = ({ theme }) => {
       .catch((err) => console.error(`Error fetching games: ${err}`));
   }, []);
 
-  return !games.loading ? (
-    <GamesTable games={games} theme={theme} />
-  ) : (
-    <Spinner theme={theme} />
-  );
+  return !games.loading ? <GamesTable games={games} /> : <Spinner />;
 };
 
 export default GamesTableWithData;

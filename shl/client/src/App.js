@@ -1,5 +1,5 @@
 import React from "react";
-import theme from "./style/theme";
+import GlobalStyle from "./style/global";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,28 +15,27 @@ import SkatersTable from "./components/tables/SkatersTable";
 import WinstreaksTable from "./components/tables/WinstreaksTable";
 import Footer from "./components/Footer";
 
-const activeTheme = theme;
-
 function App() {
   return (
     <Router>
       <AppContainer>
-        <Header theme={activeTheme} />
+        <GlobalStyle />
+        <Header />
         <Switch>
           <Route path="/standings">
-            <StandingsTable theme={activeTheme} />
+            <StandingsTable />
           </Route>
           <Route path="/games">
-            <GamesTable theme={activeTheme} />
+            <GamesTable />
           </Route>
           <Route path="/statistics/goalies">
-            <GoaliesTable theme={activeTheme} />
+            <GoaliesTable />
           </Route>
           <Route path="/statistics/skaters">
-            <SkatersTable theme={activeTheme} />
+            <SkatersTable />
           </Route>
           <Route path="/statistics/winstreaks">
-            <WinstreaksTable theme={activeTheme} />
+            <WinstreaksTable />
           </Route>
           <Route path="/statistics">
             <Redirect to="/statistics/goalies" />

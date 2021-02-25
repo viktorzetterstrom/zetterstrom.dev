@@ -34,18 +34,18 @@ const SkatersTableRow = ({ skater }) => (
   </tr>
 );
 
-const SkatersTable = ({ skaters, theme }) => (
-  <TableContainer {...theme}>
+const SkatersTable = ({ skaters }) => (
+  <TableContainer>
     <SkatersTableHead />
     <tbody>
       {skaters.map((skater, i) => (
-        <SkatersTableRow key={i} skater={skater} theme={theme} />
+        <SkatersTableRow key={i} skater={skater} />
       ))}
     </tbody>
   </TableContainer>
 );
 
-const SkatersTableWithData = ({ theme }) => {
+const SkatersTableWithData = () => {
   const [skaters, setSkaters] = useState({ loading: true });
   useEffect(() => {
     shlService
@@ -54,11 +54,7 @@ const SkatersTableWithData = ({ theme }) => {
       .catch((err) => console.error(`Error fetching games: ${err}`));
   }, []);
 
-  return !skaters.loading ? (
-    <SkatersTable skaters={skaters} theme={theme} />
-  ) : (
-    <Spinner theme={theme} />
-  );
+  return !skaters.loading ? <SkatersTable skaters={skaters} /> : <Spinner />;
 };
 
 export default SkatersTableWithData;

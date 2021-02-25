@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 const AppContainer = styled.div`
   position: relative;
-  color: ${(props) => props.primary};
-  background-color: ${(props) => props.secondary};
+  background-color: var(--bg-color);
   margin: 0 auto;
   text-align: center;
   min-height: 450px;

@@ -35,31 +35,31 @@ const StyledH2 = styled.h2`
   margin: 0;
 `;
 
-const Headers = ({ theme }) => (
+const Headers = () => (
   <>
-    <HeaderWrapper {...theme}>
+    <HeaderWrapper>
       <StyledH1>SHL 20/21</StyledH1>
     </HeaderWrapper>
-    <HeaderWrapper {...theme}>
-      <HeaderLink {...theme} to="/standings">
+    <HeaderWrapper>
+      <HeaderLink to="/standings">
         <StyledH2>Standings</StyledH2>
       </HeaderLink>
-      <HeaderLink {...theme} to="/games">
+      <HeaderLink to="/games">
         <StyledH2>Games</StyledH2>
       </HeaderLink>
-      <HeaderLink {...theme} to="/statistics">
+      <HeaderLink to="/statistics">
         <StyledH2>Stats</StyledH2>
       </HeaderLink>
     </HeaderWrapper>
     <Route path="/statistics">
-      <HeaderWrapper {...theme}>
-        <HeaderLink {...theme} to="/statistics/goalies">
+      <HeaderWrapper>
+        <HeaderLink to="/statistics/goalies">
           <StyledH2>Goalies</StyledH2>
         </HeaderLink>
-        <HeaderLink {...theme} to="/statistics/skaters">
+        <HeaderLink to="/statistics/skaters">
           <StyledH2>Skaters</StyledH2>
         </HeaderLink>
-        <HeaderLink {...theme} to="/statistics/winstreaks">
+        <HeaderLink to="/statistics/winstreaks">
           <StyledH2>Winstreaks</StyledH2>
         </HeaderLink>
       </HeaderWrapper>

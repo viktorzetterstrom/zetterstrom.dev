@@ -33,18 +33,18 @@ const GoaliesTableRow = ({ goalie }) => (
   </tr>
 );
 
-const GoaliesTable = ({ goalies, theme }) => (
-  <TableContainer {...theme}>
+const GoaliesTable = ({ goalies }) => (
+  <TableContainer>
     <GoaliesTableHead />
     <tbody>
       {goalies.map((goalie, i) => (
-        <GoaliesTableRow key={i} goalie={goalie} theme={theme} />
+        <GoaliesTableRow key={i} goalie={goalie} />
       ))}
     </tbody>
   </TableContainer>
 );
 
-const GoaliesTableWithData = ({ theme }) => {
+const GoaliesTableWithData = () => {
   const [goalies, setGoalies] = useState({ loading: true });
   useEffect(() => {
     shlService
@@ -53,11 +53,7 @@ const GoaliesTableWithData = ({ theme }) => {
       .catch((err) => console.error(`Error fetching games: ${err}`));
   }, []);
 
-  return !goalies.loading ? (
-    <GoaliesTable goalies={goalies} theme={theme} />
-  ) : (
-    <Spinner theme={theme} />
-  );
+  return !goalies.loading ? <GoaliesTable goalies={goalies} /> : <Spinner />;
 };
 
 export default GoaliesTableWithData;

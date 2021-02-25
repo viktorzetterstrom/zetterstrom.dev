@@ -28,18 +28,18 @@ const StandingsTableRow = ({ position }) => (
   </tr>
 );
 
-const StandingsTable = ({ standings, theme }) => (
-  <TableContainer {...theme}>
+const StandingsTable = ({ standings }) => (
+  <TableContainer>
     <StandingsTableHead />
     <tbody>
       {standings.map((position, i) => (
-        <StandingsTableRow key={i} position={position} theme={theme} />
+        <StandingsTableRow key={i} position={position} />
       ))}
     </tbody>
   </TableContainer>
 );
 
-const StandingsTableWithData = ({ theme }) => {
+const StandingsTableWithData = () => {
   const [standings, setStandings] = useState({ loading: true });
   useEffect(() => {
     shlService
@@ -49,9 +49,9 @@ const StandingsTableWithData = ({ theme }) => {
   }, []);
 
   return !standings.loading ? (
-    <StandingsTable standings={standings} theme={theme} />
+    <StandingsTable standings={standings} />
   ) : (
-    <Spinner theme={theme} />
+    <Spinner />
   );
 };
 
