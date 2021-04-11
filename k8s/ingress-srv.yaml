@@ -46,3 +46,10 @@ spec:
             backend:
               serviceName: movies-srv
               servicePort: 80
+    - host: news.zetterstrom.dev
+      http:
+        paths:
+          - path: /?(.*)
+            backend:
+              serviceName: movies-srv
+              servicePort: 80
