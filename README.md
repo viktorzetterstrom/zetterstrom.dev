@@ -8,10 +8,14 @@
 ![movies](https://github.com/viktorzetterstrom/zetterstrom-dev/workflows/movies/badge.svg)
 ![news](https://github.com/viktorzetterstrom/zetterstrom-dev/workflows/news/badge.svg)
 
+## Description
+
+I deploy many of my projects to a tiny k8s cluster at digital ocean, i pooled them all together in this repository for easy management.
+
 ## Projects
 
 - [`index`](https://zetterstrom.dev) - Personal page
 - [`shl`](https://shl.zetterstrom.dev) - SHL statistics
 - [`trivia`](https://trivia.zetterstrom.dev) - Trivia game
 - [`movies`](https://movies.zetterstrom.dev) - Movie Ratings
-- [`news`](https://movies.zetterstrom.dev) - Top Hacker News Stories
+- [`news`](https://news.zetterstrom.dev) - Top Hacker News Stories
