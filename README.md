@@ -10,7 +10,7 @@
 
 ## Description
 
-I deploy many of my projects to a tiny k8s cluster at digital ocean, i pooled them all together in this repository for easy management.
+I deploy many of my projects to a tiny k8s cluster at digital ocean, I keep them in this repository.
 
 ## Projects
 
