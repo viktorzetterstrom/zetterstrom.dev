@@ -1,0 +1,47 @@
+:root {
+  --bg-color: rgb(30, 30, 30);
+  --text-color: rgb(185, 185, 185);
+  --icon-color: rgb(160, 98, 0);
+}
+
+body {
+  background-color: var(--bg-color);
+  padding-left: 24px;
+}
+
+h1,
+h2,
+p,
+ol {
+  font-family: monospace;
+  color: var(--text-color);
+  font-weight: 300;
+}
+
+a {
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 24px;
+}
+
+li {
+  font-size: 16px;
+  margin-bottom: 16px;
+  vertical-align: middle;
+}
+
+ul {
+  padding: 0;
+}
+
+.rating {
+  font-size: 18px;
+  padding-right: 16px;
+}
+
+.golden {
+  color: rgb(214, 193, 0);
+  text-shadow: 0 0 2px rgb(214, 193, 0), 0 0 5px rgb(214, 193, 0);
+}

@@ -1,0 +1,9 @@
+html
+  include ../public/head.html
+  
+  body
+    h1(class="golden") news.zetterstrom.dev - top Hacker News stories
+    ol
+      each story in stories
+        li
+          a(href=story.url rel="noopener" target="_blank")= story.title
