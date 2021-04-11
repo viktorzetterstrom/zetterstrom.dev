@@ -54,6 +54,15 @@ build:
           - "**/*.ts"
           - "**/*.css"
           - "**/*.html"
+    - image: viktorzetterstrom/news-zetterstrom-dev
+      context: news
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        infer:
+          - "**/*.ts"
+          - "**/*.css"
+          - "**/*.html"
 deploy:
   kubeContext: docker-desktop
   kubectl:
@@ -66,6 +75,7 @@ deploy:
       - k8s/trivia-client-depl.yaml
       - k8s/trivia-api-depl.yaml
       - k8s/movies-depl.yaml
+      - k8s/news-depl.yaml
       - k8s/secrets/movies-secret.yaml
 portForward:
   - resourceType: service
@@ -98,3 +108,8 @@ portForward:
     namespace: z-dev
     port: 80
     localPort: 7000
+  - resourceType: service
+    resourceName: news-srv
+    namespace: z-dev
+    port: 80
+    localPort: 8000
