@@ -51,5 +51,5 @@ spec:
         paths:
           - path: /?(.*)
             backend:
-              serviceName: movies-srv
+              serviceName: news-srv
               servicePort: 80
