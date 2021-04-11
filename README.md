@@ -6,6 +6,7 @@
 ![trivia-client](https://github.com/viktorzetterstrom/zetterstrom-dev/workflows/trivia-client/badge.svg)
 ![trivia-api](https://github.com/viktorzetterstrom/zetterstrom-dev/workflows/trivia-api/badge.svg)
 ![movies](https://github.com/viktorzetterstrom/zetterstrom-dev/workflows/movies/badge.svg)
+![news](https://github.com/viktorzetterstrom/zetterstrom-dev/workflows/news/badge.svg)
 
 ## Projects
 
@@ -13,3 +14,4 @@
 - [`shl`](https://shl.zetterstrom.dev) - SHL statistics
 - [`trivia`](https://trivia.zetterstrom.dev) - Trivia game
 - [`movies`](https://movies.zetterstrom.dev) - Movie Ratings
+- [`news`](https://movies.zetterstrom.dev) - Top Hacker News Stories
