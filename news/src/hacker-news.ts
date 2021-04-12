@@ -53,7 +53,7 @@ export class HackerNews {
     this._db = app.database();
   }
 
-  async fetch<T = unknown>(endpoint: string) {
+  private async fetch<T = unknown>(endpoint: string) {
     return new Promise<T>((resolve, reject) => {
       this._db
         .ref(`${this.HN_VERSION}/${endpoint}`)
