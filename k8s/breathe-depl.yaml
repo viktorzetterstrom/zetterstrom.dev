@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: breathe-depl
+  namespace: z-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: breathe
+  template:
+    metadata:
+      labels:
+        app: breathe
+    spec:
+      containers:
+        - name: breathe
+          image: viktorzetterstrom/breathe-zetterstrom-dev
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: breathe-srv
+  namespace: z-dev
+spec:
+  type: ClusterIP
+  selector:
+    app: breathe
+  ports:
+    - name: breathe
+      protocol: TCP
+      port: 80
+      targetPort: 80
