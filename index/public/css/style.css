@@ -68,13 +68,6 @@ ul {
   margin-bottom: 0;
 }
 
-.heading-companion-text {
-  text-align: center;
-  font-size: 16px;
-  margin-top: 0;
-  text-shadow: 0 0 2px var(--text-color), 0 0 5px var(--text-color);
-}
-
 .icon-container {
   display: flex;
   justify-content: center;
@@ -93,6 +86,11 @@ ul {
 }
 
 @media only screen and (min-width: 481px) {
+  .heading-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .top-image {
     margin-top: 32px;
     border-radius: 8px;
