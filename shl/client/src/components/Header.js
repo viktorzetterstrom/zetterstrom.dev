@@ -38,7 +38,7 @@ const StyledH2 = styled.h2`
 const Headers = () => (
   <>
     <HeaderWrapper>
-      <StyledH1>SHL 20/21</StyledH1>
+      <StyledH1>SHL 21/22</StyledH1>
     </HeaderWrapper>
     <HeaderWrapper>
       <HeaderLink to="/standings">
