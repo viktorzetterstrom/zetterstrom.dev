@@ -13,4 +13,5 @@ module.exports = {
   VLH: "Växjö",
   LIF: "Leksand",
   IKO: "Oskarshamn",
+  TIK: "Timrå"
 };
