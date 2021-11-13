@@ -1,0 +1,70 @@
+query Teams {
+  teams {
+    teamCode
+    golds
+    finals
+    founded
+    holyNumbers
+  }
+}
+
+query GameDays($input: StatisticsInput!) {
+  gameDays(input: $input) {
+    date
+    games {
+      gameId
+      time
+      date
+      homeTeamCode
+      homeTeamName
+      awayTeamCode
+      awayTeamName
+      result
+    }
+  }
+}
+
+query Standings($input: StatisticsInput!) {
+  standings(input: $input) {
+    teamId
+    teamCode
+    teamName
+    goals
+    goalsAgainst
+    onePoints
+    plusMinus
+    rank
+    gamesPlayed
+    threePoints
+    twoPoints
+    zeroPoints
+    points
+  }
+}
+
+query Goalies($input: GoaliesInput!) {
+  goalies(input: $input) {
+    playerId
+    teamCode
+    firstName
+    lastName
+    gamesPlayedOnIce
+    goalsAgainstAverage
+    shutOuts
+    savesPercentage
+  }
+}
+
+query Skaters($input: SkatersInput!) {
+  skaters(input: $input) {
+    playerId
+    teamCode
+    firstName
+    lastName
+    goals
+    assists
+    gamesPlayed
+    plusMinus
+    totalPoints
+  }
+}
