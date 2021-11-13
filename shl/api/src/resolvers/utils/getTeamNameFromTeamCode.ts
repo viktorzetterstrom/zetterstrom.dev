@@ -1,11 +1,11 @@
-module.exports = {
+const teams = {
+  LHF: "Luleå",
   FHC: "Frölunda",
   DIF: "Djurgården",
   BIF: "Brynäs",
   FBK: "Färjestad",
   HV71: "HV71",
   LHC: "Linköping",
-  LHF: "Luleå",
   MIF: "Malmö",
   OHK: "Örebro",
   RBK: "Rögle",
@@ -13,5 +13,10 @@ module.exports = {
   VLH: "Växjö",
   LIF: "Leksand",
   IKO: "Oskarshamn",
-  TIK: "Timrå"
+  TIK: "Timrå",
 };
+
+export type TeamCode = keyof typeof teams;
+
+export const getTeamNameFromTeamCode = (teamCode: TeamCode): string =>
+  teams[teamCode];
