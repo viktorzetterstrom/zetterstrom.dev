@@ -1,0 +1,15 @@
+.root {
+  padding-left: var(--spacing);
+  padding-bottom: var(--spacing);
+  margin-top: var(--spacing);
+  margin-bottom: var(--spacing);
+  border-bottom: 1px solid var(--highlight-color);
+}
+
+.root > a {
+  margin-right: var(--spacing);
+}
+
+.active {
+  color: var(--highlight-color);
+}

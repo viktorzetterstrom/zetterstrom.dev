@@ -1,0 +1,32 @@
+:root {
+  --bg-color: rgb(30, 30, 30);
+  --text-color: rgb(185, 185, 185);
+  --highlight-color: rgb(223, 137, 0);
+  --spacing: 8px;
+  --font-size: 12px;
+}
+
+@media only screen and (min-width: 521px) {
+  :root {
+    --spacing: 16px;
+    --font-size: 16px;
+  }
+}
+
+html,
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 0;
+  margin: 0;
+  font-family: monospace;
+  font-size: var(--font-size);
+}
+
+a {
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
