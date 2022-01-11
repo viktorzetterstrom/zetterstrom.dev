@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     revalidate: 60,
     props: {
-      skaters: (await skatersQuery).data.skaters,
+      skaters: skatersQuery.data.skaters,
     },
   };
 };

@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     revalidate: 60,
     props: {
-      standings: (await standingsQuery).data.standings,
+      standings: standingsQuery.data.standings,
     },
   };
 };

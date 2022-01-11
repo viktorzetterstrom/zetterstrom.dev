@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     revalidate: 60,
     props: {
-      gameDays: (await gameDaysQuery).data.gameDays,
+      gameDays: gameDaysQuery.data.gameDays,
     },
   };
 };
