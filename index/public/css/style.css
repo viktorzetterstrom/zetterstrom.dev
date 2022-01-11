@@ -1,11 +1,12 @@
 :root {
   --bg-color: rgb(30, 30, 30);
   --text-color: rgb(185, 185, 185);
-  --icon-color: rgb(223, 137, 0);
+  --highlight-color: #df8900;
 }
 
 body {
   background-color: var(--bg-color);
+  text-transform: lowercase;
 }
 
 h1,
@@ -28,6 +29,8 @@ h1 {
 h2,
 h3 {
   font-size: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 h3 {
@@ -46,8 +49,16 @@ ul {
 }
 
 .root-container {
-  max-width: 480px;
-  margin: auto;
+  padding: 16px;
+}
+
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--highlight-color);
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .top-image {
@@ -56,8 +67,9 @@ ul {
 }
 
 .heading {
+  margin: 0;
   text-align: center;
-  margin-bottom: 0;
+  color: var(--highlight-color);
 }
 
 .icon-container {
@@ -66,11 +78,11 @@ ul {
 }
 
 .svg-icon {
-  color: var(--icon-color);
+  color: var(--highlight-color);
   margin-left: 8px;
   margin-right: 8px;
-  height: 64px;
-  width: 64px;
+  height: 48px;
+  width: 48px;
 }
 
 .content {
@@ -78,13 +90,7 @@ ul {
 }
 
 @media only screen and (min-width: 481px) {
-  .heading-container {
-    display: flex;
-    justify-content: space-between;
-  }
-
   .top-image {
-    margin-top: 32px;
     border-radius: 8px;
   }
   .content {
