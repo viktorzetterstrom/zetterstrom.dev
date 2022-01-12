@@ -6,7 +6,6 @@
 
 body {
   background-color: var(--bg-color);
-  text-transform: lowercase;
 }
 
 h1,
@@ -40,6 +39,7 @@ h3 {
 
 p,
 li {
+  color: var(--text-color);
   font-size: 12px;
   margin-bottom: 8px;
 }
@@ -115,6 +115,7 @@ ul {
     font-size: 16px;
   }
 
+  p,
   li {
     font-size: 16px;
   }
