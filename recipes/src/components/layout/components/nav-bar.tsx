@@ -10,6 +10,7 @@ export const NavBar: React.FC = () => {
 
   const nonBreakingSpaceCode = "\xa0";
   const routes = [
+    { route: "/", title: `home` },
     { route: "/recipes", title: `all${nonBreakingSpaceCode}recipes` },
   ];
 
