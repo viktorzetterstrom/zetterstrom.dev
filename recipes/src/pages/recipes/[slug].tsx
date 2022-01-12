@@ -1,14 +1,18 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { getRecipe, getRecipes, Recipe } from "../../../utils";
 import ReactMarkdown from "react-markdown";
+import { useRouter } from "next/router";
 
 type RecipeProps = {
   recipe: Recipe;
 };
 
 const Recipe: NextPage<RecipeProps> = ({ recipe }) => {
+  const router = useRouter();
+
   return (
     <div>
+      <a onClick={() => router.back()}>&lt;- Back</a>
       <ReactMarkdown>{recipe.instruction}</ReactMarkdown>
     </div>
   );
