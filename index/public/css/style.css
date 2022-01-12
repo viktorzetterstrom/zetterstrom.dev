@@ -48,10 +48,6 @@ ul {
   padding-left: 16px;
 }
 
-.root-container {
-  padding: 16px;
-}
-
 .heading-container {
   display: flex;
   justify-content: space-between;
@@ -86,7 +82,7 @@ ul {
 }
 
 .content {
-  padding: 0 8px 32px;
+  padding: 0 8px 8px;
 }
 
 @media only screen and (min-width: 481px) {
@@ -94,7 +90,11 @@ ul {
     border-radius: 8px;
   }
   .content {
-    padding: 0 0 32px;
+    padding: 0 0 8px;
+  }
+
+  .root-container {
+    padding: 16px;
   }
 }
 
