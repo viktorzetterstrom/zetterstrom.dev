@@ -68,3 +68,11 @@ spec:
             backend:
               serviceName: breathe-srv
               servicePort: 80
+    - host: recipes.zetterstrom.dev
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: Exact
+            backend:
+              serviceName: recipes-srv
+              servicePort: 80
