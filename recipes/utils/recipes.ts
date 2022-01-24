@@ -10,9 +10,9 @@ export type Recipe = {
 };
 
 const recipeSchema = Joi.object<Recipe>({
-  name: Joi.string().min(2).max(30).required(),
+  name: Joi.string().required(),
   tags: Joi.array().items(Joi.string()).required(),
-  slug: Joi.string().min(2).max(30).required(),
+  slug: Joi.string().required(),
   instruction: Joi.string().required(),
 });
 
