@@ -11,7 +11,7 @@
 
 ## Description
 
-I deploy many of my projects to a tiny k8s cluster at digital ocean, I keep them in this repository.
+I deploy many of my projects to a tiny k8s cluster, I keep them in this repository. Due to inactivity, I've taken the cluster down for now.
 
 ## Projects
 
@@ -21,3 +21,4 @@ I deploy many of my projects to a tiny k8s cluster at digital ocean, I keep them
 - [`movies`](https://movies.zetterstrom.dev) - Movie Ratings
 - [`news`](https://news.zetterstrom.dev) - Top Hacker News Stories
 - [`breathe`](https://breathe.zetterstrom.dev) - Box-breathing helper
+- [`recipes`](https://recipes.zetterstrom.dev) - Personal recipe site
