@@ -18,17 +18,17 @@ spec:
           image: viktorzetterstrom/movies-zetterstrom-dev
           ports:
             - containerPort: 7000
-          env:
-            - name: IMDB_EMAIL
-              valueFrom:
-                secretKeyRef:
-                  name: movies-secret
-                  key: IMDB_EMAIL
-            - name: IMDB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: movies-secret
-                  key: IMDB_PASSWORD
+#          env:
+#            - name: IMDB_EMAIL
+#              valueFrom:
+#                secretKeyRef:
+#                  name: movies-secret
+#                  key: IMDB_EMAIL
+#            - name: IMDB_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: movies-secret
+#                  key: IMDB_PASSWORD
 ---
 apiVersion: v1
 kind: Service

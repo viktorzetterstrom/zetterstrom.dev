@@ -16,24 +16,33 @@ build:
           - "**/*.js"
           - "**/*.css"
     - image: viktorzetterstrom/movies-zetterstrom-dev
-      context: movies
+      context: .
       docker:
-        dockerfile: Dockerfile.dev
+        dockerfile: movies/Dockerfile.dev
       sync:
-        infer:
-          - "**/*.ts"
-          - "**/*.css"
-          - "**/*.html"
+        manual:
+          - src: "movies/**/*.ts"
+            dest: /workspace/movies
+          - src: "movies/**/*.css"
+            dest: /workspace/movies
+          - src: "movies/**/*.html"
+            dest: /workspace/movies
     - image: viktorzetterstrom/recipes-zetterstrom-dev
-      context: recipes
+      context: .
       docker:
-        dockerfile: Dockerfile.dev
+        dockerfile: recipes/Dockerfile.dev
       sync:
-        infer:
-          - "**/*.js"
-          - "**/*.ts"
-          - "**/*.tsx"
-          - "**/*.css"
+        manual:
+          - src: "recipes/src/**/*"
+            dest: /workspace/recipes/src
+          - src: "recipes/utils/**/*"
+            dest: /workspace/recipes/utils
+          - src: "recipes/recipes/**/*.yaml"
+            dest: /workspace/recipes/recipes
+          - src: "recipes/recipes/**/*.yml"
+            dest: /workspace/recipes/recipes
+          - src: "recipes/public/**/*"
+            dest: /workspace/recipes/public
 deploy:
   kubeContext: docker-desktop
   kubectl:

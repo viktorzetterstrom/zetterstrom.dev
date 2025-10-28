@@ -17,7 +17,7 @@ spec:
         - name: recipes
           image: viktorzetterstrom/recipes-zetterstrom-dev
           ports:
-            - containerPort: 4000
+            - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
@@ -32,4 +32,4 @@ spec:
     - name: recipes
       protocol: TCP
       port: 80
-      targetPort: 4000
+      targetPort: 3000

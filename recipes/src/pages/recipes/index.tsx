@@ -11,9 +11,7 @@ const Recipes: NextPage<RecipesProps> = ({ recipes }) => {
     <ul>
       {recipes?.map((recipe) => (
         <li key={recipe.slug}>
-          <Link href={`/recipes/${recipe.slug}`}>
-            <a>{recipe.name}</a>
-          </Link>
+          <Link href={`/recipes/${recipe.slug}`}>{recipe.name}</Link>
         </li>
       ))}
     </ul>
