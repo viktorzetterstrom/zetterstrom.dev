@@ -8,7 +8,45 @@ metadata:
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - local.zetterstrom.dev
+        - local.movies.zetterstrom.dev
+        - local.recipes.zetterstrom.dev
+      secretName: local-zetterstrom-dev-tls
   rules:
+    # Local development domains
+    - host: local.zetterstrom.dev
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: index-srv
+                port:
+                  number: 80
+    - host: local.movies.zetterstrom.dev
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: movies-srv
+                port:
+                  number: 80
+    - host: local.recipes.zetterstrom.dev
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: recipes-srv
+                port:
+                  number: 80
+    # Production domains
     - host: zetterstrom.dev
       http:
         paths:
