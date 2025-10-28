@@ -1,2 +1,2 @@
-export * from "./nav-bar";
-export * from "./top-bar";
+export * from "./nav-bar"
+export * from "./top-bar"

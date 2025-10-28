@@ -8,43 +8,13 @@ build:
   artifacts:
     - image: viktorzetterstrom/index-zetterstrom-dev
       context: index
+      docker:
+        dockerfile: Dockerfile.dev
       sync:
         infer:
           - "**/*.html"
           - "**/*.js"
           - "**/*.css"
-    - image: viktorzetterstrom/shl-client-zetterstrom-dev
-      context: shl/client
-      docker:
-        dockerfile: Dockerfile.dev
-      sync:
-        infer:
-          - "**/*.js"
-          - "**/*.css"
-          - "**/*.html"
-    - image: viktorzetterstrom/shl-api-zetterstrom-dev
-      context: shl/api
-      docker:
-        dockerfile: Dockerfile.dev
-      sync:
-        infer:
-          - "**/*.js"
-    - image: viktorzetterstrom/trivia-client-zetterstrom-dev
-      context: trivia/client
-      docker:
-        dockerfile: Dockerfile.dev
-      sync:
-        infer:
-          - "**/*.js"
-          - "**/*.css"
-          - "**/*.html"
-    - image: viktorzetterstrom/trivia-api-zetterstrom-dev
-      context: trivia/api
-      docker:
-        dockerfile: Dockerfile.dev
-      sync:
-        infer:
-          - "**/*.js"
     - image: viktorzetterstrom/movies-zetterstrom-dev
       context: movies
       docker:
@@ -54,21 +24,15 @@ build:
           - "**/*.ts"
           - "**/*.css"
           - "**/*.html"
-    - image: viktorzetterstrom/news-zetterstrom-dev
-      context: news
+    - image: viktorzetterstrom/recipes-zetterstrom-dev
+      context: recipes
       docker:
         dockerfile: Dockerfile.dev
       sync:
         infer:
-          - "**/*.ts"
-          - "**/*.css"
-          - "**/*.html"
-    - image: viktorzetterstrom/breathe-zetterstrom-dev
-      context: breathe
-      sync:
-        infer:
-          - "**/*.html"
           - "**/*.js"
+          - "**/*.ts"
+          - "**/*.tsx"
           - "**/*.css"
 deploy:
   kubeContext: docker-desktop
@@ -76,15 +40,8 @@ deploy:
     manifests:
       - k8s/namespace.yaml
       - k8s/index-depl.yaml
-      - k8s/shl-client-depl.yaml
-      - k8s/shl-api-depl.yaml
-      - k8s/secrets/shl-api-secret.yaml
-      - k8s/trivia-client-depl.yaml
-      - k8s/trivia-api-depl.yaml
       - k8s/movies-depl.yaml
-      - k8s/news-depl.yaml
-      - k8s/breathe-depl.yaml
-      - k8s/secrets/movies-secret.yaml
+      - k8s/recipes-depl.yaml
 portForward:
   - resourceType: service
     resourceName: index-srv
@@ -92,37 +49,12 @@ portForward:
     port: 80
     localPort: 3000
   - resourceType: service
-    resourceName: shl-client-srv
+    resourceName: recipes-srv
     namespace: z-dev
     port: 80
-    localPort: 4000
-  - resourceType: service
-    resourceName: shl-api-srv
-    namespace: z-dev
-    port: 80
-    localPort: 4001
-  - resourceType: service
-    resourceName: trivia-client-srv
-    namespace: z-dev
-    port: 80
-    localPort: 5000
-  - resourceType: service
-    resourceName: trivia-api-srv
-    namespace: z-dev
-    port: 80
-    localPort: 5001
+    localPort: 3001
   - resourceType: service
     resourceName: movies-srv
     namespace: z-dev
     port: 80
-    localPort: 7000
-  - resourceType: service
-    resourceName: news-srv
-    namespace: z-dev
-    port: 80
-    localPort: 8000
-  - resourceType: service
-    resourceName: breathe-srv
-    namespace: z-dev
-    port: 80
-    localPort: 9000
+    localPort: 3002

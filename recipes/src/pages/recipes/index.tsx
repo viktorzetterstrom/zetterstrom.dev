@@ -1,10 +1,10 @@
-import type { GetStaticProps, NextPage } from "next";
-import Link from "next/link";
-import { getRecipes, Recipe } from "../../../utils";
+import type { GetStaticProps, NextPage } from "next"
+import Link from "next/link"
+import { getRecipes, Recipe } from "../../../utils"
 
 type RecipesProps = {
-  recipes: Recipe[];
-};
+  recipes: Recipe[]
+}
 
 const Recipes: NextPage<RecipesProps> = ({ recipes }) => {
   return (
@@ -17,17 +17,17 @@ const Recipes: NextPage<RecipesProps> = ({ recipes }) => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
 export const getStaticProps: GetStaticProps = () => {
-  const recipes = getRecipes();
+  const recipes = getRecipes()
 
   return {
     props: {
       recipes,
     },
-  };
-};
+  }
+}
 
-export default Recipes;
+export default Recipes

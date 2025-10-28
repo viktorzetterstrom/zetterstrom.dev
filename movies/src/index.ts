@@ -1,5 +1,5 @@
-import { app } from "./app";
+import { app } from "./app"
 
-const port = 7000;
+const port = 7000
 
-app.listen(port, () => `movies listening on ${port}`);
+app.listen(port, () => `movies listening on ${port}`)

@@ -4,4 +4,5 @@ k8s/secrets
 build/
 .idea
 .DS_Store
+.claude
 package-lock.json

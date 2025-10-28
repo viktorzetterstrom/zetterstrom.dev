@@ -44,13 +44,19 @@ ul {
 
 .rating-10 {
   color: rgb(214, 193, 0);
-  text-shadow: 0 0 2px rgb(214, 193, 0), 0 0 5px rgb(214, 193, 0);
+  text-shadow:
+    0 0 2px rgb(214, 193, 0),
+    0 0 5px rgb(214, 193, 0);
 }
 .rating-9 {
   color: rgb(235, 235, 235);
-  text-shadow: 0 0 2px rgb(235, 235, 235), 0 0 5px rgb(235, 235, 235);
+  text-shadow:
+    0 0 2px rgb(235, 235, 235),
+    0 0 5px rgb(235, 235, 235);
 }
 .rating-8 {
   color: rgb(160, 98, 0);
-  text-shadow: 0 0 2px rgb(160, 98, 0), 0 0 5px rgb(160, 98, 0);
+  text-shadow:
+    0 0 2px rgb(160, 98, 0),
+    0 0 5px rgb(160, 98, 0);
 }

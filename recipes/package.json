@@ -8,20 +8,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/js-yaml": "^4.0.5",
-    "clsx": "^1.1.1",
-    "joi": "^17.5.0",
+    "@types/js-yaml": "^4.0.9",
+    "clsx": "^2.1.1",
+    "joi": "^17.13.3",
     "js-yaml": "^4.1.0",
-    "next": "12.0.7",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-markdown": "^7.1.2"
+    "next": "15.3.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-markdown": "^9.0.5"
   },
   "devDependencies": {
-    "@types/node": "17.0.1",
-    "@types/react": "17.0.37",
-    "eslint": "8.5.0",
-    "eslint-config-next": "12.0.7",
-    "typescript": "4.5.4"
-  }
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.2.2",
+    "eslint": "^9.20.0",
+    "eslint-config-next": "15.3.0",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@8.10.5+sha512.9c161f433d85551c58f1b3a10b18cc3df72b5a02d2caee6566cc05b6f20addef947e795d90c39033bf92de55177ead69d87f62a9daadc91e7a2e3b58f49353a0"
 }

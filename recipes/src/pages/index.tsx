@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage } from "next"
 
 const Home: NextPage = () => {
   return (
@@ -6,7 +6,7 @@ const Home: NextPage = () => {
       <div>Welcome to my personal recipe collection.</div>
       <div>Work in progress.👷‍♂️</div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

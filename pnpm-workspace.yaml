@@ -1,0 +1,4 @@
+packages:
+  - "movies"
+  - "recipes"
+  # index is static HTML/nginx only, no package.json

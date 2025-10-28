@@ -1,5 +1,5 @@
-import styles from "./layout.module.css";
-import { NavBar, TopBar } from "./components";
+import styles from "./layout.module.css"
+import { NavBar, TopBar } from "./components"
 
 export const Layout: React.FC = ({ children }) => {
   return (
@@ -8,5 +8,5 @@ export const Layout: React.FC = ({ children }) => {
       <NavBar />
       <div className={styles.content}>{children}</div>
     </div>
-  );
-};
+  )
+}
