@@ -1,0 +1,6 @@
+# Copy this file to terraform.tfvars and fill in your values
+# DO NOT commit terraform.tfvars to git (it's in .gitignore)
+
+do_token = "your-digitalocean-api-token-here"
+region   = "fra1" # Options: nyc1, nyc3, sfo3, fra1, lon1, sgp1, etc.
+k8s_version = "1.31.1-do.4" # Check latest: doctl kubernetes options versions

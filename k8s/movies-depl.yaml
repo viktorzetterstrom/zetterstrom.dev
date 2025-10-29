@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: movies-depl
-  namespace: z-dev
+  namespace: zetterstrom
 spec:
   replicas: 1
   selector:
@@ -34,7 +34,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: movies-srv
-  namespace: z-dev
+  namespace: zetterstrom
 spec:
   type: ClusterIP
   selector:
