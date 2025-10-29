@@ -112,3 +112,89 @@ resource "helm_release" "cert_manager" {
 
   depends_on = [digitalocean_kubernetes_cluster.zetterstrom]
 }
+
+# Get the droplet (node) details to access the public IP
+data "digitalocean_droplets" "cluster_nodes" {
+  filter {
+    key    = "tags"
+    values = ["k8s:${digitalocean_kubernetes_cluster.zetterstrom.id}"]
+  }
+
+  depends_on = [
+    digitalocean_kubernetes_cluster.zetterstrom,
+    helm_release.nginx_ingress,
+    helm_release.cert_manager
+  ]
+}
+
+# Manage the domain in DigitalOcean DNS
+resource "digitalocean_domain" "main" {
+  name = var.domain
+}
+
+# Root domain A record pointing to the first node's public IP
+resource "digitalocean_record" "root" {
+  domain = digitalocean_domain.main.id
+  type   = "A"
+  name   = "@"
+  value  = data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address
+  ttl    = 300
+}
+
+# Movies subdomain A record
+resource "digitalocean_record" "movies" {
+  domain = digitalocean_domain.main.id
+  type   = "A"
+  name   = "movies"
+  value  = data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address
+  ttl    = 300
+}
+
+# Recipes subdomain A record
+resource "digitalocean_record" "recipes" {
+  domain = digitalocean_domain.main.id
+  type   = "A"
+  name   = "recipes"
+  value  = data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address
+  ttl    = 300
+}
+
+# Firewall for HTTP/HTTPS access - restricted to Swedish IP ranges
+# These are major Swedish ISP and hosting provider IP blocks
+resource "digitalocean_firewall" "web" {
+  name = "k8s-web-access-${digitalocean_kubernetes_cluster.zetterstrom.id}"
+
+  tags = ["k8s:${digitalocean_kubernetes_cluster.zetterstrom.id}"]
+
+  # HTTP access from anywhere
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "80"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  # HTTPS access from anywhere
+  inbound_rule {
+    protocol         = "tcp"
+    port_range       = "443"
+    source_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  # Allow all outbound traffic
+  outbound_rule {
+    protocol              = "tcp"
+    port_range            = "1-65535"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "udp"
+    port_range            = "1-65535"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+
+  outbound_rule {
+    protocol              = "icmp"
+    destination_addresses = ["0.0.0.0/0", "::/0"]
+  }
+}

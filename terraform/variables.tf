@@ -15,3 +15,9 @@ variable "k8s_version" {
   type        = string
   default     = "1.33.1-do.5"
 }
+
+variable "domain" {
+  description = "Primary domain name (must already be registered and using DigitalOcean nameservers)"
+  type        = string
+  default     = "zetterstrom.dev"
+}

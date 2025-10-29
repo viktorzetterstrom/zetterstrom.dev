@@ -17,12 +17,22 @@ This guide explains how to deploy zetterstrom.dev to DigitalOcean Kubernetes.
 4. **kubectl** - Kubernetes CLI
 5. **Docker Hub account** - For pushing images (using existing `viktorzetterstrom` account)
 
-## Step 1: Create Infrastructure with Terraform
+## Step 1: Prerequisites
+
+**Important:** Your domain must already be registered and configured to use DigitalOcean's nameservers:
+- `ns1.digitalocean.com`
+- `ns2.digitalocean.com`
+- `ns3.digitalocean.com`
+
+You can configure this in your domain registrar's control panel.
+
+## Step 2: Create Infrastructure with Terraform
 
 Terraform will automatically create:
 - Kubernetes cluster (1 node, s-1vcpu-2gb, ~$12/month)
 - NGINX Ingress Controller (using NodePort - no extra cost!)
 - cert-manager for automatic SSL certificates
+- DNS records (A records for root, movies, and recipes subdomains)
 
 1. Navigate to the terraform directory:
    ```bash
@@ -39,6 +49,7 @@ Terraform will automatically create:
    do_token = "your-digitalocean-api-token"
    region   = "fra1"  # or your preferred region
    k8s_version = "1.33.1-do.5"  # check latest: doctl kubernetes options versions
+   domain   = "zetterstrom.dev"  # your domain (optional, defaults to zetterstrom.dev)
    ```
 
 4. Initialize and apply Terraform:
@@ -48,39 +59,23 @@ Terraform will automatically create:
    terraform apply
    ```
 
+   This creates everything including DNS records automatically!
+
 5. Get the kubeconfig:
    ```bash
    doctl kubernetes cluster kubeconfig save <cluster-id>
    ```
    (The cluster ID will be shown in Terraform outputs)
 
-6. Get your node's public IP:
-   ```bash
-   kubectl get nodes -o wide
-   ```
-   Look for the EXTERNAL-IP column.
+## Step 3: Wait for DNS Propagation
 
-## Step 2: Configure SSL Certificate Email
+DNS changes can take 5-60 minutes to propagate globally. You can check with:
 
-Before deploying, update the email address in `k8s/cluster-issuer.yaml`:
-
-```yaml
-email: your-email@example.com  # Replace with your actual email
+```bash
+dig zetterstrom.dev
+dig movies.zetterstrom.dev
+dig recipes.zetterstrom.dev
 ```
-
-This is required for Let's Encrypt certificate notifications.
-
-## Step 3: Configure DNS
-
-Point your domains to your node's public IP (from Step 1.6):
-
-```
-A Record: zetterstrom.dev -> <NODE-PUBLIC-IP>
-A Record: movies.zetterstrom.dev -> <NODE-PUBLIC-IP>
-A Record: recipes.zetterstrom.dev -> <NODE-PUBLIC-IP>
-```
-
-Wait for DNS propagation (can take a few minutes to hours).
 
 ## Step 4: Build and Push Docker Images
 
@@ -147,6 +142,22 @@ kubectl logs -n zetterstrom -l app=recipes
    ```
 
 
+## Costs
+
+- **Kubernetes Cluster**: ~$12/month (1 node, s-1vcpu-2gb)
+- **DNS Hosting**: Free (included with DigitalOcean)
+- **Total**: ~$12/month
+
+Note: We use NodePort with hostNetwork instead of a Load Balancer to save $12/month. Traffic goes directly to the node's public IP on ports 80/443.
+
+## How DNS is Managed
+
+DNS records are fully managed by Terraform:
+- `digitalocean_domain` resource manages the domain zone
+- `digitalocean_record` resources create A records pointing to the node's IP
+- Records are automatically created/updated when you run `terraform apply`
+- If the node IP changes, simply run `terraform apply` to update DNS
+
 ## Tearing Down
 
 To destroy the infrastructure:
@@ -155,6 +166,11 @@ To destroy the infrastructure:
 cd terraform
 terraform destroy
 ```
+
+This will remove:
+- Kubernetes cluster
+- DNS records
+- All associated resources
 
 ## Troubleshooting
 

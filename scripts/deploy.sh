@@ -5,6 +5,21 @@ set -e
 echo "=== Deploying to DigitalOcean Kubernetes cluster ==="
 echo ""
 
+echo "Step 1: Checking cert-manager is ready..."
+if ! kubectl get namespace cert-manager &> /dev/null; then
+  echo "  ⚠️  cert-manager namespace not found. Make sure Terraform has been applied first."
+  exit 1
+fi
+
+echo "  Waiting for cert-manager to be ready..."
+kubectl wait --namespace cert-manager \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/instance=cert-manager \
+  --timeout=120s
+
+echo "  ✓ cert-manager is ready"
+echo ""
+
 echo "Step 2: Deploying application resources..."
 kubectl apply -f k8s/namespace.yaml
 kubectl apply -f k8s/cluster-issuer.yaml

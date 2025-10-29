@@ -23,17 +23,23 @@ output "node_public_ip_command" {
   value       = "kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type==\"ExternalIP\")].address}'"
 }
 
+output "node_public_ip" {
+  description = "The public IP address of the cluster node"
+  value       = data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address
+}
+
+output "dns_records" {
+  description = "DNS records configured"
+  value = {
+    root    = "${var.domain} -> ${data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address}"
+    movies  = "movies.${var.domain} -> ${data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address}"
+    recipes = "recipes.${var.domain} -> ${data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address}"
+  }
+}
+
 output "next_steps" {
   description = "Next steps after infrastructure is created"
   value = <<-EOT
-    1. Get kubeconfig: doctl kubernetes cluster kubeconfig save ${digitalocean_kubernetes_cluster.zetterstrom.id}
-    2. Get node public IP: kubectl get nodes -o wide
-    3. Configure DNS A records pointing to the node's public IP:
-       - zetterstrom.dev -> <NODE-IP>
-       - movies.zetterstrom.dev -> <NODE-IP>
-       - recipes.zetterstrom.dev -> <NODE-IP>
-    4. Deploy application: ./scripts/deploy.sh
-
-    Note: Using NodePort (no Load Balancer) - saves $12/month!
+    Infrastructure created successfully!
   EOT
 }

@@ -2,10 +2,15 @@
   "name": "zetterstrom.dev",
   "version": "1.0.0",
   "private": true,
-  "engines": { "pnpm": ">=8.10.0" },
+  "engines": {
+    "pnpm": ">=8.10.0"
+  },
   "scripts": {
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md,yaml,yml}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md,yaml,yml}\""
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md,yaml,yml}\"",
+    "build-and-push": "./scripts/build-and-push.sh",
+    "deploy-it": "./scripts/deploy.sh",
+    "dev": "./scripts/start.sh"
   },
   "devDependencies": {
     "prettier": "^3.6.2"

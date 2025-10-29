@@ -53,8 +53,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--highlight-color);
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 8px;
 }
 
 .top-image {
@@ -71,12 +70,11 @@ ul {
 .icon-container {
   display: flex;
   justify-content: center;
+  gap: 6px;
 }
 
 .svg-icon {
   color: var(--highlight-color);
-  margin-left: 8px;
-  margin-right: 8px;
   height: 48px;
   width: 48px;
 }
