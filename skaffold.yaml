@@ -1,58 +1,59 @@
-apiVersion: skaffold/v2beta9
+apiVersion: skaffold/v4beta13
 kind: Config
 metadata:
   name: zetterstrom-dev
 build:
-  local:
-    push: false
   artifacts:
     - image: viktorzetterstrom/index-zetterstrom-dev
-      context: index
-      docker:
-        dockerfile: Dockerfile.dev
+      context: packages/index
       sync:
         infer:
-          - "**/*.html"
-          - "**/*.js"
-          - "**/*.css"
+          - '**/*.html'
+          - '**/*.js'
+          - '**/*.css'
+      docker:
+        dockerfile: Dockerfile.dev
     - image: viktorzetterstrom/movies-zetterstrom-dev
       context: .
-      docker:
-        dockerfile: movies/Dockerfile.dev
       sync:
         manual:
-          - src: "movies/**/*.ts"
-            dest: /workspace/movies
-          - src: "movies/**/*.css"
-            dest: /workspace/movies
-          - src: "movies/**/*.html"
-            dest: /workspace/movies
+          - src: packages/movies/**/*.ts
+            dest: /workspace/packages/movies
+          - src: packages/movies/**/*.css
+            dest: /workspace/packages/movies
+          - src: packages/movies/**/*.html
+            dest: /workspace/packages/movies
+      docker:
+        dockerfile: packages/movies/Dockerfile.dev
     - image: viktorzetterstrom/recipes-zetterstrom-dev
       context: .
-      docker:
-        dockerfile: recipes/Dockerfile.dev
       sync:
         manual:
-          - src: "recipes/src/**/*"
-            dest: /workspace/recipes/src
-          - src: "recipes/utils/**/*"
-            dest: /workspace/recipes/utils
-          - src: "recipes/recipes/**/*.yaml"
-            dest: /workspace/recipes/recipes
-          - src: "recipes/recipes/**/*.yml"
-            dest: /workspace/recipes/recipes
-          - src: "recipes/public/**/*"
-            dest: /workspace/recipes/public
+          - src: packages/recipes/src/**/*
+            dest: /workspace/packages/recipes/src
+          - src: packages/recipes/utils/**/*
+            dest: /workspace/packages/recipes/utils
+          - src: packages/recipes/recipes/**/*.yaml
+            dest: /workspace/packages/recipes/recipes
+          - src: packages/recipes/recipes/**/*.yml
+            dest: /workspace/packages/recipes/recipes
+          - src: packages/recipes/public/**/*
+            dest: /workspace/packages/recipes/public
+      docker:
+        dockerfile: packages/recipes/Dockerfile.dev
+  local:
+    push: false
+manifests:
+  rawYaml:
+    - k8s/namespace.yaml
+    - k8s/local-tls-secret.yaml
+    - k8s/ingress-srv.yaml
+    - k8s/index-depl.yaml
+    - k8s/movies-depl.yaml
+    - k8s/recipes-depl.yaml
 deploy:
+  kubectl: {}
   kubeContext: docker-desktop
-  kubectl:
-    manifests:
-      - k8s/namespace.yaml
-      - k8s/local-tls-secret.yaml
-      - k8s/ingress-srv.yaml
-      - k8s/index-depl.yaml
-      - k8s/movies-depl.yaml
-      - k8s/recipes-depl.yaml
 portForward:
   - resourceType: service
     resourceName: index-srv
