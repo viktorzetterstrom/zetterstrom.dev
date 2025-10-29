@@ -7,6 +7,7 @@ echo ""
 
 echo "Step 2: Deploying application resources..."
 kubectl apply -f k8s/namespace.yaml
+kubectl apply -f k8s/cluster-issuer.yaml
 kubectl apply -f k8s/index-depl.yaml
 kubectl apply -f k8s/movies-depl.yaml
 kubectl apply -f k8s/recipes-depl.yaml

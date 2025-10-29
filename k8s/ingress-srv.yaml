@@ -6,14 +6,22 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
   tls:
+    # Local development TLS
     - hosts:
         - local.zetterstrom.dev
         - local.movies.zetterstrom.dev
         - local.recipes.zetterstrom.dev
       secretName: local-zetterstrom-dev-tls
+    # Production TLS
+    - hosts:
+        - zetterstrom.dev
+        - movies.zetterstrom.dev
+        - recipes.zetterstrom.dev
+      secretName: zetterstrom-dev-tls
   rules:
     # Local development domains
     - host: local.zetterstrom.dev

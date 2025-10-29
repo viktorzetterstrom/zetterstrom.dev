@@ -17,7 +17,12 @@ This guide explains how to deploy zetterstrom.dev to DigitalOcean Kubernetes.
 4. **kubectl** - Kubernetes CLI
 5. **Docker Hub account** - For pushing images (using existing `viktorzetterstrom` account)
 
-## Step 1: Create the Kubernetes Cluster with Terraform
+## Step 1: Create Infrastructure with Terraform
+
+Terraform will automatically create:
+- Kubernetes cluster (1 node, s-1vcpu-2gb, ~$12/month)
+- NGINX Ingress Controller (using NodePort - no extra cost!)
+- cert-manager for automatic SSL certificates
 
 1. Navigate to the terraform directory:
    ```bash
@@ -33,7 +38,7 @@ This guide explains how to deploy zetterstrom.dev to DigitalOcean Kubernetes.
    ```hcl
    do_token = "your-digitalocean-api-token"
    region   = "fra1"  # or your preferred region
-   k8s_version = "1.31.1-do.4"  # check latest: doctl kubernetes options versions
+   k8s_version = "1.33.1-do.5"  # check latest: doctl kubernetes options versions
    ```
 
 4. Initialize and apply Terraform:
@@ -43,81 +48,41 @@ This guide explains how to deploy zetterstrom.dev to DigitalOcean Kubernetes.
    terraform apply
    ```
 
-   This will create:
-   - A 1-node Kubernetes cluster (s-2vcpu-2gb, ~$12/month)
-   - Outputs with cluster information
-
 5. Get the kubeconfig:
    ```bash
    doctl kubernetes cluster kubeconfig save <cluster-id>
    ```
    (The cluster ID will be shown in Terraform outputs)
 
-## Step 2: Install NGINX Ingress Controller
+6. Get your node's public IP:
+   ```bash
+   kubectl get nodes -o wide
+   ```
+   Look for the EXTERNAL-IP column.
 
-The cluster needs an ingress controller to route traffic:
+## Step 2: Configure SSL Certificate Email
 
-```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.1/deploy/static/provider/do/deploy.yaml
-```
+Before deploying, update the email address in `k8s/cluster-issuer.yaml`:
 
-Wait for the load balancer to be created:
-```bash
-kubectl get svc -n ingress-nginx
-```
-
-Note the EXTERNAL-IP - you'll need to point your DNS to this IP.
-
-## Step 3: Install cert-manager (Optional - for SSL)
-
-For automatic SSL certificates with Let's Encrypt:
-
-```bash
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.15.1/cert-manager.yaml
-```
-
-Wait for cert-manager to be ready:
-```bash
-kubectl get pods -n cert-manager
-```
-
-Create a ClusterIssuer for Let's Encrypt (update with your email):
-```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-prod
-spec:
-  acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: your-email@example.com
-    privateKeySecretRef:
-      name: letsencrypt-prod
-    solvers:
-      - http01:
-          ingress:
-            class: nginx
-EOF
-```
-
-Then update `k8s/ingress-srv.yaml` to add this annotation:
 ```yaml
-annotations:
-  cert-manager.io/cluster-issuer: "letsencrypt-prod"
+email: your-email@example.com  # Replace with your actual email
 ```
 
-## Step 4: Configure DNS
+This is required for Let's Encrypt certificate notifications.
 
-Point your domains to the ingress controller's external IP:
+## Step 3: Configure DNS
+
+Point your domains to your node's public IP (from Step 1.6):
 
 ```
-A Record: zetterstrom.dev -> <EXTERNAL-IP>
-A Record: movies.zetterstrom.dev -> <EXTERNAL-IP>
-A Record: recipes.zetterstrom.dev -> <EXTERNAL-IP>
+A Record: zetterstrom.dev -> <NODE-PUBLIC-IP>
+A Record: movies.zetterstrom.dev -> <NODE-PUBLIC-IP>
+A Record: recipes.zetterstrom.dev -> <NODE-PUBLIC-IP>
 ```
 
-## Step 5: Build and Push Docker Images
+Wait for DNS propagation (can take a few minutes to hours).
+
+## Step 4: Build and Push Docker Images
 
 From the project root:
 
@@ -132,7 +97,7 @@ docker login
 ./scripts/build-and-push.sh v1.0.0
 ```
 
-## Step 6: Deploy to Kubernetes
+## Step 5: Deploy to Kubernetes
 
 ```bash
 ./scripts/deploy.sh
@@ -140,7 +105,7 @@ docker login
 
 This will apply all Kubernetes manifests to your cluster.
 
-## Step 7: Verify Deployment
+## Step 6: Verify Deployment
 
 Check that everything is running:
 
@@ -181,11 +146,6 @@ kubectl logs -n zetterstrom -l app=recipes
    kubectl rollout restart deployment -n zetterstrom recipes-depl
    ```
 
-## Costs
-
-- **Kubernetes Cluster**: ~$12/month (1 node, s-2vcpu-2gb)
-- **Load Balancer** (for ingress): ~$12/month
-- **Total**: ~$24/month
 
 ## Tearing Down
 
