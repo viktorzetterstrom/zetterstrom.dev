@@ -22,26 +22,28 @@ const fileNames = fs.readdirSync(basepath)
 const readRawRecipeFromFile = (name: string) => fs.readFileSync(`${basepath}/${name}`, "utf-8")
 
 const readRecipeFromFile = (name: string): Recipe | void => {
-  try {
-    const rawRecipe = yaml.load(readRawRecipeFromFile(name))
-    if (typeof rawRecipe !== "object") throw new Error("Recipe not object")
+  const rawRecipe = yaml.load(readRawRecipeFromFile(name))
+  if (typeof rawRecipe !== "object") throw new Error("Recipe not object")
 
-    const recipe = {
-      ...rawRecipe,
-      slug: name.replace(/\.ya?ml$/, ""),
-    }
-
-    const validationResult = recipeSchema.validate(recipe)
-    if (validationResult.error) throw validationResult.error
-
-    return validationResult.value
-  } catch (e) {
-    console.log(`Error while reading recipe: "${name}" from disc.`, e)
+  const recipe = {
+    ...rawRecipe,
+    slug: name.replace(/\.ya?ml$/, ""),
   }
+
+  const validationResult = recipeSchema.validate(recipe)
+  if (validationResult.error) throw validationResult.error
+
+  return validationResult.value
 }
 
-const recipes = fileNames.map(readRecipeFromFile).filter((recipe): recipe is Recipe => !!recipe)
+const recipes = (() => {
+  try {
+    return fileNames.map(readRecipeFromFile).filter((recipe): recipe is Recipe => !!recipe)
+  } catch (e) {
+    console.log(`Error while reading recipe from disc.`, e)
+  }
+})()
 
-export const getRecipes = () => recipes
+export const getRecipes = () => recipes ?? []
 
-export const getRecipe = (slug: string) => recipes.find((recipe) => slug === recipe.slug)
+export const getRecipe = (slug: string) => recipes?.find((recipe) => slug === recipe.slug)
