@@ -41,6 +41,18 @@ build:
             dest: /workspace/packages/recipes/public
       docker:
         dockerfile: packages/recipes/Dockerfile.dev
+    - image: viktorzetterstrom/stava-zetterstrom-dev
+      context: .
+      sync:
+        manual:
+          - src: packages/stava/src/**/*
+            dest: /workspace/packages/stava/src
+          - src: packages/stava/index.html
+            dest: /workspace/packages/stava
+          - src: packages/stava/**/*.css
+            dest: /workspace/packages/stava
+      docker:
+        dockerfile: packages/stava/Dockerfile.dev
   local:
     push: false
 manifests:
@@ -51,6 +63,7 @@ manifests:
     - k8s/index-depl.yaml
     - k8s/movies-depl.yaml
     - k8s/recipes-depl.yaml
+    - k8s/stava-depl.yaml
 deploy:
   kubectl: {}
   kubeContext: docker-desktop
@@ -70,3 +83,8 @@ portForward:
     namespace: zetterstrom
     port: 80
     localPort: 3002
+  - resourceType: service
+    resourceName: stava-srv
+    namespace: zetterstrom
+    port: 80
+    localPort: 3003

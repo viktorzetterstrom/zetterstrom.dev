@@ -113,7 +113,6 @@ resource "helm_release" "cert_manager" {
   depends_on = [digitalocean_kubernetes_cluster.zetterstrom]
 }
 
-# Get the droplet (node) details to access the public IP
 data "digitalocean_droplets" "cluster_nodes" {
   filter {
     key    = "tags"
@@ -127,12 +126,10 @@ data "digitalocean_droplets" "cluster_nodes" {
   ]
 }
 
-# Manage the domain in DigitalOcean DNS
 resource "digitalocean_domain" "main" {
   name = var.domain
 }
 
-# Root domain A record pointing to the first node's public IP
 resource "digitalocean_record" "root" {
   domain = digitalocean_domain.main.id
   type   = "A"
@@ -141,7 +138,6 @@ resource "digitalocean_record" "root" {
   ttl    = 300
 }
 
-# Movies subdomain A record
 resource "digitalocean_record" "movies" {
   domain = digitalocean_domain.main.id
   type   = "A"
@@ -150,7 +146,6 @@ resource "digitalocean_record" "movies" {
   ttl    = 300
 }
 
-# Recipes subdomain A record
 resource "digitalocean_record" "recipes" {
   domain = digitalocean_domain.main.id
   type   = "A"
@@ -159,8 +154,6 @@ resource "digitalocean_record" "recipes" {
   ttl    = 300
 }
 
-# Firewall for HTTP/HTTPS access - restricted to Swedish IP ranges
-# These are major Swedish ISP and hosting provider IP blocks
 resource "digitalocean_firewall" "web" {
   name = "k8s-web-access-${digitalocean_kubernetes_cluster.zetterstrom.id}"
 

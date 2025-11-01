@@ -15,12 +15,14 @@ spec:
         - local.zetterstrom.dev
         - local.movies.zetterstrom.dev
         - local.recipes.zetterstrom.dev
+        - local.stava.zetterstrom.dev
       secretName: local-zetterstrom-dev-tls
     # Production TLS
     - hosts:
         - zetterstrom.dev
         - movies.zetterstrom.dev
         - recipes.zetterstrom.dev
+        - stava.zetterstrom.dev
       secretName: zetterstrom-dev-tls
   rules:
     # Local development domains
@@ -54,6 +56,16 @@ spec:
                 name: recipes-srv
                 port:
                   number: 80
+    - host: local.stava.zetterstrom.dev
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: stava-srv
+                port:
+                  number: 80
     # Production domains
     - host: zetterstrom.dev
       http:
@@ -83,5 +95,15 @@ spec:
             backend:
               service:
                 name: recipes-srv
+                port:
+                  number: 80
+    - host: stava.zetterstrom.dev
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: stava-srv
                 port:
                   number: 80
