@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import confetti from "canvas-confetti"
+import { twMerge } from "tailwind-merge"
 
 type GameState = "input" | "playing" | "word-complete"
 
@@ -143,7 +144,7 @@ function App() {
       </div>
 
       <div className={`transition-transform ${shake ? "animate-shake" : ""}`}>
-        <div className="flex gap-3 mb-8">
+        <div className="flex gap-4 mb-8">
           {currentWord.split("").map((letter, index) => {
             const isComplete = index < currentLetterIndex
             const isCurrent = index === currentLetterIndex
@@ -152,14 +153,13 @@ function App() {
             return (
               <div
                 key={index}
-                className={`
-                  w-24 h-32 rounded-2xl shadow-2xl flex items-center justify-center text-6xl font-bold
-                  transition-all duration-300
-                  ${isComplete ? "bg-green-500 text-white scale-95" : ""}
-                  ${isCurrent ? "bg-white text-purple-600 ring-8 ring-yellow-400 scale-110" : ""}
-                  ${isPending ? "bg-white text-gray-300" : ""}
-                  ${gameState === "word-complete" ? "bg-green-500 text-white animate-bounce" : ""}
-                `}
+                className={twMerge(
+                  "w-24 h-32 rounded-2xl shadow-2xl flex items-center justify-center text-6xl font-bold transition-all duration-300",
+                  isComplete && "bg-green-500 text-white scale-95",
+                  isCurrent && "bg-white text-purple-600 ring-8 ring-yellow-400 scale-110",
+                  isPending && "bg-white text-gray-300",
+                  gameState === "word-complete" && "bg-green-500 text-white animate-bounce",
+                )}
               >
                 {letter}
               </div>
