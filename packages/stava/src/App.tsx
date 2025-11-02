@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import confetti from "canvas-confetti"
 import { twMerge } from "tailwind-merge"
 
-type GameMode = "spelling" | "pronunciation"
+type GameMode = "spelling" | "pronunciation" | "music"
 type GameState = "input" | "playing" | "word-complete"
 
 function App() {
@@ -17,9 +17,40 @@ function App() {
   const currentWord = words[currentWordIndex]?.toUpperCase() || ""
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const audioContextRef = useRef<AudioContext | null>(null)
 
   // Swedish alphabet including special characters
-  const swedishAlphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Å", "Ä", "Ö"]
+  const swedishAlphabet = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "Å",
+    "Ä",
+    "Ö",
+  ]
 
   const getAudioFileName = (letter: string): string => {
     if (letter === "Å") return "AU"
@@ -34,7 +65,68 @@ function App() {
       audioRef.current.pause()
     }
     audioRef.current = new Audio(`/audio/${fileName}.m4a`)
-    audioRef.current.play().catch(err => console.error("Error playing audio:", err))
+    audioRef.current.play().catch((err) => console.error("Error playing audio:", err))
+  }
+
+  // Music mode: Map letters to musical notes (chromatic scale starting from C4)
+  const getFrequency = (letter: string): number => {
+    const noteMap: { [key: string]: number } = {
+      A: 261.63, // C4
+      B: 277.18, // C#4
+      C: 293.66, // D4
+      D: 311.13, // D#4
+      E: 329.63, // E4
+      F: 349.23, // F4
+      G: 369.99, // F#4
+      H: 392.0, // G4
+      I: 415.3, // G#4
+      J: 440.0, // A4
+      K: 466.16, // A#4
+      L: 493.88, // B4
+      M: 523.25, // C5
+      N: 554.37, // C#5
+      O: 587.33, // D5
+      P: 622.25, // D#5
+      Q: 659.25, // E5
+      R: 698.46, // F5
+      S: 739.99, // F#5
+      T: 783.99, // G5
+      U: 830.61, // G#5
+      V: 880.0, // A5
+      W: 932.33, // A#5
+      X: 987.77, // B5
+      Y: 1046.5, // C6
+      Z: 1108.73, // C#6
+      Å: 1174.66, // D6
+      Ä: 1244.51, // D#6
+      Ö: 1318.51, // E6
+    }
+    return noteMap[letter] || 440.0
+  }
+
+  const playMusicalNote = (letter: string) => {
+    // Create AudioContext only once and reuse it
+    if (!audioContextRef.current) {
+      audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)()
+    }
+
+    const audioContext = audioContextRef.current
+    const oscillator = audioContext.createOscillator()
+    const gainNode = audioContext.createGain()
+
+    oscillator.connect(gainNode)
+    gainNode.connect(audioContext.destination)
+
+    oscillator.frequency.value = getFrequency(letter)
+    oscillator.type = "sine"
+
+    // Envelope for smoother sound
+    gainNode.gain.setValueAtTime(0, audioContext.currentTime)
+    gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01)
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5)
+
+    oscillator.start(audioContext.currentTime)
+    oscillator.stop(audioContext.currentTime + 0.5)
   }
 
   useEffect(() => {
@@ -77,6 +169,23 @@ function App() {
     window.addEventListener("keydown", handleKeyPress)
     return () => window.removeEventListener("keydown", handleKeyPress)
   }, [gameState, currentWord, currentLetterIndex, currentWordIndex, words.length])
+
+  // Music mode keyboard handler
+  useEffect(() => {
+    if (gameMode !== "music") return
+
+    const handleMusicKeyPress = (e: KeyboardEvent) => {
+      const key = e.key.toUpperCase()
+
+      // Check if it's a valid Swedish alphabet letter
+      if (swedishAlphabet.includes(key)) {
+        playMusicalNote(key)
+      }
+    }
+
+    window.addEventListener("keydown", handleMusicKeyPress)
+    return () => window.removeEventListener("keydown", handleMusicKeyPress)
+  }, [gameMode])
 
   const triggerConfetti = () => {
     const duration = 2000
@@ -148,6 +257,12 @@ function App() {
               >
                 Bokstavsuttal
               </button>
+              <button
+                onClick={() => setGameMode("music")}
+                className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-3xl font-bold py-8 px-12 rounded-2xl hover:scale-105 transition-transform shadow-lg"
+              >
+                Musikläge
+              </button>
             </div>
           </div>
         </div>
@@ -164,7 +279,7 @@ function App() {
               onClick={() => setGameMode(null)}
               className="text-white text-xl font-semibold hover:underline"
             >
-              ← Tillbaka till valet
+              ← Tillbaka
             </button>
             <h1 className="text-6xl font-bold text-white text-center drop-shadow-lg">Stava</h1>
             <div className="w-48"></div>
@@ -178,7 +293,7 @@ function App() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleInputKeyPress}
-              placeholder="Skriv in ord (ett per rad eller kommaseparerat)&#10;Exempel:&#10;KATT&#10;HUND&#10;HUS"
+              placeholder="Skriv in ord (ett per rad eller kommaseparerat)"
               className="w-full h-64 text-2xl p-4 border-4 border-purple-200 rounded-xl focus:border-purple-400 focus:outline-none resize-none font-mono"
             />
             <button
@@ -204,19 +319,58 @@ function App() {
               onClick={() => setGameMode(null)}
               className="text-white text-xl font-semibold hover:underline"
             >
-              ← Tillbaka till valet
+              ← Tillbaka
             </button>
-            <h1 className="text-6xl font-bold text-white text-center drop-shadow-lg">Bokstavsuttal</h1>
+            <h1 className="text-6xl font-bold text-white text-center drop-shadow-lg">
+              Bokstavsuttal
+            </h1>
             <div className="w-48"></div>
           </div>
           <div className="bg-white rounded-3xl shadow-2xl p-8">
-            <p className="text-2xl text-center text-purple-600 mb-6 font-semibold">Klicka på en bokstav för att höra hur den uttalas</p>
+            <p className="text-2xl text-center text-purple-600 mb-6 font-semibold">
+              Klicka på en bokstav för att höra hur den uttalas
+            </p>
             <div className="grid grid-cols-7 gap-4">
               {swedishAlphabet.map((letter) => (
                 <button
                   key={letter}
                   onClick={() => playLetterAudio(letter)}
                   className="bg-gradient-to-br from-purple-400 to-pink-400 text-white text-4xl font-bold py-8 rounded-2xl hover:scale-110 hover:shadow-2xl transition-all duration-200 active:scale-95"
+                >
+                  {letter}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (gameState === "input" && gameMode === "music") {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-orange-400 via-red-400 to-pink-400 p-8 flex flex-col items-center justify-center">
+        <div className="max-w-5xl w-full">
+          <div className="flex items-center justify-between mb-8">
+            <button
+              onClick={() => setGameMode(null)}
+              className="text-white text-xl font-semibold hover:underline"
+            >
+              ← Tillbaka
+            </button>
+            <h1 className="text-6xl font-bold text-white text-center drop-shadow-lg">Musikläge</h1>
+            <div className="w-48"></div>
+          </div>
+          <div className="bg-white rounded-3xl shadow-2xl p-8">
+            <p className="text-2xl text-center text-orange-600 mb-6 font-semibold">
+              Klicka på en tangent eller tryck på tangentbordet för att spela musik!
+            </p>
+            <div className="grid grid-cols-7 gap-4">
+              {swedishAlphabet.map((letter) => (
+                <button
+                  key={letter}
+                  onClick={() => playMusicalNote(letter)}
+                  className="bg-gradient-to-br from-orange-400 to-red-400 text-white text-4xl font-bold py-8 rounded-2xl hover:scale-110 hover:shadow-2xl transition-all duration-200 active:scale-95"
                 >
                   {letter}
                 </button>
