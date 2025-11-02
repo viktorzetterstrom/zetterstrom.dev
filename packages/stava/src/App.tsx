@@ -187,6 +187,23 @@ function App() {
     return () => window.removeEventListener("keydown", handleMusicKeyPress)
   }, [gameMode])
 
+  // Pronunciation mode keyboard handler
+  useEffect(() => {
+    if (gameMode !== "pronunciation") return
+
+    const handlePronunciationKeyPress = (e: KeyboardEvent) => {
+      const key = e.key.toUpperCase()
+
+      // Check if it's a valid Swedish alphabet letter
+      if (swedishAlphabet.includes(key)) {
+        playLetterAudio(key)
+      }
+    }
+
+    window.addEventListener("keydown", handlePronunciationKeyPress)
+    return () => window.removeEventListener("keydown", handlePronunciationKeyPress)
+  }, [gameMode])
+
   const triggerConfetti = () => {
     const duration = 2000
     const end = Date.now() + duration
@@ -328,7 +345,7 @@ function App() {
           </div>
           <div className="bg-white rounded-3xl shadow-2xl p-8">
             <p className="text-2xl text-center text-purple-600 mb-6 font-semibold">
-              Klicka på en bokstav för att höra hur den uttalas
+              Klicka på en bokstav eller tryck på tangentbordet för att höra hur den uttalas
             </p>
             <div className="grid grid-cols-7 gap-4">
               {swedishAlphabet.map((letter) => (
