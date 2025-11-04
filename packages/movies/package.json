@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
-    "dev": "ts-node-dev src/index.ts",
+    "dev": "PORT=3002 ts-node-dev src/index.ts",
     "scrape": "ts-node src/scripts/imdb-ratings-scrape.ts"
   },
   "keywords": [],

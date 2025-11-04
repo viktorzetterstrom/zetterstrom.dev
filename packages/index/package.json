@@ -1,0 +1,13 @@
+{
+  "name": "index",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "http-server public -p 3000 -c-1",
+    "start": "http-server public -p 3000"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "packageManager": "pnpm@10.20.0"
+}
