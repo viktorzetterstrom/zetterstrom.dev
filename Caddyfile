@@ -1,0 +1,27 @@
+# Local development reverse proxy
+# Install Caddy: brew install caddy
+# Run: caddy run
+
+local.zetterstrom.dev, local.recipes.zetterstrom.dev, local.movies.zetterstrom.dev, local.stava.zetterstrom.dev {
+    tls .local-tls-certs/local.zetterstrom.dev+3.pem .local-tls-certs/local.zetterstrom.dev+3-key.pem
+
+    @index host local.zetterstrom.dev
+    handle @index {
+        reverse_proxy localhost:3000
+    }
+
+    @recipes host local.recipes.zetterstrom.dev
+    handle @recipes {
+        reverse_proxy localhost:3001
+    }
+
+    @movies host local.movies.zetterstrom.dev
+    handle @movies {
+        reverse_proxy localhost:3002
+    }
+
+    @stava host local.stava.zetterstrom.dev
+    handle @stava {
+        reverse_proxy localhost:3003
+    }
+}
