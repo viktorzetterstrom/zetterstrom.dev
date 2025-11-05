@@ -15,6 +15,7 @@
     "dev:movies": "pnpm --filter movies dev",
     "dev:recipes": "pnpm --filter client dev",
     "dev:stava": "pnpm --filter stava dev",
+    "dev:wdng": "pnpm --filter wdng dev",
     "setup:hosts": "./scripts/setup-local-hosts.sh",
     "setup:certs": "./scripts/generate-local-certs.sh"
   },

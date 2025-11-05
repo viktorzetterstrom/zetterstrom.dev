@@ -27,11 +27,13 @@ if [ "$CADDY_INSTALLED" = true ]; then
   echo "  Recipes: http://localhost:3001  |  https://local.recipes.zetterstrom.dev"
   echo "  Movies:  http://localhost:3002  |  https://local.movies.zetterstrom.dev"
   echo "  Stava:   http://localhost:3003  |  https://local.stava.zetterstrom.dev"
+  echo "  WDNG:    http://localhost:3004  |  https://local.wdng.zetterstrom.dev"
 else
   echo "  Index:   http://localhost:3000"
   echo "  Recipes: http://localhost:3001"
   echo "  Movies:  http://localhost:3002"
   echo "  Stava:   http://localhost:3003"
+  echo "  WDNG:    http://localhost:3004"
   echo ""
   echo "💡 Tip: Install Caddy for local domain support (brew install caddy)"
 fi
@@ -61,6 +63,7 @@ pnpm --filter index dev &
 pnpm --filter movies dev &
 pnpm --filter client dev &
 pnpm --filter stava dev &
+pnpm --filter wdng dev &
 
 # Wait for all background processes
 wait

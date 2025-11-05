@@ -7,6 +7,7 @@ HOSTS=(
   "local.movies.zetterstrom.dev"
   "local.recipes.zetterstrom.dev"
   "local.stava.zetterstrom.dev"
+  "local.wdng.zetterstrom.dev"
 )
 
 echo "Setting up local development domains in /etc/hosts..."

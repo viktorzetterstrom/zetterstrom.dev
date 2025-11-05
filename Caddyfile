@@ -2,7 +2,7 @@
 # Install Caddy: brew install caddy
 # Run: caddy run
 
-local.zetterstrom.dev, local.recipes.zetterstrom.dev, local.movies.zetterstrom.dev, local.stava.zetterstrom.dev {
+local.zetterstrom.dev, local.recipes.zetterstrom.dev, local.movies.zetterstrom.dev, local.stava.zetterstrom.dev, local.wdng.zetterstrom.dev {
     tls .local-tls-certs/local.zetterstrom.dev+3.pem .local-tls-certs/local.zetterstrom.dev+3-key.pem
 
     @index host local.zetterstrom.dev
@@ -23,5 +23,10 @@ local.zetterstrom.dev, local.recipes.zetterstrom.dev, local.movies.zetterstrom.d
     @stava host local.stava.zetterstrom.dev
     handle @stava {
         reverse_proxy localhost:3003
+    }
+
+    @wdng host local.wdng.zetterstrom.dev
+    handle @wdng {
+        reverse_proxy localhost:3004
     }
 }
