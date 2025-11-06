@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { GameModeSelector, GameMode } from "./components/GameModeSelector"
-import { SpellingMode } from "./modes/SpellingMode"
-import { PronunciationMode } from "./modes/PronunciationMode"
+import { GameMode, GameModeSelector } from "./components/GameModeSelector"
 import { MusicMode } from "./modes/MusicMode"
+import { PronunciationMode } from "./modes/PronunciationMode"
+import { SpellingMode } from "./modes/SpellingMode"
 
 function App() {
   const [gameMode, setGameMode] = useState<GameMode | null>(null)

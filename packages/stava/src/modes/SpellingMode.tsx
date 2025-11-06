@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react"
 import confetti from "canvas-confetti"
+import { useEffect, useRef, useState } from "react"
 import { twMerge } from "tailwind-merge"
 
 type GameState = "input" | "playing" | "word-complete"
@@ -110,17 +110,17 @@ export const SpellingMode = ({ onBack }: SpellingModeProps) => {
 
   if (gameState === "input") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 p-8 flex items-center justify-center">
-        <div className="max-w-2xl w-full">
-          <div className="flex items-center justify-between mb-8">
-            <button onClick={onBack} className="text-white text-xl font-semibold hover:underline">
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 p-8">
+        <div className="w-full max-w-2xl">
+          <div className="mb-8 flex items-center justify-between">
+            <button onClick={onBack} className="text-xl font-semibold text-white hover:underline">
               ← Tillbaka
             </button>
-            <h1 className="text-6xl font-bold text-white text-center drop-shadow-lg">Stava</h1>
+            <h1 className="text-center text-6xl font-bold text-white drop-shadow-lg">Stava</h1>
             <div className="w-48"></div>
           </div>
-          <div className="bg-white rounded-3xl shadow-2xl p-8">
-            <label className="block text-2xl font-semibold text-purple-600 mb-4">
+          <div className="rounded-3xl bg-white p-8 shadow-2xl">
+            <label className="mb-4 block text-2xl font-semibold text-purple-600">
               Skriv in ord att öva på:
             </label>
             <textarea
@@ -129,16 +129,16 @@ export const SpellingMode = ({ onBack }: SpellingModeProps) => {
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleInputKeyPress}
               placeholder="Skriv in ord (ett per rad eller kommaseparerat)"
-              className="w-full h-64 text-2xl p-4 border-4 border-purple-200 rounded-xl focus:border-purple-400 focus:outline-none resize-none font-mono"
+              className="h-64 w-full resize-none rounded-xl border-4 border-purple-200 p-4 font-mono text-2xl focus:border-purple-400 focus:outline-none"
             />
             <button
               onClick={handleStartGame}
-              className="w-full mt-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-3xl font-bold py-6 px-12 rounded-full hover:scale-105 transition-transform shadow-lg disabled:opacity-50 disabled:hover:scale-100"
+              className="mt-6 w-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-12 py-6 text-3xl font-bold text-white shadow-lg transition-transform hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
               disabled={inputValue.trim().length === 0}
             >
               Starta spelet
             </button>
-            <p className="text-center text-gray-500 mt-4">Tips: Tryck Ctrl+Enter för att starta</p>
+            <p className="mt-4 text-center text-gray-500">Tips: Tryck Ctrl+Enter för att starta</p>
           </div>
         </div>
       </div>
@@ -146,15 +146,15 @@ export const SpellingMode = ({ onBack }: SpellingModeProps) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 p-8 flex flex-col items-center justify-center">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 p-8">
       <div className="mb-8 text-center">
-        <div className="text-white text-2xl font-semibold drop-shadow">
+        <div className="text-2xl font-semibold text-white drop-shadow">
           Ord {currentWordIndex + 1} av {words.length}
         </div>
       </div>
 
       <div className={`transition-transform ${shake ? "animate-shake" : ""}`}>
-        <div className="flex gap-4 mb-8">
+        <div className="mb-8 flex gap-4">
           {currentWord.split("").map((letter, index) => {
             const isComplete = index < currentLetterIndex
             const isCurrent = index === currentLetterIndex
@@ -164,11 +164,11 @@ export const SpellingMode = ({ onBack }: SpellingModeProps) => {
               <div
                 key={index}
                 className={twMerge(
-                  "w-24 h-32 rounded-2xl shadow-2xl flex items-center justify-center text-6xl font-bold transition-all duration-300",
-                  isComplete && "bg-green-500 text-white scale-95",
-                  isCurrent && "bg-white text-purple-600 ring-8 ring-yellow-400 scale-110",
+                  "flex h-32 w-24 items-center justify-center rounded-2xl text-6xl font-bold shadow-2xl transition-all duration-300",
+                  isComplete && "scale-95 bg-green-500 text-white",
+                  isCurrent && "scale-110 bg-white text-purple-600 ring-8 ring-yellow-400",
                   isPending && "bg-white text-gray-300",
-                  gameState === "word-complete" && "bg-green-500 text-white animate-bounce",
+                  gameState === "word-complete" && "animate-bounce bg-green-500 text-white",
                 )}
               >
                 {letter}
@@ -179,11 +179,13 @@ export const SpellingMode = ({ onBack }: SpellingModeProps) => {
       </div>
 
       {gameState === "word-complete" && (
-        <div className="text-6xl font-bold text-white drop-shadow-lg animate-bounce">Bra jobbat!</div>
+        <div className="animate-bounce text-6xl font-bold text-white drop-shadow-lg">
+          Bra jobbat!
+        </div>
       )}
 
       {gameState === "playing" && (
-        <div className="text-2xl text-white font-semibold drop-shadow text-center mt-8">
+        <div className="mt-8 text-center text-2xl font-semibold text-white drop-shadow">
           Skriv bokstäverna på tangentbordet
         </div>
       )}

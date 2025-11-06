@@ -1,5 +1,5 @@
-import styles from "./layout.module.css"
 import { NavBar, TopBar } from "./components"
+import styles from "./layout.module.css"
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (

@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
-import { getRecipe, getRecipes, Recipe as RecipeType } from "../../../utils"
-import ReactMarkdown from "react-markdown"
 import { useRouter } from "next/router"
+import ReactMarkdown from "react-markdown"
+import { getRecipe, getRecipes, Recipe as RecipeType } from "../../../utils"
 
 type RecipeProps = {
   recipe: RecipeType

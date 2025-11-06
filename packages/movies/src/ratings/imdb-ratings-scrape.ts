@@ -18,11 +18,11 @@ import puppeteer from "puppeteer"
   await page.locator("#signInSubmit").click()
   await page.waitForNavigation({ waitUntil: "load" })
 
-  const userMenu = await page.locator('::-p-text(viktorzetterstrom)').waitHandle()
+  const userMenu = await page.locator("::-p-text(viktorzetterstrom)").waitHandle()
   if (!userMenu) return await close()
   await userMenu.click()
 
-  const ratings = await page.locator('::-p-text(Your ratings)').waitHandle()
+  const ratings = await page.locator("::-p-text(Your ratings)").waitHandle()
   if (!ratings) return await close()
   await ratings.click()
 

@@ -20,6 +20,7 @@ This guide explains how to deploy zetterstrom.dev to DigitalOcean Kubernetes.
 ## Step 1: Prerequisites
 
 **Important:** Your domain must already be registered and configured to use DigitalOcean's nameservers:
+
 - `ns1.digitalocean.com`
 - `ns2.digitalocean.com`
 - `ns3.digitalocean.com`
@@ -29,22 +30,26 @@ You can configure this in your domain registrar's control panel.
 ## Step 2: Create Infrastructure with Terraform
 
 Terraform will automatically create:
+
 - Kubernetes cluster (1 node, s-1vcpu-2gb, ~$12/month)
 - NGINX Ingress Controller (using NodePort - no extra cost!)
 - cert-manager for automatic SSL certificates
 - DNS records (A records for root, movies, and recipes subdomains)
 
 1. Navigate to the terraform directory:
+
    ```bash
    cd terraform
    ```
 
 2. Create your `terraform.tfvars` file:
+
    ```bash
    cp terraform.tfvars.example terraform.tfvars
    ```
 
 3. Edit `terraform.tfvars` with your values:
+
    ```hcl
    do_token = "your-digitalocean-api-token"
    region   = "fra1"  # or your preferred region
@@ -53,6 +58,7 @@ Terraform will automatically create:
    ```
 
 4. Initialize and apply Terraform:
+
    ```bash
    terraform init
    terraform plan
@@ -141,7 +147,6 @@ kubectl logs -n zetterstrom -l app=recipes
    kubectl rollout restart deployment -n zetterstrom recipes-depl
    ```
 
-
 ## Costs
 
 - **Kubernetes Cluster**: ~$12/month (1 node, s-1vcpu-2gb)
@@ -153,6 +158,7 @@ Note: We use NodePort with hostNetwork instead of a Load Balancer to save $12/mo
 ## How DNS is Managed
 
 DNS records are fully managed by Terraform:
+
 - `digitalocean_domain` resource manages the domain zone
 - `digitalocean_record` resources create A records pointing to the node's IP
 - Records are automatically created/updated when you run `terraform apply`
@@ -168,6 +174,7 @@ terraform destroy
 ```
 
 This will remove:
+
 - Kubernetes cluster
 - DNS records
 - All associated resources
@@ -175,18 +182,21 @@ This will remove:
 ## Troubleshooting
 
 ### Pods not starting
+
 ```bash
 kubectl describe pod -n zetterstrom <pod-name>
 kubectl logs -n zetterstrom <pod-name>
 ```
 
 ### Ingress not working
+
 ```bash
 kubectl describe ingress -n zetterstrom
 kubectl get svc -n ingress-nginx
 ```
 
 ### SSL certificate not issuing
+
 ```bash
 kubectl describe certificate -n zetterstrom
 kubectl get certificaterequest -n zetterstrom

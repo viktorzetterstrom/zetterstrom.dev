@@ -1,7 +1,7 @@
-import fs from "fs"
 import { parse as parseCsv } from "csv-parse/sync"
+import fs from "fs"
 import NodeCache from "node-cache"
-import { Rating, ImdbRating } from "./types"
+import { ImdbRating, Rating } from "./types"
 
 const RATINGS_PATH = "./src/ratings/data/ratings.csv"
 const CACHE_TIME = 12 * 60 * 60

@@ -21,6 +21,7 @@ skaffold dev
 ```
 
 This will:
+
 - Build the Docker container
 - Deploy to local Kubernetes
 - Enable hot-reloading for all file changes

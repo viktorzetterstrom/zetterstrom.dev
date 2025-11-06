@@ -21,14 +21,14 @@ export const PageLayout = ({
 }: PageLayoutProps) => {
   return (
     <div
-      className={`min-h-screen bg-gradient-to-br from-${gradientFrom} via-${gradientVia} to-${gradientTo} p-8 flex flex-col items-center justify-center`}
+      className={`min-h-screen bg-gradient-to-br from-${gradientFrom} via-${gradientVia} to-${gradientTo} flex flex-col items-center justify-center p-8`}
     >
       <div className={`max-w-${maxWidth} w-full`}>
-        <div className="flex items-center justify-between mb-8">
-          <button onClick={onBack} className="text-white text-xl font-semibold hover:underline">
+        <div className="mb-8 flex items-center justify-between">
+          <button onClick={onBack} className="text-xl font-semibold text-white hover:underline">
             ← Tillbaka
           </button>
-          <h1 className="text-6xl font-bold text-white text-center drop-shadow-lg">{title}</h1>
+          <h1 className="text-center text-6xl font-bold text-white drop-shadow-lg">{title}</h1>
           <div className="w-48"></div>
         </div>
         {children}

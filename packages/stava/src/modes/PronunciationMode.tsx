@@ -1,8 +1,8 @@
 import { useEffect } from "react"
-import { PageLayout } from "../components/PageLayout"
 import { LetterGrid } from "../components/LetterGrid"
-import { useAudio } from "../hooks/useAudio"
+import { PageLayout } from "../components/PageLayout"
 import { SWEDISH_ALPHABET } from "../constants/alphabet"
+import { useAudio } from "../hooks/useAudio"
 
 interface PronunciationModeProps {
   onBack: () => void
@@ -27,11 +27,15 @@ export const PronunciationMode = ({ onBack }: PronunciationModeProps) => {
 
   return (
     <PageLayout title="Bokstavsuttal" onBack={onBack}>
-      <div className="bg-white rounded-3xl shadow-2xl p-8">
-        <p className="text-2xl text-center text-purple-600 mb-6 font-semibold">
+      <div className="rounded-3xl bg-white p-8 shadow-2xl">
+        <p className="mb-6 text-center text-2xl font-semibold text-purple-600">
           Klicka på en bokstav eller tryck på tangentbordet för att höra hur den uttalas
         </p>
-        <LetterGrid onLetterClick={playLetterAudio} buttonColorFrom="purple-400" buttonColorTo="pink-400" />
+        <LetterGrid
+          onLetterClick={playLetterAudio}
+          buttonColorFrom="purple-400"
+          buttonColorTo="pink-400"
+        />
       </div>
     </PageLayout>
   )

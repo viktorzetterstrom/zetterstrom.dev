@@ -1,5 +1,5 @@
 import React from "react"
-import { Rating, FormatType } from "../ratings/types"
+import { FormatType, Rating } from "../ratings/types"
 
 const generateMovieRating = ({ title, rating, year, runtimeMinutes }: Rating) => (
   <li key={title}>
