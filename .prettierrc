@@ -1,5 +1,6 @@
 {
   "semi": false,
   "printWidth": 100,
-  "quoteProps": "consistent"
+  "quoteProps": "consistent",
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"]
 }
