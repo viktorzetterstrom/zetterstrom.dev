@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "// Production setup": "In K8s, add GOOGLE_GENERATIVE_AI_API_KEY to deployment env from secretKeyRef (see k8s/movies-depl.yaml:21-31 for pattern)",
+  "dependencies": {
+    "@ai-sdk/google": "^2.0.29",
+    "@hono/node-server": "^1.19.6",
+    "ai": "^5.0.89",
+    "hono": "^4.10.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}

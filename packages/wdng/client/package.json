@@ -10,7 +10,9 @@
     "start": "vite --host 0.0.0.0 --port 3004"
   },
   "dependencies": {
+    "@ai-sdk/react": "^2.0.89",
     "@tailwindcss/vite": "^4.1.16",
+    "ai": "^5.0.89",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^4.0.0"

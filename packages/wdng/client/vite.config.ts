@@ -10,4 +10,10 @@ export default defineConfig({
     port: 3004,
     allowedHosts: ["local.wdng.zetterstrom.dev", "localhost"],
   },
+  optimizeDeps: {
+    include: ["@ai-sdk/react"],
+  },
+  resolve: {
+    conditions: ["module", "browser", "development|production"],
+  },
 })

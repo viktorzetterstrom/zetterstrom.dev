@@ -3,4 +3,5 @@ packages:
   - "packages/movies"
   - "packages/recipes"
   - "packages/stava"
-  - "packages/wdng"
+  - "packages/wdng/client"
+  - "packages/wdng/server"
