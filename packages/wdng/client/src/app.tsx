@@ -1,4 +1,5 @@
 import { Chat } from "./chat.tsx"
+import { Images } from "./images.tsx"
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         </ul>
 
         <div className="h-16" />
+
+        <Images />
 
         <h2>Ställ frågor</h2>
 

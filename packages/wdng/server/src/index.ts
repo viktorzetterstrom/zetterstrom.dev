@@ -3,26 +3,34 @@ import { serve } from "@hono/node-server"
 import {
   convertToModelMessages,
   createUIMessageStreamResponse,
+  Experimental_Agent,
   type ModelMessage,
-  streamText,
+  stepCountIs,
 } from "ai"
 import { Hono } from "hono"
 import { cors } from "hono/cors"
 
 const app = new Hono()
 
+const weatherAgent = new Experimental_Agent({
+  model: google("gemini-2.0-flash"),
+
+  system: `
+  You are a chat bot on the wedding page between Viktor and Hanna.You job is to answer questions 
+  about the wedding. You're polite and you when asked about something not related to the wedding,
+  you politely decline to answer these questions
+  `,
+  stopWhen: stepCountIs(20),
+})
+
 app.use("/*", cors())
 
 app.post("/chat", async (c) => {
   const { messages } = await c.req.json()
 
-  const key = process.env.GOOGLE_GENERATIVE_AI_API_KEY
-  console.log({ key })
-
   const modelMessages: ModelMessage[] = convertToModelMessages(messages)
 
-  const streamTextResult = streamText({
-    model: google("gemini-2.0-flash"),
+  const streamTextResult = weatherAgent.stream({
     messages: modelMessages,
   })
 
