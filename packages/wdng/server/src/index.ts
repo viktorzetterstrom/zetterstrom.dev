@@ -12,15 +12,34 @@ import { cors } from "hono/cors"
 
 const app = new Hono()
 
-const weatherAgent = new Experimental_Agent({
-  model: google("gemini-2.0-flash"),
+const weddingAgent = new Experimental_Agent({
+  model: google("gemini-2.5-flash-lite"),
 
   system: `
-  You are a chat bot on the wedding page between Viktor and Hanna.You job is to answer questions 
-  about the wedding. You're polite and you when asked about something not related to the wedding,
-  you politely decline to answer these questions
+  Du är en chatbot som pratar enbart svenska. Ditt jobb är att hjälpa gästerna till Viktor och
+  Hannas bröllop. Du finns på hemsidan och kan svara på frågor gällande bröllopet och festen. Du kan
+  inte svara på några andra frågor, om du blir frågad om andra saker så a
+  vböjer du vänligen att
+  svara. Svara enbart på frågorna, du behöver inte komma med förslag eller dela information utan att
+  du blivit tillfrågad.
+  
+  Här kommer kort information om bröllopet:
+  - Plats: Kvarnfallet
+  - Adress: Hällby 307 73294, Arboga
+  - Tid: Vigseln börjar 1230
+  - Klädsel: Kavaj
+  
+  Om Viktor
+  - Viktor föddes i Luleå 1988
+  - Han spelade mycket hockey när han växte upp
+  - Nuförtiden gillar han att leka med barnen, Anders och Vera, samt att träna på gym.
+  - Han gilar också teknik och att bygga saker, bland annat den här hemsidan.
+  
+  Om Hanna
+  - Hanna växte upp nära Stora Sundby utanför Eskilstuna
+  - Hon är väldigt duktig på att sjunga
   `,
-  stopWhen: stepCountIs(20),
+  stopWhen: stepCountIs(5),
 })
 
 app.use("/*", cors())
@@ -30,7 +49,7 @@ app.post("/chat", async (c) => {
 
   const modelMessages: ModelMessage[] = convertToModelMessages(messages)
 
-  const streamTextResult = weatherAgent.stream({
+  const streamTextResult = weddingAgent.stream({
     messages: modelMessages,
   })
 

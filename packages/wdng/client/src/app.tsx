@@ -3,43 +3,79 @@ import { Images } from "./images.tsx"
 
 function App() {
   return (
-    <div className="flex min-h-screen flex-col items-center pt-32">
+    <div className="flex min-h-screen flex-col items-center pt-32 pb-64">
       <div className="flex w-[600px] flex-col">
-        <img width={300} alt="Kvarnfallet" src="/kvarnfallet-outline.png" className="self-center" />
-        <h1 className="self-center">Välkomna till fest</h1>
+        <h1 className="animate-fade-in-up self-center delay-100">Välkomna till fest</h1>
 
-        <h2>I korthet</h2>
+        <div className="h-24" />
 
-        <ul>
-          <li>
-            <p>
-              <span className="font-bold">Plats:</span> Kvarnfallet
-            </p>
-          </li>
-          <li>
-            <p>
-              <span className="font-bold">Datum:</span> 8 agusti 2025
-            </p>
-          </li>
-          <li>
-            <p>
-              <span className="font-bold">Klockan:</span> 12:30
-            </p>
-          </li>
-          <li>
-            <p>
-              <span className="font-bold">Klädsel:</span> Kostym
-            </p>
-          </li>
-        </ul>
+        <div className="animate-fade-in-up flex items-center justify-between delay-200">
+          <div>
+            <h2>I korthet</h2>
 
-        <div className="h-16" />
+            <ul>
+              <li>
+                <p>
+                  <span className="font-bold">Plats:</span> Kvarnfallet
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span className="font-bold">Adress:</span> Hällby 307, 73294 Arboga
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span className="font-bold">Datum:</span> 8 agusti 2025
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span className="font-bold">Klockan:</span> 12:30
+                </p>
+              </li>
+              <li>
+                <p>
+                  <span className="font-bold">Klädsel:</span> Kostym
+                </p>
+              </li>
+            </ul>
+          </div>
+          <img
+            width={300}
+            alt="Kvarnfallet"
+            src={"/kvarnfallet-outline.png"}
+            className="rounded-3xl border border-sky-950"
+          />
+        </div>
 
-        <Images />
+        <div className="h-24" />
+        <div className="animate-fade-in-up delay-300">
+          <h2>Boende</h2>
+          <p>
+            Vi har fixat boende på <strong>[hotellnamn]</strong>, ni kan få rabatt om ni vid bokning
+            anger rabattkoden:
+            <strong>[...]</strong>
+          </p>
+          <p>
+            Vi har ordnat med buss ut till Kvarnfallet för vigseln samt två bussar tillbaka efter
+            festen.
+          </p>
+        </div>
 
-        <h2>Ställ frågor</h2>
+        <div className="h-24" />
 
-        <Chat />
+        <div className="animate-fade-in-up delay-400">
+          <h2>Viktor & Hanna</h2>
+          <Images />
+        </div>
+
+        <div className="h-24" />
+
+        <div className="animate-fade-in-up delay-500">
+          <h2>Ställ frågor</h2>
+          <Chat />
+        </div>
 
         {/*<h2>Plats</h2>*/}
 
