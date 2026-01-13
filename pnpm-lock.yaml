@@ -209,13 +209,13 @@ importers:
         version: 2.0.29(zod@3.25.76)
       '@hono/node-server':
         specifier: ^1.19.6
-        version: 1.19.6(hono@4.10.4)
+        version: 1.19.6(hono@4.11.4)
       ai:
         specifier: ^5.0.89
         version: 5.0.89(zod@3.25.76)
       hono:
-        specifier: ^4.10.4
-        version: 4.10.4
+        specifier: ^4.11.4
+        version: 4.11.4
     devDependencies:
       '@types/node':
         specifier: ^20.11.17
@@ -2278,8 +2278,8 @@ packages:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
 
-  hono@4.10.4:
-    resolution: {integrity: sha512-YG/fo7zlU3KwrBL5vDpWKisLYiM+nVstBQqfr7gCPbSYURnNEP9BDxEMz8KfsDR9JX0lJWDRNc6nXX31v7ZEyg==}
+  hono@4.11.4:
+    resolution: {integrity: sha512-U7tt8JsyrxSRKspfhtLET79pU8K+tInj5QZXs1jSugO1Vq5dFj3kmZsRldo29mTBfcjDRVRXrEZ6LS63Cog9ZA==}
     engines: {node: '>=16.9.0'}
 
   html-encoding-sniffer@3.0.0:
@@ -2861,6 +2861,7 @@ packages:
   next@15.4.7:
     resolution: {integrity: sha512-OcqRugwF7n7mC8OSYjvsZhhG1AYSvulor1EIUsIkbbEbf1qoE5EbH36Swj8WhF4cHqmDgkiam3z1c1W0J1Wifg==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
+    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/CVE-2025-66478 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -3802,6 +3803,7 @@ packages:
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   which-boxed-primitive@1.1.1:
     resolution: {integrity: sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==}
@@ -4187,9 +4189,9 @@ snapshots:
     dependencies:
       '@hapi/hoek': 9.3.0
 
-  '@hono/node-server@1.19.6(hono@4.10.4)':
+  '@hono/node-server@1.19.6(hono@4.11.4)':
     dependencies:
-      hono: 4.10.4
+      hono: 4.11.4
 
   '@humanfs/core@0.19.1': {}
 
@@ -6028,7 +6030,7 @@ snapshots:
 
   he@1.2.0: {}
 
-  hono@4.10.4: {}
+  hono@4.11.4: {}
 
   html-encoding-sniffer@3.0.0:
     dependencies:
