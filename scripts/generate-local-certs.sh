@@ -31,7 +31,8 @@ mkcert \
   "local.zetterstrom.dev" \
   "local.recipes.zetterstrom.dev" \
   "local.movies.zetterstrom.dev" \
-  "local.stava.zetterstrom.dev"
+  "local.stava.zetterstrom.dev" \
+  "local.wdng.zetterstrom.dev"
 
 echo ""
 echo "✓ Certificates generated in .local-tls-certs/"

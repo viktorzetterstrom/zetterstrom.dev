@@ -13,7 +13,7 @@
     "dev": "./scripts/start.sh",
     "dev:index": "pnpm --filter index dev",
     "dev:movies": "pnpm --filter movies dev",
-    "dev:recipes": "pnpm --filter client dev",
+    "dev:recipes": "pnpm --filter recipes dev",
     "dev:stava": "pnpm --filter stava dev",
     "dev:wdng": "pnpm --filter wdng dev",
     "setup:hosts": "./scripts/setup-local-hosts.sh",

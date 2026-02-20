@@ -61,7 +61,7 @@ trap cleanup SIGINT SIGTERM
 # Start each service in the background
 pnpm --filter index dev &
 pnpm --filter movies dev &
-pnpm --filter client dev &
+pnpm --filter recipes dev &
 pnpm --filter stava dev &
 pnpm --filter wdng dev &
 
