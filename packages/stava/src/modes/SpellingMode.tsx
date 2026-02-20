@@ -53,7 +53,7 @@ export const SpellingMode = ({ onBack }: SpellingModeProps) => {
       const key = e.key.toUpperCase()
       const expectedLetter = currentWord[currentLetterIndex]
 
-      if (!/^[A-Z]$/.test(key)) return
+      if (!/^[A-ZÅÄÖ]$/.test(key)) return
 
       if (key === expectedLetter) {
         const nextIndex = currentLetterIndex + 1
