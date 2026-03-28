@@ -3,28 +3,17 @@ import { RSVPForm } from "./components/rsvp-form"
 
 const CARD_WIDTH = 800
 
-const colors = [
-  "rgb(239,68,68)", // red
-  "rgb(249,115,22)", // orange
-  "rgb(234,179,8)", // yellow
-  "rgb(34,197,94)", // green
-  "rgb(59,130,246)", // blue
-  "rgb(168,85,247)", // purple
-]
-
 function App() {
   const [scope, animate] = useAnimate()
 
   const handleStampClick = async () => {
     const randomRotation = Math.random() * 40 - 20
-    const randomColor = colors[Math.floor(Math.random() * colors.length)]
 
     await animate(
       scope.current,
       {
         rotate: randomRotation,
         scale: 1.2,
-        borderColor: randomColor,
       },
       { duration: 0.1 },
     )
@@ -45,22 +34,24 @@ function App() {
   }
 
   return (
-    <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pt-16 pb-32 lg:px-16 lg:pt-32 lg:pb-64">
+    <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pb-32 lg:pt-32 lg:pb-64">
       <div
-        className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-stone-50 p-16 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] lg:w-[800px] lg:rounded-lg lg:border lg:p-32 lg:pb-0`}
+        className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-stone-50 p-16 pt-0 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] lg:w-[800px] lg:rounded-lg lg:border lg:p-32 lg:pt-0 lg:pb-0`}
       >
         <img width={0} alt="Viktor och Hanna" src="/ribbon.png" className="absolute top-0" />
 
-        <h1 className="self-center py-64 text-5xl lg:text-8xl">Viktor & Hanna</h1>
-        <div className="h-16" />
-
-        <div className="-mx-16 shadow-md lg:-mx-32">
-          <img
-            width={CARD_WIDTH}
-            alt="Viktor och Hanna"
-            src="/viktor-och-hanna.jpeg"
-            className="h-[350px] w-full object-cover grayscale"
-          />
+        <div
+          className="-mx-16 bg-cover bg-center p-16 pt-32 lg:-mx-32 lg:p-64"
+          style={{ backgroundImage: "url(/tapet.jpg)" }}
+        >
+          <div className="flex justify-center">
+            <img
+              width={CARD_WIDTH}
+              alt="Viktor och Hanna"
+              src="/viktor-och-hanna-2.png"
+              className="w-full rounded-[50%] object-cover"
+            />
+          </div>
         </div>
 
         <div className="h-16" />
@@ -104,7 +95,7 @@ function App() {
         <div className="h-16" />
 
         <div
-          className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64"
+          className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
           style={{ backgroundImage: "url(/tapet.jpg)" }}
         >
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
@@ -133,17 +124,17 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
-          <div className="flex-shrink-0 lg:w-[300px]">
-            <img
-              src="/hortensia.jpg"
-              alt="Hortensia"
-              className="h-full w-full object-cover shadow-md"
-            />
-          </div>
-          <div className="flex-1">
+        <div
+          className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64"
+          style={{ backgroundImage: "url(/hortensia.jpg)" }}
+        >
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <h2>Transport</h2>
+          </div>
 
+          <div className="h-16" />
+
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <h3>Till Kvarnfallet</h3>
             <div className="h-16" />
 
@@ -168,8 +159,11 @@ function App() {
               alternativ skjuts ut till Kvarnfallet. Parkeringsmöjligheter finns utanför
               restaurangen.
             </p>
-            <div className="h-16" />
+          </div>
 
+          <div className="h-16" />
+
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <h3>Från Kvarnfallet</h3>
             <div className="h-16" />
 
@@ -236,7 +230,7 @@ function App() {
         <div className="h-16" />
 
         <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
-          <div className="flex-1">
+          <div className="order-1 flex-1">
             <h2>Toastmaster</h2>
             <div className="h-16" />
             <p>
@@ -254,7 +248,7 @@ function App() {
             <p>Ni når toastmasters på "xxx" eller "070.."</p>
           </div>
 
-          <div className="flex-shrink-0 lg:w-[300px]">
+          <div className="order-2 flex-shrink-0 lg:w-[300px]">
             <img
               src="/toast.JPG"
               alt="Toastmaster"
@@ -265,26 +259,33 @@ function App() {
 
         <div className="h-32" />
 
-        <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
-          <div className="flex-shrink-0 lg:w-[300px]">
-            <img
-              src="/vardpar.JPG"
-              alt="Värdpar"
-              className="h-full w-full object-cover shadow-md"
-            />
-          </div>
+        <div
+          className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64"
+          style={{ backgroundImage: "url(/tyg.png)" }}
+        >
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+            <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+              <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
+                <img
+                  src="/vardpar.JPG"
+                  alt="Värdpar"
+                  className="h-full w-full object-cover shadow-md"
+                />
+              </div>
 
-          <div className="flex-1">
-            <h2>Värdpar</h2>
-            <div className="h-16" />
-            <p>
-              Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Detta radarpar kommer att
-              finnas på plats under busstransporten till Kvarnfallet och hjälpa er komma till rätt
-              plats. Det är även Marie och Frida ni kontaktar om ni har frågor generellt om
-              bröllopet. Bröllopsgåva?
-            </p>
-            <div className="h-16" />
-            <p>Ni når vårt värdpar på "mail" eller "070"</p>
+              <div className="order-1 flex-1 lg:order-2">
+                <h2>Värdpar</h2>
+                <div className="h-16" />
+                <p>
+                  Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Detta radarpar kommer
+                  att finnas på plats under busstransporten till Kvarnfallet och hjälpa er komma
+                  till rätt plats. Det är även Marie och Frida ni kontaktar om ni har frågor
+                  generellt om bröllopet. Bröllopsgåva?
+                </p>
+                <div className="h-16" />
+                <p>Ni når vårt värdpar på "mail" eller "070"</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -327,16 +328,24 @@ function App() {
 
         <div className="h-16" />
 
-        <h2>Barn</h2>
-        <div className="h-16" />
-        <p>
-          Vi älskar barn, både våra egna och era! Men just denna dag vill vi skapa en kväll fylld av
-          kärlek, fest och avkoppling för de vuxna. Därför ber vi er att lämna de små hemma och
-          istället njuta av en barnfri kväll tillsammans med oss (med undantag för ammande barn som
-          givetvis är varmt välkomna).
-        </p>
-        <div className="h-16" />
-        <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
+        <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+          <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
+            <img src="/barnen.jpeg" alt="Barn" className="h-full w-full object-cover shadow-md" />
+          </div>
+
+          <div className="order-1 flex-1 lg:order-2">
+            <h2>Barn</h2>
+            <div className="h-16" />
+            <p>
+              Vi älskar barn, både våra egna och era! Men just denna dag vill vi skapa en kväll
+              fylld av kärlek, fest och avkoppling för de vuxna. Därför ber vi er att lämna de små
+              hemma och istället njuta av en barnfri kväll tillsammans med oss (med undantag för
+              ammande barn som givetvis är varmt välkomna).
+            </p>
+            <div className="h-16" />
+            <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
+          </div>
+        </div>
 
         <div className="h-32 lg:h-40" />
 
