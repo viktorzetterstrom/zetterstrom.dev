@@ -8,9 +8,7 @@
   },
   "// Production setup": "In K8s, add GOOGLE_GENERATIVE_AI_API_KEY to deployment env from secretKeyRef (see k8s/movies-depl.yaml:21-31 for pattern)",
   "dependencies": {
-    "@ai-sdk/google": "^2.0.29",
     "@hono/node-server": "^1.19.6",
-    "ai": "^5.0.89",
     "hono": "^4.10.4",
     "pg": "^8.18.0",
     "zod": "^4.1.12"

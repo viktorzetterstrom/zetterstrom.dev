@@ -1,8 +1,7 @@
-import { useMutation } from "@tanstack/react-query"
 import { motion, useAnimate } from "motion/react"
+import { RSVPForm } from "./components/rsvp-form"
 
 const CARD_WIDTH = 800
-const IMAGE_HEIGHT = 300
 
 const colors = [
   "rgb(239,68,68)", // red
@@ -13,39 +12,8 @@ const colors = [
   "rgb(168,85,247)", // purple
 ]
 
-interface RsvpData {
-  guests: string
-  email: string
-  attending: boolean
-  rideToVenue: boolean
-  rideFromVenue: boolean
-  requirements?: string
-  website?: string
-}
-
-async function submitRsvp(data: RsvpData) {
-  const response = await fetch("http://localhost:3005/rsvp", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-
-  if (!response.ok) {
-    const error = await response.json()
-    throw new Error(error.error || "Något gick fel")
-  }
-
-  return response.json()
-}
-
 function App() {
   const [scope, animate] = useAnimate()
-
-  const mutation = useMutation({
-    mutationFn: submitRsvp,
-  })
 
   const handleStampClick = async () => {
     const randomRotation = Math.random() * 40 - 20
@@ -76,166 +44,318 @@ function App() {
     )
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const formData = new FormData(e.currentTarget)
-
-    const data: RsvpData = {
-      guests: formData.get("guests") as string,
-      email: formData.get("email") as string,
-      attending: formData.get("attending") === "on",
-      rideToVenue: formData.get("rideToVenue") === "on",
-      rideFromVenue: formData.get("rideFromVenue") === "on",
-      requirements: formData.get("requirements") as string,
-      website: formData.get("website") as string, // honeypot
-    }
-
-    mutation.mutate(data, {
-      onSuccess: () => {
-        e.currentTarget.reset()
-      },
-    })
-  }
-
-  type MenuItem = "top" | "i-korthet" | "boende" | "osa"
-
-  const handleMenuClick = (item: MenuItem) => {
-    const element = document.getElementById(item)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
-  }
-
   return (
-    <div
-      id="top"
-      className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pt-16 pb-32 lg:px-16 lg:pt-32 lg:pb-64"
-    >
-      <nav className="fixed top-32 left-16 hidden lg:block">
-        <ul className="space-y-8">
-          <li>
-            <button
-              onClick={() => handleMenuClick("i-korthet")}
-              className="cursor-pointer font-mono text-sm text-stone-600 transition-colors hover:text-stone-900"
-            >
-              I korthet
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => handleMenuClick("boende")}
-              className="cursor-pointer font-mono text-sm text-stone-600 transition-colors hover:text-stone-900"
-            >
-              Boende
-            </button>
-          </li>
-          <li>
-            <button
-              onClick={() => handleMenuClick("osa")}
-              className="cursor-pointer font-mono text-sm text-stone-600 transition-colors hover:text-stone-900"
-            >
-              O.S.A.
-            </button>
-          </li>
-        </ul>
-      </nav>
+    <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pt-16 pb-32 lg:px-16 lg:pt-32 lg:pb-64">
       <div
-        className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-amber-50 p-16 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] lg:w-[800px] lg:rounded-lg lg:border lg:p-32 lg:pb-0`}
+        className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-stone-50 p-16 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] lg:w-[800px] lg:rounded-lg lg:border lg:p-32 lg:pb-0`}
       >
         <img width={0} alt="Viktor och Hanna" src="/ribbon.png" className="absolute top-0" />
 
-        <h1 className="self-center text-5xl lg:text-7xl">Vi ska gifta oss!</h1>
-
-        <div className="h-16 lg:h-24" />
+        <h1 className="self-center py-64 text-5xl lg:text-8xl">Viktor & Hanna</h1>
+        <div className="h-16" />
 
         <div className="-mx-16 shadow-md lg:-mx-32">
           <img
             width={CARD_WIDTH}
             alt="Viktor och Hanna"
             src="/viktor-och-hanna.jpeg"
-            className="h-[350px] w-full object-cover"
+            className="h-[350px] w-full object-cover grayscale"
           />
         </div>
 
-        <div className="h-16 lg:h-24" />
+        <div className="h-16" />
 
-        <div className="flex items-center justify-between">
-          <div>
-            <h2 id="i-korthet">I korthet</h2>
+        <h2>Nu blir det bröllop!</h2>
 
-            <ul>
-              <li>
-                <p>
-                  <span className="font-bold">Plats:</span> Kvarnfallet
-                </p>
-              </li>
-              <li>
-                <p>
-                  <span className="font-bold">Adress:</span> Hällby 307, 73294 Arboga
-                </p>
-              </li>
-              <li>
-                <p>
-                  <span className="font-bold">Datum:</span> 8 agusti 2025
-                </p>
-              </li>
-              <li>
-                <p>
-                  <span className="font-bold">Klockan:</span> 12:30
-                </p>
-              </li>
-              <li>
-                <p>
-                  <span className="font-bold">Klädsel:</span> Kostym
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="h-16 lg:h-24" />
-
-        <div className="-mx-16 lg:-mx-32">
-          <img width={CARD_WIDTH} src="/heart-line.png" className="w-full" />
-        </div>
-
-        <div className="h-16 lg:h-24" />
+        <div className="h-16" />
+        <p>
+          En högerswipe på Tinder mitt i Corona-pandemin var startskottet. En första dejt på Bitza
+          vid Hornstull strand och några glas vin senare …. När chocken lagt sig att Hanna inte
+          bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna. Efter boende, barn och bil
+          gör vi nu slag i saken och gifter oss!
+        </p>
+        <div className="h-16" />
+        <p>
+          Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. Denna hemsida
+          uppdateras löpande med all information ni behöver inför bröllopet!
+        </p>
+        <div className="h-16" />
+        <p>
+          Vi hoppas att ni vill fira kärleken tillsammans med oss med en sommarhelg vi sent ska
+          glömma!
+        </p>
+        <div className="h-16" />
 
         <div className="-mx-16 shadow-md lg:-mx-32">
           <img width={CARD_WIDTH} alt="Kvarnfallet" src="/kvarnfallet.jpg" className="w-full" />
         </div>
 
-        <div className="h-16 lg:h-24" />
+        <div className="h-16" />
 
-        <div>
-          <h2 id="boende">Boende</h2>
-          <p>
-            Vi har fixat boende på <strong>[hotellnamn]</strong>, ni kan få rabatt om ni vid bokning
-            anger rabattkoden:
-            <strong>[...]</strong>
-          </p>
-          <p>
-            Vi har ordnat med buss ut till Kvarnfallet för vigseln samt två bussar tillbaka efter
-            festen.
-          </p>
+        <h2>Vigsel</h2>
+        <div className="h-16" />
+        <p>
+          Vid Kvarnfallet, längs hjälmare kanal, säger vi ja till varandra. Bara några steg bort
+          väntar därefter brudskålen och starten på sommarens bästa kväll! ??
+        </p>
+
+        <div className="h-16" />
+        <p>Plats/adress: Kvarnfallet, Hällby 307, Arboga Tid: 15:00</p>
+        <div className="h-16" />
+
+        <div
+          className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64"
+          style={{ backgroundImage: "url(/tapet.jpg)" }}
+        >
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+            <h2>Middag och fest</h2>
+
+            <div className="h-16" />
+            <p>
+              Efter vigsel och mingel längs vattnet bjuder vi in till middag på restaurang
+              Kvarnfallet. Eventuella allergier eller kostpreferenser meddelar ni när ni OSA:r.
+            </p>
+            <div className="h-16" />
+
+            <p>
+              Vi hoppas på en kväll fylld av kärlek, skratt och gemenskap. Om ni önskar förgylla
+              middagen med ett tal eller annat inslag, ta kontakt med våra toastmasters. Se vidare
+              information under Toastmasters, längre ned på denna sida.
+            </p>
+            <div className="h-16" />
+
+            <p>
+              Lagom till att middagen är avrundad och solen gått ned höjer vi volymen och slår
+              klackarna i taket!
+            </p>
+          </div>
         </div>
+
+        <div className="h-16" />
+
+        <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+          <div className="flex-shrink-0 lg:w-[300px]">
+            <img
+              src="/hortensia.jpg"
+              alt="Hortensia"
+              className="h-full w-full object-cover shadow-md"
+            />
+          </div>
+          <div className="flex-1">
+            <h2>Transport</h2>
+
+            <h3>Till Kvarnfallet</h3>
+            <div className="h-16" />
+
+            <p>
+              Det kommer att gå buss från centrala Eskilstuna som tar er direkt till Kvarnfallet.
+            </p>
+            <div className="h-16" />
+
+            <p>Plats: Elite Hotell Stadshotellet, Hamngatan 11, Eskilstuna</p>
+            <p>Tid: 14:00</p>
+            <div className="h-16" />
+
+            <p>
+              Vårt värdpar för kvällen kommer att möta upp er vid bussen och se till så ni kommer på
+              ordentligt. Kom gärna en stund innan utsatt avgångstid för att säkerställa att ni inte
+              missar bussen!
+            </p>
+            <div className="h-16" />
+
+            <p>
+              För er som utgår från en annan ort än Eskilstuna rekommenderar vi taxi eller
+              alternativ skjuts ut till Kvarnfallet. Parkeringsmöjligheter finns utanför
+              restaurangen.
+            </p>
+            <div className="h-16" />
+
+            <h3>Från Kvarnfallet</h3>
+            <div className="h-16" />
+
+            <p>
+              Busstransporter kommer att avgå från Kvarnfallet till Eskilstuna vid två olika
+              tidpunkter under kvällen. Bussen kommer att stanna vid Elite Stadshoteller i
+              Eskilstuna.{" "}
+            </p>
+            <div className="h-16" />
+
+            <p>
+              Baren stänger kl 01:30 och kvällen börjar då lida mot sitt slut. Vi önskar såklart att
+              ni vill sjunga i kör till kvällens sista låt på dansgolvet tillsammans med oss, men
+              vill man av någon anledning komma i säng något tidigare finns även en tidigare buss
+              att åka med.
+            </p>
+            <div className="h-16" />
+
+            <p>
+              <strong>Alternativ 1:</strong>
+            </p>
+            <p>Avgångstid kl 00:00</p>
+
+            <div className="h-16" />
+            <p>
+              <strong>Alternativ 2:</strong>
+            </p>
+            <p>Avgångstid kl 02:00</p>
+            <div className="h-16" />
+
+            <p>
+              Då vi behöver planera för antal bussar under dagen och kvällen önskar vi att ni uppger
+              om ni önskar åka med i buss till Kvarnfallet samt vilken tid ni vill åka hem på
+              lördagsnatten när ni OSA:r..
+            </p>
+          </div>
+        </div>
+
+        <div className="h-16" />
+
+        <h2>Fredag</h2>
+        <div className="h-16" />
+        <p>
+          När vi äntligen får tillfälle att träffa er, varför inte förlänga gemenskapen till
+          ytterligare en dag?! Därför vore det fantastiskt roligt om ni kan komma och hänga med oss
+          en stund även dan före bröllopsdan!
+        </p>
+        <div className="h-16" />
+        <p>
+          Vi bjuder därmed in enklare mat, dryck och trevligt häng i vår trädgård på fredagskvällen
+          - både för långväga gäster och vänner i närområdet. Denna kväll är även barn varmt
+          välkomna.
+        </p>
+        <div className="h-16" />
+        <p>
+          <strong>Plats:</strong> Örlingsgatan 12, Eskilstuna
+        </p>
+        <p>
+          <strong>Tid:</strong> Kl 17:00 - 20:00
+        </p>
+        <div className="h-16" />
+        <p>Därefter behöver i alla fall brudparet förbereda sig inför morgondagen!</p>
+
+        <div className="h-16" />
+
+        <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+          <div className="flex-1">
+            <h2>Toastmaster</h2>
+            <div className="h-16" />
+            <p>
+              För att guida oss genom middagen och se till att kvällen fylls av skratt, glädje och
+              kanske en och annan anekdot, har vi äran att ha vårt fantastiska toastpar Filip och
+              Stina! Detta radarpar… bla bla bla
+            </p>
+            <div className="h-16" />
+            <p>
+              Om ni vill hålla tal, bjuda på ett spex eller överaska oss på något annat sätt under
+              middagen, vänligen kontakta Filip och Stina senast 20e juni så att de kan pussla ihop
+              kvällens program.
+            </p>
+            <div className="h-16" />
+            <p>Ni når toastmasters på "xxx" eller "070.."</p>
+          </div>
+
+          <div className="flex-shrink-0 lg:w-[300px]">
+            <img
+              src="/toast.JPG"
+              alt="Toastmaster"
+              className="h-full w-full object-cover shadow-md"
+            />
+          </div>
+        </div>
+
+        <div className="h-32" />
+
+        <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+          <div className="flex-shrink-0 lg:w-[300px]">
+            <img
+              src="/vardpar.JPG"
+              alt="Värdpar"
+              className="h-full w-full object-cover shadow-md"
+            />
+          </div>
+
+          <div className="flex-1">
+            <h2>Värdpar</h2>
+            <div className="h-16" />
+            <p>
+              Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Detta radarpar kommer att
+              finnas på plats under busstransporten till Kvarnfallet och hjälpa er komma till rätt
+              plats. Det är även Marie och Frida ni kontaktar om ni har frågor generellt om
+              bröllopet. Bröllopsgåva?
+            </p>
+            <div className="h-16" />
+            <p>Ni når vårt värdpar på "mail" eller "070"</p>
+          </div>
+        </div>
+
+        <div className="h-16" />
+
+        <h2>Klädsel</h2>
+        <div className="h-16" />
+        <p>Klädkod för bröllopet är KAVAJ.</p>
+        <div className="h-16" />
+        <p>Då vigseln sker utomhus .. kläder efter väder.. paraply, varmare till kvällen.</p>
+
+        <div className="h-16" />
+
+        <h2>Boende</h2>
+        <div className="h-16" />
+        <p>
+          Det finns ett flertal boendealternativ i centrala Eskilstuna. Vi kommer att bo på Elite
+          Stadshotellet och skulle bli väldigt glada om även ni gjorde så, för att tillsammans äta
+          frukost och prata om gårdagens höjdpunkter på söndagsmorgon. Det är även härifrån den
+          abonnerade bussen kommer att utgå. Boka gärna ert rum i god tid via nedanstående länk.
+        </p>
+        <div className="h-16" />
+        <p>Bokningslänk</p>
+        <div className="h-16" />
+        <p>Med gruppkoden VIKTORHANNA2026 får ni 20% rabatt på boende under bröllopshelgen.</p>
+        <div className="h-16" />
+        <p>Vana Spa</p>
+
+        <div className="h-16" />
+
+        <h2>Present</h2>
+        <div className="h-16" />
+        <p>
+          Den allra finaste presenten vi kan få är er närvaro, och vi är så glada om ni vill vara
+          med och dela denna helg med oss! Om ni ändå vill ge oss en gåva skulle vi bli jätteglada
+          för ett litet bidrag till vår bröllopsresa.
+        </p>
+        <div className="h-16" />
+        <p>Swish till vilket nr? Vem kontaktas? Marie?</p>
+
+        <div className="h-16" />
+
+        <h2>Barn</h2>
+        <div className="h-16" />
+        <p>
+          Vi älskar barn, både våra egna och era! Men just denna dag vill vi skapa en kväll fylld av
+          kärlek, fest och avkoppling för de vuxna. Därför ber vi er att lämna de små hemma och
+          istället njuta av en barnfri kväll tillsammans med oss (med undantag för ammande barn som
+          givetvis är varmt välkomna).
+        </p>
+        <div className="h-16" />
+        <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
 
         <div className="h-32 lg:h-40" />
 
         <div className="relative -mx-16 border-t-2 border-dashed border-stone-400 bg-stone-50 pt-32 pb-32 lg:-mx-32 lg:px-32">
-          <img
+          <motion.img
             src="/sax-stone.png"
             alt="Scissors"
             className="absolute -top-16 right-16 w-32 lg:right-32"
-            style={{ transform: "rotate(-10deg) scaleX(-1)" }}
+            initial={{ rotate: 9, scaleX: -1 }}
+            whileHover={{
+              rotate: 12,
+              filter: "brightness(0)",
+              transition: { duration: 0.2 },
+            }}
+            style={{ scaleX: -1 }}
           />
 
           <div className="flex items-start justify-between">
-            <h3
-              id="osa"
-              className="font-mono text-3xl tracking-wide text-stone-700 uppercase lg:text-4xl"
-            >
+            <h3 className="font-mono text-3xl tracking-wide text-stone-700 uppercase lg:text-4xl">
               O.S.A.
             </h3>
             <motion.div
@@ -260,132 +380,7 @@ function App() {
             </motion.div>
           </div>
 
-          <form className="flex flex-col gap-20" onSubmit={handleSubmit}>
-            <div className="flex items-center gap-12">
-              <input
-                type="checkbox"
-                name="attending"
-                id="attending"
-                checked
-                disabled
-                readOnly
-                className="h-18 w-18 rounded border-stone-400 text-stone-700 focus:ring-stone-500"
-              />
-              <label htmlFor="attending" className="flex-1 font-mono text-sm leading-relaxed">
-                Ja, vi kommer till bröllopet!
-              </label>
-            </div>
-
-            <div>
-              <label htmlFor="guests" className="mb-2 block font-mono text-sm text-stone-600">
-                Namn på gäster
-              </label>
-              <input
-                type="text"
-                id="guests"
-                name="guests"
-                required
-                className="w-full border-0 border-b-2 border-dashed border-stone-300 bg-transparent px-0 py-4 font-mono focus:border-stone-600 focus:ring-0 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="mb-2 block font-mono text-sm text-stone-600">
-                E-post
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full border-0 border-b-2 border-dashed border-stone-300 bg-transparent px-0 py-4 font-mono focus:border-stone-600 focus:ring-0 focus:outline-none"
-              />
-            </div>
-
-            {/* Honeypot field - hidden from real users, visible to bots */}
-            <div className="absolute -left-[9999px]" aria-hidden="true">
-              <label htmlFor="website">Website</label>
-              <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
-            </div>
-
-            <div className="space-y-12">
-              <div className="flex items-center gap-12">
-                <input
-                  type="checkbox"
-                  name="rideToVenue"
-                  id="rideToVenue"
-                  className="h-18 w-18 rounded border-stone-400 text-stone-700 focus:ring-stone-500"
-                />
-                <label htmlFor="rideToVenue" className="flex-1 font-mono text-sm leading-relaxed">
-                  Vi vill ha skjuts till Kvarnfallet från Eskilstuna kl 13.00
-                </label>
-              </div>
-
-              <div className="flex items-center gap-12">
-                <input
-                  type="checkbox"
-                  name="rideFromVenue"
-                  id="rideFromVenue"
-                  className="h-18 w-18 rounded border-stone-400 text-stone-700 focus:ring-stone-500"
-                />
-                <label htmlFor="rideFromVenue" className="flex-1 font-mono text-sm leading-relaxed">
-                  Vi vill ha skjuts till Eskilstuna från Kvarnfallet kl 02.00
-                </label>
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="requirements" className="mb-2 block font-mono text-sm text-stone-600">
-                Allergier eller andra önskemål
-              </label>
-              <textarea
-                id="requirements"
-                name="requirements"
-                rows={1}
-                className="w-full resize-none border-0 border-b-2 border-dashed border-stone-300 bg-transparent px-0 py-4 font-mono focus:border-stone-600 focus:ring-0 focus:outline-none"
-              />
-            </div>
-
-            <div className="space-y-12">
-              <motion.button
-                type="submit"
-                disabled={mutation.isPending}
-                className="relative cursor-pointer border-2 border-dashed border-stone-500 bg-white px-24 py-10 font-mono text-sm tracking-wider text-stone-700 uppercase shadow-sm disabled:cursor-not-allowed disabled:opacity-50"
-                whileHover={
-                  !mutation.isPending
-                    ? {
-                        rotate: -2,
-                        scale: 1.05,
-                        transition: { duration: 0.15 },
-                      }
-                    : {}
-                }
-                style={{
-                  background:
-                    "repeating-linear-gradient(90deg, white 0px, white 8px, transparent 8px, transparent 12px)",
-                  backgroundSize: "12px 100%",
-                }}
-              >
-                <span className="relative z-10 bg-white px-8">
-                  {mutation.isPending ? "Skickar..." : "Skicka"}
-                </span>
-              </motion.button>
-
-              {mutation.isSuccess && (
-                <p className="font-mono text-sm text-green-700">
-                  Tack för din OSA! Vi ser fram emot att fira med er.
-                </p>
-              )}
-
-              {mutation.isError && (
-                <p className="font-mono text-sm text-red-700">
-                  {mutation.error instanceof Error
-                    ? mutation.error.message
-                    : "Något gick fel. Vänligen försök igen."}
-                </p>
-              )}
-            </div>
-          </form>
+          <RSVPForm />
         </div>
       </div>
     </div>

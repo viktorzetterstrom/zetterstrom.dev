@@ -35,20 +35,20 @@
   }
 
   #root {
-    background: linear-gradient(135deg, var(--color-stone-100) 0%, var(--color-stone-200) 100%);
+    background: var(--color-blue-200);
   }
 
   label,
   p {
     font-family: var(--font-garamond), serif;
-    color: var(--color-stone-700);
+    color: var(--color-neutral-700);
     font-size: 16px;
   }
 
   h1,
   h2,
   h3 {
-    color: var(--color-stone-700);
+    color: var(--color-neutral-700);
   }
 
   h1 {
