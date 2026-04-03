@@ -17,13 +17,18 @@ spec:
         - local.recipes.zetterstrom.dev
         - local.stava.zetterstrom.dev
       secretName: local-zetterstrom-dev-tls
-    # Production TLS
+    # Production TLS - zetterstrom.dev
     - hosts:
         - zetterstrom.dev
         - movies.zetterstrom.dev
         - recipes.zetterstrom.dev
         - stava.zetterstrom.dev
       secretName: zetterstrom-dev-tls
+    # Production TLS - viktor-och-hanna.se
+    - hosts:
+        - viktor-och-hanna.se
+        - www.viktor-och-hanna.se
+      secretName: viktor-och-hanna-se-tls
   rules:
     # Local development domains
     - host: local.zetterstrom.dev
@@ -105,5 +110,26 @@ spec:
             backend:
               service:
                 name: stava-srv
+                port:
+                  number: 80
+    # Viktor och Hanna domains
+    - host: viktor-och-hanna.se
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: wdng-srv
+                port:
+                  number: 80
+    - host: www.viktor-och-hanna.se
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: wdng-srv
                 port:
                   number: 80

@@ -1,5 +1,5 @@
 import { motion, useAnimate } from "motion/react"
-import { RSVPForm } from "./components/rsvp-form"
+import { Form } from "./components/form"
 
 const CARD_WIDTH = 800
 
@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pb-32 lg:pt-32 lg:pb-64">
       <div
-        className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-stone-50 p-16 pt-0 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] lg:w-[800px] lg:rounded-lg lg:border lg:p-32 lg:pt-0 lg:pb-0`}
+        className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-stone-50 p-16 pt-0 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] lg:w-[1000px] lg:rounded-lg lg:border lg:p-32 lg:pt-0 lg:pb-0`}
       >
         <img width={0} alt="Viktor och Hanna" src="/ribbon.png" className="absolute top-0" />
 
@@ -56,47 +56,59 @@ function App() {
 
         <div className="h-16" />
 
-        <h2>Nu blir det bröllop!</h2>
+        <div className="relative">
+          <h2>Nu blir det bröllop!</h2>
 
-        <div className="h-16" />
-        <p>
-          En högerswipe på Tinder mitt i Corona-pandemin var startskottet. En första dejt på Bitza
-          vid Hornstull strand och några glas vin senare …. När chocken lagt sig att Hanna inte
-          bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna. Efter boende, barn och bil
-          gör vi nu slag i saken och gifter oss!
-        </p>
-        <div className="h-16" />
-        <p>
-          Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. Denna hemsida
-          uppdateras löpande med all information ni behöver inför bröllopet!
-        </p>
-        <div className="h-16" />
-        <p>
-          Vi hoppas att ni vill fira kärleken tillsammans med oss med en sommarhelg vi sent ska
-          glömma!
-        </p>
-        <div className="h-16" />
+          <div className="h-16" />
+          <p>
+            En högerswipe på Tinder mitt i Corona-pandemin var startskottet. En första dejt på Bitza
+            vid Hornstull strand och några glas vin senare …. När chocken lagt sig att Hanna inte
+            bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna. Efter boende, barn och
+            bil gör vi nu slag i saken och gifter oss!
+          </p>
+          <div className="h-16" />
+          <p>
+            Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. Denna
+            hemsida uppdateras löpande med all information ni behöver inför bröllopet!
+          </p>
+          <div className="h-16" />
+          <p>
+            Vi hoppas att ni vill fira kärleken tillsammans med oss med en sommarhelg vi sent ska
+            glömma!
+          </p>
+          <div className="h-16" />
+          <p>
+            <strong>Viktor & Hanna</strong>
+          </p>
 
-        <div className="-mx-16 shadow-md lg:-mx-32">
-          <img width={CARD_WIDTH} alt="Kvarnfallet" src="/kvarnfallet.jpg" className="w-full" />
+          <div className="h-16" />
+
+          <img src="/ribbon.png" className="absolute right-0 bottom-0 w-70" />
+
+          <div className="h-48" />
         </div>
 
-        <div className="h-16" />
+        <div
+          className="-mx-16 bg-cover p-32 shadow-md lg:-mx-32 lg:p-64"
+          style={{ backgroundImage: "url(kvarnfallet.jpg)" }}
+        >
+          <div className="w-[40%] min-w-[250px] bg-stone-50 p-24 shadow-lg lg:p-32">
+            <h2>Vigsel</h2>
+            <div className="h-16" />
+            <p>
+              Vid Kvarnfallet, längs hjälmare kanal, säger vi ja till varandra. Bara några steg bort
+              väntar därefter brudskålen och starten på sommarens bästa kväll! ??
+            </p>
 
-        <h2>Vigsel</h2>
-        <div className="h-16" />
-        <p>
-          Vid Kvarnfallet, längs hjälmare kanal, säger vi ja till varandra. Bara några steg bort
-          väntar därefter brudskålen och starten på sommarens bästa kväll! ??
-        </p>
-
-        <div className="h-16" />
-        <p>Plats/adress: Kvarnfallet, Hällby 307, Arboga Tid: 15:00</p>
-        <div className="h-16" />
+            <div className="h-16" />
+            <p>Plats/adress: Kvarnfallet, Hällby 307, Arboga Tid: 15:00</p>
+            <div className="h-16" />
+          </div>
+        </div>
 
         <div
           className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(/tapet.jpg)" }}
+          style={{ backgroundImage: "url(/tyg.png)" }}
         >
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <h2>Middag och fest</h2>
@@ -124,17 +136,16 @@ function App() {
 
         <div className="h-16" />
 
-        <div
-          className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(/hortensia.jpg)" }}
-        >
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
-            <h2>Transport</h2>
-          </div>
+        <div className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64">
+          <h2>Transport</h2>
+          <p>
+            Kvarnfallet ligger circa 30 minuter väster om Eskilsuna. Ni tar er enkelt dit med
+            abonnerad buss, med följande alternativ
+          </p>
 
           <div className="h-16" />
 
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+          <div className="border-1 border-blue-300 bg-stone-50 p-24 shadow-lg lg:p-32">
             <h3>Till Kvarnfallet</h3>
             <div className="h-16" />
 
@@ -163,7 +174,7 @@ function App() {
 
           <div className="h-16" />
 
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+          <div className="border-1 border-blue-300 bg-stone-50 p-24 shadow-lg lg:p-32">
             <h3>Från Kvarnfallet</h3>
             <div className="h-16" />
 
@@ -204,33 +215,60 @@ function App() {
 
         <div className="h-16" />
 
-        <h2>Fredag</h2>
-        <div className="h-16" />
-        <p>
-          När vi äntligen får tillfälle att träffa er, varför inte förlänga gemenskapen till
-          ytterligare en dag?! Därför vore det fantastiskt roligt om ni kan komma och hänga med oss
-          en stund även dan före bröllopsdan!
-        </p>
-        <div className="h-16" />
-        <p>
-          Vi bjuder därmed in enklare mat, dryck och trevligt häng i vår trädgård på fredagskvällen
-          - både för långväga gäster och vänner i närområdet. Denna kväll är även barn varmt
-          välkomna.
-        </p>
-        <div className="h-16" />
-        <p>
-          <strong>Plats:</strong> Örlingsgatan 12, Eskilstuna
-        </p>
-        <p>
-          <strong>Tid:</strong> Kl 17:00 - 20:00
-        </p>
-        <div className="h-16" />
-        <p>Därefter behöver i alla fall brudparet förbereda sig inför morgondagen!</p>
+        <div
+          className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64"
+          style={{ backgroundImage: "url(/tapet.jpg)" }}
+        >
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+            <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+              <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
+                <img
+                  src="/huset.png"
+                  alt="Huset"
+                  className="h-full w-full object-cover shadow-md"
+                />
+              </div>
+
+              <div className="order-1 flex-1 lg:order-2">
+                <h2>Fredag</h2>
+                <div className="h-16" />
+                <p>
+                  När vi äntligen får tillfälle att träffa er, varför inte förlänga gemenskapen till
+                  ytterligare en dag?! Därför vore det fantastiskt roligt om ni kan komma och hänga
+                  med oss en stund även dan före bröllopsdan!
+                </p>
+                <div className="h-16" />
+                <p>
+                  Vi bjuder därmed in enklare mat, dryck och trevligt häng i vår trädgård på
+                  fredagskvällen - både för långväga gäster och vänner i närområdet. Denna kväll är
+                  även barn varmt välkomna.
+                </p>
+                <div className="h-16" />
+                <p>
+                  <strong>Plats:</strong> Örlingsgatan 12, Eskilstuna
+                </p>
+                <p>
+                  <strong>Tid:</strong> Kl 17:00 - 20:00
+                </p>
+                <div className="h-16" />
+                <p>Därefter behöver i alla fall brudparet förbereda sig inför morgondagen!</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div className="h-16" />
 
         <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
-          <div className="order-1 flex-1">
+          <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
+            <img
+              src="/toast.JPG"
+              alt="Toastmaster"
+              className="h-full w-full object-cover shadow-md"
+            />
+          </div>
+
+          <div className="order-1 flex-1 lg:order-2">
             <h2>Toastmaster</h2>
             <div className="h-16" />
             <p>
@@ -247,93 +285,87 @@ function App() {
             <div className="h-16" />
             <p>Ni når toastmasters på "xxx" eller "070.."</p>
           </div>
-
-          <div className="order-2 flex-shrink-0 lg:w-[300px]">
-            <img
-              src="/toast.JPG"
-              alt="Toastmaster"
-              className="h-full w-full object-cover shadow-md"
-            />
-          </div>
         </div>
 
         <div className="h-32" />
 
-        <div
-          className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(/tyg.png)" }}
-        >
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
-            <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
-              <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
-                <img
-                  src="/vardpar.JPG"
-                  alt="Värdpar"
-                  className="h-full w-full object-cover shadow-md"
-                />
-              </div>
+        <div className="-mx-16 bg-cover bg-center p-32 lg:-mx-32">
+          <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+            <div className="flex-1">
+              <h2>Värdpar</h2>
+              <div className="h-16" />
+              <p>
+                Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Detta radarpar kommer
+                att finnas på plats under busstransporten till Kvarnfallet och hjälpa er komma till
+                rätt plats. Det är även Marie och Frida ni kontaktar om ni har frågor generellt om
+                bröllopet. Bröllopsgåva?
+              </p>
+              <div className="h-16" />
+              <p>Ni når vårt värdpar på "mail" eller "070"</p>
+            </div>
 
-              <div className="order-1 flex-1 lg:order-2">
-                <h2>Värdpar</h2>
-                <div className="h-16" />
-                <p>
-                  Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Detta radarpar kommer
-                  att finnas på plats under busstransporten till Kvarnfallet och hjälpa er komma
-                  till rätt plats. Det är även Marie och Frida ni kontaktar om ni har frågor
-                  generellt om bröllopet. Bröllopsgåva?
-                </p>
-                <div className="h-16" />
-                <p>Ni når vårt värdpar på "mail" eller "070"</p>
-              </div>
+            <div className="flex-shrink-0 lg:w-[300px]">
+              <img
+                src="/vardpar.JPG"
+                alt="Värdpar"
+                className="h-full w-full object-cover shadow-md"
+              />
             </div>
           </div>
         </div>
 
         <div className="h-16" />
 
-        <h2>Klädsel</h2>
-        <div className="h-16" />
-        <p>Klädkod för bröllopet är KAVAJ.</p>
-        <div className="h-16" />
-        <p>Då vigseln sker utomhus .. kläder efter väder.. paraply, varmare till kvällen.</p>
+        <div>
+          <h2>Boende</h2>
+          <div className="h-16" />
+          <p>
+            Det finns ett flertal boendealternativ i centrala Eskilstuna. Vi kommer att bo på Elite
+            Stadshotellet och skulle bli väldigt glada om även ni gjorde så, för att tillsammans äta
+            frukost och prata om gårdagens höjdpunkter på söndagsmorgon. Det är även härifrån den
+            abonnerade bussen kommer att utgå. Boka gärna ert rum i god tid via nedanstående länk.
+          </p>
+          <div className="h-16" />
+          <p>Bokningslänk</p>
+          <div className="h-16" />
+          <p>Med gruppkoden VIKTORHANNA2026 får ni 20% rabatt på boende under bröllopshelgen.</p>
+          <div className="h-16" />
+          <p>Vana Spa</p>
+        </div>
 
         <div className="h-16" />
 
-        <h2>Boende</h2>
-        <div className="h-16" />
-        <p>
-          Det finns ett flertal boendealternativ i centrala Eskilstuna. Vi kommer att bo på Elite
-          Stadshotellet och skulle bli väldigt glada om även ni gjorde så, för att tillsammans äta
-          frukost och prata om gårdagens höjdpunkter på söndagsmorgon. Det är även härifrån den
-          abonnerade bussen kommer att utgå. Boka gärna ert rum i god tid via nedanstående länk.
-        </p>
-        <div className="h-16" />
-        <p>Bokningslänk</p>
-        <div className="h-16" />
-        <p>Med gruppkoden VIKTORHANNA2026 får ni 20% rabatt på boende under bröllopshelgen.</p>
-        <div className="h-16" />
-        <p>Vana Spa</p>
+        <div
+          style={{ backgroundImage: "url(/tyg.png)" }}
+          className="-mx-16 bg-cover bg-center p-16 pt-32 lg:-mx-32 lg:p-64"
+        >
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+            <h2>Klädsel</h2>
+            <div className="h-16" />
+            <p>Klädkod för bröllopet är KAVAJ.</p>
+            <div className="h-16" />
+            <p>Då vigseln sker utomhus .. kläder efter väder.. paraply, varmare till kvällen.</p>
+          </div>
 
-        <div className="h-16" />
+          <div className="h-16" />
 
-        <h2>Present</h2>
-        <div className="h-16" />
-        <p>
-          Den allra finaste presenten vi kan få är er närvaro, och vi är så glada om ni vill vara
-          med och dela denna helg med oss! Om ni ändå vill ge oss en gåva skulle vi bli jätteglada
-          för ett litet bidrag till vår bröllopsresa.
-        </p>
-        <div className="h-16" />
-        <p>Swish till vilket nr? Vem kontaktas? Marie?</p>
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+            <h2>Present</h2>
+            <div className="h-16" />
+            <p>
+              Den allra finaste presenten vi kan få är er närvaro, och vi är så glada om ni vill
+              vara med och dela denna helg med oss! Om ni ändå vill ge oss en gåva skulle vi bli
+              jätteglada för ett litet bidrag till vår bröllopsresa.
+            </p>
+            <div className="h-16" />
+            <p>Swish till vilket nr? Vem kontaktas? Marie?</p>
+          </div>
+        </div>
 
         <div className="h-16" />
 
         <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
-          <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
-            <img src="/barnen.jpeg" alt="Barn" className="h-full w-full object-cover shadow-md" />
-          </div>
-
-          <div className="order-1 flex-1 lg:order-2">
+          <div className="flex-1">
             <h2>Barn</h2>
             <div className="h-16" />
             <p>
@@ -344,6 +376,10 @@ function App() {
             </p>
             <div className="h-16" />
             <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
+          </div>
+
+          <div className="flex-shrink-0 lg:w-[300px]">
+            <img src="/barnen.jpeg" alt="Barn" className="h-full w-full object-cover shadow-md" />
           </div>
         </div>
 
@@ -389,7 +425,7 @@ function App() {
             </motion.div>
           </div>
 
-          <RSVPForm />
+          <Form />
         </div>
       </div>
     </div>

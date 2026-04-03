@@ -4,4 +4,3 @@ packages:
   - "packages/recipes"
   - "packages/stava"
   - "packages/wdng/client"
-  - "packages/wdng/server"

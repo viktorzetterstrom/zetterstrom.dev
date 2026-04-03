@@ -154,6 +154,27 @@ resource "digitalocean_record" "recipes" {
   ttl    = 300
 }
 
+# Viktor och Hanna domain
+resource "digitalocean_domain" "viktor_och_hanna" {
+  name = "viktor-och-hanna.se"
+}
+
+resource "digitalocean_record" "viktor_och_hanna_root" {
+  domain = digitalocean_domain.viktor_och_hanna.id
+  type   = "A"
+  name   = "@"
+  value  = data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address
+  ttl    = 300
+}
+
+resource "digitalocean_record" "viktor_och_hanna_www" {
+  domain = digitalocean_domain.viktor_och_hanna.id
+  type   = "A"
+  name   = "www"
+  value  = data.digitalocean_droplets.cluster_nodes.droplets[0].ipv4_address
+  ttl    = 300
+}
+
 resource "digitalocean_firewall" "web" {
   name = "k8s-web-access-${digitalocean_kubernetes_cluster.zetterstrom.id}"
 

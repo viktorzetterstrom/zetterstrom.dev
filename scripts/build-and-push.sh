@@ -21,4 +21,9 @@ echo "Building recipes service..."
 docker build --platform linux/amd64 -t viktorzetterstrom/recipes-zetterstrom-dev:$TAG -f packages/recipes/Dockerfile packages/recipes
 docker push viktorzetterstrom/recipes-zetterstrom-dev:$TAG
 
+# Build and push wdng service
+echo "Building wdng service..."
+docker build --platform linux/amd64 -t viktorzetterstrom/wdng-zetterstrom-dev:$TAG -f packages/wdng/client/Dockerfile packages/wdng/client
+docker push viktorzetterstrom/wdng-zetterstrom-dev:$TAG
+
 echo "All images built and pushed successfully with tag: $TAG"

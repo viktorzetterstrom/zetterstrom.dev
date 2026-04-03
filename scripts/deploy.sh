@@ -26,6 +26,8 @@ kubectl apply -f k8s/cluster-issuer.yaml
 kubectl apply -f k8s/index-depl.yaml
 kubectl apply -f k8s/movies-depl.yaml
 kubectl apply -f k8s/recipes-depl.yaml
+kubectl apply -f k8s/stava-depl.yaml
+kubectl apply -f k8s/wdng-depl.yaml
 kubectl apply -f k8s/ingress-srv.yaml
 echo ""
 
