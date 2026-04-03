@@ -3,13 +3,11 @@ FROM node:22 AS builder
 RUN corepack enable && corepack prepare pnpm@10.20.0 --activate
 WORKDIR /app
 
-# Copy package files
-COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install --frozen-lockfile || pnpm install
-
-# Copy source code and build
+# Copy all source files
 COPY . .
-RUN pnpm build
+
+# Install dependencies and build
+RUN pnpm install && pnpm build
 
 # Production stage - serve with nginx
 FROM nginx:1.28-alpine
