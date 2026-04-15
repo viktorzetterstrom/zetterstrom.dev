@@ -78,7 +78,7 @@ function App() {
           </p>
           <div className="h-16" />
           <p>
-            <strong>Viktor & Hanna</strong>
+            <strong className="text-xl">Viktor & Hanna</strong>
           </p>
 
           <div className="h-16" />
@@ -90,21 +90,43 @@ function App() {
 
         <div
           className="-mx-16 bg-cover p-32 shadow-md lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(kvarnfallet.jpg)" }}
+          style={{ backgroundImage: "url(kvarnfallet.jpg)", backgroundPosition: "center 50%" }}
         >
-          <div className="w-[40%] min-w-[250px] bg-stone-50 p-24 shadow-lg lg:p-32">
+          <div className="w-[40%] min-w-[250px] bg-stone-50 p-24 text-center shadow-lg lg:p-32">
             <h2>Vigsel</h2>
             <div className="h-16" />
             <p>
-              Vid Kvarnfallet, längs hjälmare kanal, säger vi ja till varandra. Bara några steg bort
-              väntar därefter brudskålen och starten på sommarens bästa kväll! ??
+              <strong>8 augusti 2026</strong>
             </p>
-
+            <p>
+              <strong>14:00</strong>
+            </p>
+            <div className="h-8" />
+            <p>
+              <strong>Kvarnfallet, Hällby 307, Arboga</strong>
+            </p>
             <div className="h-16" />
-            <p>Plats/adress: Kvarnfallet, Hällby 307, Arboga Tid: 15:00</p>
-            <div className="h-16" />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Kvarnfallet+Hällby+307+Arboga"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-8 text-blue-600 transition-colors hover:text-blue-800"
+              title="Öppna i Google Maps"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-32 w-32"
+              >
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+              <span className="text-sm">Öppna i Google Maps</span>
+            </a>
           </div>
         </div>
+
+        <div className="h-16" />
 
         <div
           className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
@@ -136,7 +158,7 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64">
+        <div className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64">
           <h2>Transport</h2>
           <p>
             Kvarnfallet ligger circa 30 minuter väster om Eskilsuna. Ni tar er enkelt dit med
@@ -216,7 +238,7 @@ function App() {
         <div className="h-16" />
 
         <div
-          className="-mx-16 bg-cover bg-center p-16 lg:-mx-32 lg:p-64"
+          className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
           style={{ backgroundImage: "url(/tapet.jpg)" }}
         >
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
@@ -259,7 +281,7 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+        <div className="relative flex flex-col gap-16 lg:flex-row lg:gap-32">
           <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
             <img
               src="/toast.JPG"
@@ -269,7 +291,10 @@ function App() {
           </div>
 
           <div className="order-1 flex-1 lg:order-2">
-            <h2>Toastmaster</h2>
+            <div className="flex items-center gap-12">
+              <h2>Toastmaster</h2>
+              <img src="/hortensia.jpg" alt="" className="h-auto w-40 lg:hidden" />
+            </div>
             <div className="h-16" />
             <p>
               För att guida oss genom middagen och se till att kvällen fylls av skratt, glädje och
@@ -285,14 +310,22 @@ function App() {
             <div className="h-16" />
             <p>Ni når toastmasters på "xxx" eller "070.."</p>
           </div>
+
+          <img
+            src="/hortensia.jpg"
+            className="absolute right-0 -bottom-15 hidden w-42 opacity-30 lg:block"
+          />
         </div>
 
-        <div className="h-32" />
+        <div className="h-16" />
 
-        <div className="-mx-16 bg-cover bg-center p-32 lg:-mx-32">
+        <div className="relative -mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64">
           <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
             <div className="flex-1">
-              <h2>Värdpar</h2>
+              <div className="flex items-center gap-12">
+                <h2>Värdpar</h2>
+                <img src="/hortensia.jpg" alt="" className="h-auto w-40 lg:hidden" />
+              </div>
               <div className="h-16" />
               <p>
                 Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Detta radarpar kommer
@@ -312,32 +345,18 @@ function App() {
               />
             </div>
           </div>
-        </div>
 
-        <div className="h-16" />
-
-        <div>
-          <h2>Boende</h2>
-          <div className="h-16" />
-          <p>
-            Det finns ett flertal boendealternativ i centrala Eskilstuna. Vi kommer att bo på Elite
-            Stadshotellet och skulle bli väldigt glada om även ni gjorde så, för att tillsammans äta
-            frukost och prata om gårdagens höjdpunkter på söndagsmorgon. Det är även härifrån den
-            abonnerade bussen kommer att utgå. Boka gärna ert rum i god tid via nedanstående länk.
-          </p>
-          <div className="h-16" />
-          <p>Bokningslänk</p>
-          <div className="h-16" />
-          <p>Med gruppkoden VIKTORHANNA2026 får ni 20% rabatt på boende under bröllopshelgen.</p>
-          <div className="h-16" />
-          <p>Vana Spa</p>
+          <img
+            src="/hortensia.jpg"
+            className="absolute bottom-0 left-36 hidden w-42 opacity-30 lg:block"
+          />
         </div>
 
         <div className="h-16" />
 
         <div
           style={{ backgroundImage: "url(/tyg.png)" }}
-          className="-mx-16 bg-cover bg-center p-16 pt-32 lg:-mx-32 lg:p-64"
+          className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
         >
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <h2>Klädsel</h2>
@@ -364,26 +383,56 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
-          <div className="flex-1">
-            <h2>Barn</h2>
-            <div className="h-16" />
-            <p>
-              Vi älskar barn, både våra egna och era! Men just denna dag vill vi skapa en kväll
-              fylld av kärlek, fest och avkoppling för de vuxna. Därför ber vi er att lämna de små
-              hemma och istället njuta av en barnfri kväll tillsammans med oss (med undantag för
-              ammande barn som givetvis är varmt välkomna).
-            </p>
-            <div className="h-16" />
-            <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
-          </div>
+        <div>
+          <h2>Boende</h2>
+          <div className="h-16" />
+          <p>
+            Det finns ett flertal boendealternativ i centrala Eskilstuna. Vi kommer att bo på Elite
+            Stadshotellet och skulle bli väldigt glada om även ni gjorde så, för att tillsammans äta
+            frukost och prata om gårdagens höjdpunkter på söndagsmorgon. Det är även härifrån den
+            abonnerade bussen kommer att utgå. Boka gärna ert rum i god tid via nedanstående länk.
+          </p>
+          <div className="h-16" />
+          <p>Bokningslänk</p>
+          <div className="h-16" />
+          <p>Med gruppkoden VIKTORHANNA2026 får ni 20% rabatt på boende under bröllopshelgen.</p>
+          <div className="h-16" />
+          <p>Vana Spa</p>
+        </div>
 
-          <div className="flex-shrink-0 lg:w-[300px]">
-            <img src="/barnen.jpeg" alt="Barn" className="h-full w-full object-cover shadow-md" />
+        <div className="h-16" />
+
+        <div
+          className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
+          style={{ backgroundImage: "url(/tapet.jpg)" }}
+        >
+          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+            <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+              <div className="flex-1">
+                <h2>Barn</h2>
+                <div className="h-16" />
+                <p>
+                  Vi älskar barn, både våra egna och era! Men just denna dag vill vi skapa en kväll
+                  fylld av kärlek, fest och avkoppling för de vuxna. Därför ber vi er att lämna de
+                  små hemma och istället njuta av en barnfri kväll tillsammans med oss (med undantag
+                  för ammande barn som givetvis är varmt välkomna).
+                </p>
+                <div className="h-16" />
+                <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
+              </div>
+
+              <div className="flex-shrink-0 lg:w-[300px]">
+                <img
+                  src="/barnen.png"
+                  alt="Barn"
+                  className="h-full w-full object-cover shadow-md"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="h-32 lg:h-40" />
+        <div className="h-16" />
 
         <div className="relative -mx-16 border-t-2 border-dashed border-stone-400 bg-stone-50 pt-32 pb-32 lg:-mx-32 lg:px-32">
           <motion.img

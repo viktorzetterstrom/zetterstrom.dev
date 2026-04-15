@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: wdng
-          image: viktorzetterstrom/wdng-zetterstrom-dev
+          image: viktorzetterstrom/wdng-zetterstrom-dev:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
 ---
