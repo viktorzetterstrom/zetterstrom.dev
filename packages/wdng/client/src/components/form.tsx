@@ -32,7 +32,6 @@ export const Form = () => {
 
       if (response.ok) {
         setSubmitStatus("success")
-        // Reset form
         setFormData({
           name: "",
           email: "",
@@ -141,7 +140,7 @@ export const Form = () => {
             åka med bokad buss till och/eller från Kvarnfallet.
           </p>
 
-          <label className="flex cursor-pointer items-start gap-12 rounded-md p-8 -m-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
+          <label className="-m-8 flex cursor-pointer items-start gap-12 rounded-md p-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
             <input
               type="checkbox"
               name="transportToKvarnfallet"
@@ -152,7 +151,7 @@ export const Form = () => {
             <span>Till Kvarnfallet från Eskilstuna</span>
           </label>
 
-          <label className="flex cursor-pointer items-start gap-12 rounded-md p-8 -m-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
+          <label className="-m-8 flex cursor-pointer items-start gap-12 rounded-md p-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
             <input
               type="checkbox"
               name="transportFrom00"
@@ -163,7 +162,7 @@ export const Form = () => {
             <span>Till Eskilstuna från Kvarnfallet kl 00:00</span>
           </label>
 
-          <label className="flex cursor-pointer items-start gap-12 rounded-md p-8 -m-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
+          <label className="-m-8 flex cursor-pointer items-start gap-12 rounded-md p-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
             <input
               type="checkbox"
               name="transportFrom02"
@@ -179,7 +178,7 @@ export const Form = () => {
       <div>
         <label className="mb-12 block font-semibold">Fredagshäng</label>
         <div className="border border-stone-200 bg-stone-50 p-16">
-          <label className="flex cursor-pointer items-start gap-12 rounded-md p-8 -m-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
+          <label className="-m-8 flex cursor-pointer items-start gap-12 rounded-md p-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
             <input
               type="checkbox"
               name="fridayHangout"
@@ -224,7 +223,7 @@ export const Form = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-lg bg-blue-600 px-32 py-16 font-semibold text-white shadow-md transition-all hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          className="w-full rounded-lg bg-blue-600 px-32 py-16 font-semibold text-white shadow-md transition-all hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
         >
           {isSubmitting ? "Skickar..." : "Skicka O.S.A"}
         </button>

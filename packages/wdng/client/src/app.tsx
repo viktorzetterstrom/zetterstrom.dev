@@ -1,4 +1,4 @@
-import { motion, useAnimate } from "motion/react"
+import { useAnimate } from "motion/react"
 import { Form } from "./components/form"
 
 const CARD_WIDTH = 800
@@ -54,7 +54,7 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="relative">
+        <div className="relative -mx-16 p-32 lg:-mx-32 lg:p-64">
           <h2>Nu blir det bröllop!</h2>
 
           <div className="h-16" />
@@ -81,7 +81,7 @@ function App() {
 
           <div className="h-16" />
 
-          <img src="/ribbon.png" className="absolute right-0 bottom-0 w-70" />
+          <img src="/ribbon.png" className="pointer-events-none absolute right-0 bottom-0 w-70" />
 
           <div className="h-48" />
         </div>
@@ -108,7 +108,7 @@ function App() {
               href="https://www.google.com/maps/search/?api=1&query=Kvarnfallet+Hällby+307+Arboga"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-8 rounded-md text-blue-600 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-8 rounded-md text-blue-600 transition-colors hover:text-blue-800 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none"
               title="Öppna i Google Maps"
             >
               <svg
@@ -279,7 +279,7 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="relative flex flex-col gap-16 lg:flex-row lg:gap-32">
+        <div className="relative -mx-16 flex flex-col gap-16 p-32 lg:-mx-32 lg:flex-row lg:gap-32 lg:p-64">
           <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
             <img
               src="/toast.JPG"
@@ -291,7 +291,11 @@ function App() {
           <div className="order-1 flex-1 lg:order-2">
             <div className="flex items-center gap-12">
               <h2>Toastmaster</h2>
-              <img src="/hortensia.jpg" alt="" className="h-auto w-40 lg:hidden" />
+              <img
+                src="/hortensia.jpg"
+                alt=""
+                className="pointer-events-none h-auto w-40 lg:hidden"
+              />
             </div>
             <div className="h-16" />
             <p>
@@ -311,7 +315,7 @@ function App() {
 
           <img
             src="/hortensia.jpg"
-            className="absolute right-0 -bottom-15 hidden w-42 opacity-30 lg:block"
+            className="pointer-events-none absolute right-[40px] -bottom-15 hidden w-42 opacity-30 lg:block"
           />
         </div>
 
@@ -322,7 +326,11 @@ function App() {
             <div className="flex-1">
               <div className="flex items-center gap-12">
                 <h2>Värdpar</h2>
-                <img src="/hortensia.jpg" alt="" className="h-auto w-40 lg:hidden" />
+                <img
+                  src="/hortensia.jpg"
+                  alt=""
+                  className="pointer-events-none h-auto w-40 lg:hidden"
+                />
               </div>
               <div className="h-16" />
               <p>
@@ -346,7 +354,7 @@ function App() {
 
           <img
             src="/hortensia.jpg"
-            className="absolute bottom-0 left-36 hidden w-42 scale-x-[-1] opacity-30 lg:block"
+            className="pointer-events-none absolute bottom-0 left-36 hidden w-42 scale-x-[-1] opacity-30 lg:block"
           />
         </div>
 
@@ -381,7 +389,7 @@ function App() {
 
         <div className="h-16" />
 
-        <div>
+        <div className="-mx-16 p-32 lg:-mx-32 lg:p-64">
           <h2>Boende</h2>
           <div className="h-16" />
           <p>
@@ -430,48 +438,8 @@ function App() {
           </div>
         </div>
 
-        <div className="h-16" />
-
-        <div className="relative -mx-16 border-t-2 border-dashed border-stone-400 bg-stone-50 pt-32 pb-32 lg:-mx-32 lg:px-32">
-          <motion.img
-            src="/sax-stone.png"
-            alt="Scissors"
-            className="absolute -top-16 right-16 w-32 lg:right-32"
-            initial={{ rotate: 9, scaleX: -1 }}
-            whileHover={{
-              rotate: 12,
-              filter: "brightness(0)",
-              transition: { duration: 0.2 },
-            }}
-            style={{ scaleX: -1 }}
-          />
-
-          <div className="flex items-start justify-between">
-            <h3 className="font-mono text-3xl tracking-wide text-stone-700 uppercase lg:text-4xl">
-              O.S.A.
-            </h3>
-            <motion.div
-              ref={scope}
-              onClick={handleStampClick}
-              className="cursor-pointer border-2 border-dashed bg-white p-12 shadow-sm"
-              initial={{
-                rotate: 6,
-                scale: 1,
-                borderColor: "rgb(95,162,226)",
-              }}
-              whileHover={{
-                rotate: 9,
-                transition: { duration: 0.15 },
-              }}
-              style={{
-                backgroundImage:
-                  "repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(95,162,226,0.05) 8px, rgba(95,162,226,0.05) 12px)",
-              }}
-            >
-              <img width={80} src="/glasses.png" alt="Coupon decoration" />
-            </motion.div>
-          </div>
-
+        <div className="relative -mx-16 p-32 lg:-mx-32 lg:p-64">
+          <h2>O.S.A.</h2>
           <Form />
         </div>
       </div>
