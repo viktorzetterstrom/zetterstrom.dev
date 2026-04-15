@@ -1,38 +1,8 @@
-import { useAnimate } from "motion/react"
 import { Form } from "./components/form"
 
 const CARD_WIDTH = 800
 
 function App() {
-  const [scope, animate] = useAnimate()
-
-  const handleStampClick = async () => {
-    const randomRotation = Math.random() * 40 - 20
-
-    await animate(
-      scope.current,
-      {
-        rotate: randomRotation,
-        scale: 1.2,
-      },
-      { duration: 0.1 },
-    )
-
-    await animate(
-      scope.current,
-      {
-        rotate: 6,
-        scale: 1,
-        borderColor: "rgb(95,162,226)",
-      },
-      {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-      },
-    )
-  }
-
   return (
     <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pb-32 lg:pt-32 lg:pb-64">
       <div
