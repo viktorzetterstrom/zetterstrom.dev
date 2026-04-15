@@ -38,8 +38,6 @@ function App() {
       <div
         className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-stone-50 p-16 pt-0 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] lg:w-[1000px] lg:rounded-lg lg:border lg:p-32 lg:pt-0 lg:pb-0`}
       >
-        <img width={0} alt="Viktor och Hanna" src="/ribbon.png" className="absolute top-0" />
-
         <div
           className="-mx-16 bg-cover bg-center p-16 pt-32 lg:-mx-32 lg:p-64"
           style={{ backgroundImage: "url(/tapet.jpg)" }}
@@ -110,7 +108,7 @@ function App() {
               href="https://www.google.com/maps/search/?api=1&query=Kvarnfallet+Hällby+307+Arboga"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-8 text-blue-600 transition-colors hover:text-blue-800"
+              className="inline-flex items-center gap-8 rounded-md text-blue-600 transition-colors hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
               title="Öppna i Google Maps"
             >
               <svg
@@ -348,7 +346,7 @@ function App() {
 
           <img
             src="/hortensia.jpg"
-            className="absolute bottom-0 left-36 hidden w-42 opacity-30 lg:block"
+            className="absolute bottom-0 left-36 hidden w-42 scale-x-[-1] opacity-30 lg:block"
           />
         </div>
 
