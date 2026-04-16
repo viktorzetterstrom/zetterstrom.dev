@@ -354,7 +354,7 @@ function App() {
             <p>
               Den allra finaste presenten vi kan få är er närvaro, och vi är så glada om ni vill
               vara med och dela denna helg med oss! Om ni ändå vill ge oss en gåva skulle vi bli
-              jätteglada för ett litet bidrag till vår bröllopsresa.
+              jätteglada för ett bidrag till vår bröllopsresa.
             </p>
             <div className="h-16" />
             <p>Bidrag kan swishas till 070 - 389 69 77.</p>
@@ -385,8 +385,11 @@ function App() {
           </p>
           <div className="h-16" />
           <p>
-            Med bokningskoden <pre className="inline">VIKTORHANNA2026</pre> får ni 20% rabatt på
-            boende under bröllopshelgen.
+            Med bokningskoden{" "}
+            <code className="rounded bg-stone-100 px-8 py-4 font-mono text-sm">
+              VIKTORHANNA2026
+            </code>{" "}
+            får ni 20% rabatt på boende under bröllopshelgen.
           </p>
         </div>
 
@@ -404,8 +407,8 @@ function App() {
                 <p>
                   Vi älskar barn, både våra egna och era! Men just denna dag vill vi skapa en kväll
                   fylld av kärlek, fest och avkoppling för de vuxna. Därför ber vi er att lämna de
-                  små hemma och istället njuta av en barnfri kväll tillsammans med oss (med undantag
-                  för ammande barn som givetvis är varmt välkomna).
+                  små hemma och istället njuta av en barnfri kväll tillsammans med oss, med undantag
+                  för ammande barn som givetvis är välkomna.
                 </p>
                 <div className="h-16" />
                 <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
