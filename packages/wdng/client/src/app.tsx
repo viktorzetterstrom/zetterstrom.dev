@@ -109,14 +109,9 @@ function App() {
             <div className="h-16" />
             <p>
               Efter vigsel och mingel längs vattnet bjuder vi in till middag på restaurang
-              Kvarnfallet. Eventuella allergier eller kostpreferenser meddelar ni när ni OSA:r.
-            </p>
-            <div className="h-16" />
-
-            <p>
-              Vi hoppas på en kväll fylld av kärlek, skratt och gemenskap. Om ni önskar förgylla
-              middagen med ett tal eller annat inslag, ta kontakt med våra toastmasters. Se vidare
-              information under Toastmasters, längre ned på denna sida.
+              Kvarnfallet. Vi hoppas på en kväll fylld av kärlek, skratt och gemenskap. Om ni önskar
+              förgylla middagen med ett tal eller annat inslag, ta kontakt med våra toastmasters. Se
+              vidare information under Toastmasters, längre ned på denna sida.
             </p>
             <div className="h-16" />
 
@@ -133,18 +128,13 @@ function App() {
           <h2>Transport</h2>
           <p>
             Kvarnfallet ligger circa 30 minuter väster om Eskilsuna. Ni tar er enkelt dit med
-            abonnerad buss, med följande alternativ
+            abonnerad buss, med följande alternativ:
           </p>
 
           <div className="h-16" />
 
           <div className="border-1 border-blue-300 bg-stone-50 p-24 shadow-lg lg:p-32">
             <h3>Till Kvarnfallet</h3>
-            <div className="h-16" />
-
-            <p>
-              Det kommer att gå buss från centrala Eskilstuna som tar er direkt till Kvarnfallet.
-            </p>
             <div className="h-16" />
 
             <p>Plats: Elite Hotell Stadshotellet, Hamngatan 11, Eskilstuna</p>
@@ -201,7 +191,7 @@ function App() {
             <p>
               Då vi behöver planera för antal bussar under dagen och kvällen önskar vi att ni uppger
               om ni önskar åka med i buss till Kvarnfallet samt vilken tid ni vill åka hem på
-              lördagsnatten när ni OSA:r..
+              lördagsnatten när ni OSA:r.
             </p>
           </div>
         </div>
@@ -310,7 +300,7 @@ function App() {
                 Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Detta radarpar kommer
                 att finnas på plats under busstransporten till Kvarnfallet och hjälpa er komma till
                 rätt plats. Det är även Marie och Frida ni kontaktar om ni har frågor generellt om
-                bröllopet. Bröllopsgåva?
+                bröllopet.
               </p>
               <div className="h-16" />
               <p>Ni når vårt värdpar på "mail" eller "070"</p>
@@ -340,9 +330,20 @@ function App() {
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <h2>Klädsel</h2>
             <div className="h-16" />
-            <p>Klädkod för bröllopet är KAVAJ.</p>
-            <div className="h-16" />
-            <p>Då vigseln sker utomhus .. kläder efter väder.. paraply, varmare till kvällen.</p>
+            <p>
+              Klädkoden för bröllopet är{" "}
+              <a
+                href="https://sv.wikipedia.org/wiki/Kl%C3%A4dkod#Kavaj"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 transition-all hover:text-blue-800 hover:underline focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none"
+              >
+                kavaj
+              </a>
+              . Då vigseln och mycket aktivitet kommer att ske utomhus kan det vara bra att planera
+              lite för det och ta med ett paraply samt eventuellt något varmt att ta på sig om vi
+              skulle ha otur med vädret 🤞.
+            </p>
           </div>
 
           <div className="h-16" />
@@ -356,7 +357,7 @@ function App() {
               jätteglada för ett litet bidrag till vår bröllopsresa.
             </p>
             <div className="h-16" />
-            <p>Swish till vilket nr? Vem kontaktas? Marie?</p>
+            <p>Bidrag kan swishas till 070 - 389 69 77.</p>
           </div>
         </div>
 
@@ -372,11 +373,21 @@ function App() {
             abonnerade bussen kommer att utgå. Boka gärna ert rum i god tid via nedanstående länk.
           </p>
           <div className="h-16" />
-          <p>Bokningslänk</p>
+          <p>
+            <a
+              href="https://www.elite.se/hotell/eskilstuna/elite-stadshotellet-eskilstuna/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 transition-all hover:text-blue-800 hover:underline focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none"
+            >
+              Elite Stadshotellet Eskilstuna
+            </a>
+          </p>
           <div className="h-16" />
-          <p>Med gruppkoden VIKTORHANNA2026 får ni 20% rabatt på boende under bröllopshelgen.</p>
-          <div className="h-16" />
-          <p>Vana Spa</p>
+          <p>
+            Med bokningskoden <pre className="inline">VIKTORHANNA2026</pre> får ni 20% rabatt på
+            boende under bröllopshelgen.
+          </p>
         </div>
 
         <div className="h-16" />
