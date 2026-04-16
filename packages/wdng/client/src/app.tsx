@@ -25,33 +25,35 @@ function App() {
         <div className="h-16" />
 
         <div className="relative -mx-16 p-32 lg:-mx-32 lg:p-64">
-          <h2>Nu blir det bröllop!</h2>
+          <div className="relative z-10">
+            <h2>Nu blir det bröllop!</h2>
 
-          <div className="h-16" />
-          <p>
-            En högerswipe på Tinder mitt i Corona-pandemin var startskottet. En första dejt på Bitza
-            vid Hornstull strand och några glas vin senare …. När chocken lagt sig att Hanna inte
-            bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna. Efter boende, barn och
-            bil gör vi nu slag i saken och gifter oss!
-          </p>
-          <div className="h-16" />
-          <p>
-            Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. Denna
-            hemsida uppdateras löpande med all information ni behöver inför bröllopet!
-          </p>
-          <div className="h-16" />
-          <p>
-            Vi hoppas att ni vill fira kärleken tillsammans med oss med en sommarhelg vi sent ska
-            glömma!
-          </p>
-          <div className="h-16" />
-          <p>
-            <strong className="text-xl">Viktor & Hanna</strong>
-          </p>
+            <div className="h-16" />
+            <p>
+              En högerswipe på Tinder mitt i Corona-pandemin var startskottet. En första dejt på Bitza
+              vid Hornstull strand och några glas vin senare …. När chocken lagt sig att Hanna inte
+              bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna. Efter boende, barn och
+              bil gör vi nu slag i saken och gifter oss!
+            </p>
+            <div className="h-16" />
+            <p>
+              Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. Denna
+              hemsida uppdateras löpande med all information ni behöver inför bröllopet!
+            </p>
+            <div className="h-16" />
+            <p>
+              Vi hoppas att ni vill fira kärleken tillsammans med oss med en sommarhelg vi sent ska
+              glömma!
+            </p>
+            <div className="h-16" />
+            <p>
+              <strong className="text-xl">Viktor & Hanna</strong>
+            </p>
 
-          <div className="h-16" />
+            <div className="h-16" />
+          </div>
 
-          <img src="/ribbon.png" className="pointer-events-none absolute right-0 bottom-0 w-70" />
+          <img src="/ribbon.png" className="pointer-events-none absolute right-0 bottom-0 w-70 z-0" />
 
           <div className="h-48" />
         </div>
@@ -262,7 +264,7 @@ function App() {
             <div className="flex items-center gap-12">
               <h2>Toastmaster</h2>
               <img
-                src="/hortensia.jpg"
+                src="/hortensia.png"
                 alt=""
                 className="pointer-events-none h-auto w-40 lg:hidden"
               />
@@ -284,7 +286,7 @@ function App() {
           </div>
 
           <img
-            src="/hortensia.jpg"
+            src="/hortensia.png"
             className="pointer-events-none absolute right-[40px] -bottom-15 hidden w-42 opacity-30 lg:block"
           />
         </div>
@@ -297,7 +299,7 @@ function App() {
               <div className="flex items-center gap-12">
                 <h2>Värdpar</h2>
                 <img
-                  src="/hortensia.jpg"
+                  src="/hortensia.png"
                   alt=""
                   className="pointer-events-none h-auto w-40 lg:hidden"
                 />
@@ -323,7 +325,7 @@ function App() {
           </div>
 
           <img
-            src="/hortensia.jpg"
+            src="/hortensia.png"
             className="pointer-events-none absolute bottom-0 left-36 hidden w-42 scale-x-[-1] opacity-30 lg:block"
           />
         </div>
