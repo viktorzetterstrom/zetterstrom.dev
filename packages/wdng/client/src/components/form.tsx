@@ -70,6 +70,8 @@ export const Form = () => {
         <label htmlFor="name" className="mb-8 block font-semibold">
           Namn <span className="text-red-600">*</span>
         </label>
+        <p className="mb-16 text-sm text-neutral-600 italic">Det går bra att ange flera namn.</p>
+
         <input
           type="text"
           id="name"

@@ -30,32 +30,33 @@ function App() {
 
             <div className="h-16" />
             <p>
-              En högerswipe på Tinder mitt i Corona-pandemin var startskottet. En första dejt på Bitza
-              vid Hornstull strand och några glas vin senare …. När chocken lagt sig att Hanna inte
-              bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna. Efter boende, barn och
-              bil gör vi nu slag i saken och gifter oss!
+              En högerswipe på Tinder mitt i Corona-pandemin var startskottet. En första dejt på
+              Bitza vid Hornstull strand och några glas vin senare …. När chocken lagt sig att Hanna
+              inte bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna. Efter boende, barn
+              och bil gör vi nu slag i saken och gifter oss!
             </p>
             <div className="h-16" />
             <p>
-              Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. Denna
-              hemsida uppdateras löpande med all information ni behöver inför bröllopet!
+              Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. På denna
+              hemsida finner ni all information ni behöver inför bröllopet!
             </p>
             <div className="h-16" />
             <p>
               Vi hoppas att ni vill fira kärleken tillsammans med oss med en sommarhelg vi sent ska
               glömma!
             </p>
-            <div className="h-16" />
-            <p>
-              <strong className="text-xl">Viktor & Hanna</strong>
+            <div className="h-64" />
+            <p className="text-5xl" style={{ fontFamily: "var(--font-parisienne)" }}>
+              Viktor & Hanna
             </p>
-
-            <div className="h-16" />
           </div>
 
-          <img src="/ribbon.png" className="pointer-events-none absolute right-0 bottom-0 w-70 z-0" />
+          <img
+            src="/ribbon.png"
+            className="pointer-events-none absolute right-0 bottom-0 z-0 w-70"
+          />
 
-          <div className="h-48" />
+          <div className="h-16" />
         </div>
 
         <div
