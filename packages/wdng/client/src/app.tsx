@@ -1,8 +1,20 @@
+import { useState } from "react"
 import { Form } from "./components/form"
 
 const CARD_WIDTH = 800
 
 function App() {
+  const [copied, setCopied] = useState(false)
+
+  const copyDiscountCode = async () => {
+    try {
+      await navigator.clipboard.writeText("VIKTORHANNA2026")
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error("Failed to copy:", err)
+    }
+  }
   return (
     <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pb-32 lg:pt-32 lg:pb-64">
       <div
@@ -10,13 +22,13 @@ function App() {
       >
         <div
           className="-mx-16 bg-cover bg-center p-16 pt-32 lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(/tapet.jpg)" }}
+          style={{ backgroundImage: "url(/tapet.webp)" }}
         >
           <div className="flex justify-center">
             <img
               width={CARD_WIDTH}
               alt="Viktor och Hanna"
-              src="/viktor-och-hanna-2.png"
+              src="/viktor-och-hanna-2.webp"
               className="w-full rounded-[50%] object-cover"
             />
           </div>
@@ -42,8 +54,8 @@ function App() {
             </p>
             <div className="h-16" />
             <p>
-              Vi hoppas att ni vill fira kärleken tillsammans med oss med en sommarhelg vi sent ska
-              glömma!
+              Vi hoppas att ni vill fira vår dag tillsammans med oss och att det blir en helg vi
+              sent ska glömma!
             </p>
             <div className="h-64" />
             <p className="text-5xl" style={{ fontFamily: "var(--font-parisienne)" }}>
@@ -52,7 +64,7 @@ function App() {
           </div>
 
           <img
-            src="/ribbon.png"
+            src="/ribbon.webp"
             className="pointer-events-none absolute right-0 bottom-0 z-0 w-70"
           />
 
@@ -61,7 +73,7 @@ function App() {
 
         <div
           className="-mx-16 bg-cover p-32 shadow-md lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(kvarnfallet.jpg)", backgroundPosition: "center 50%" }}
+          style={{ backgroundImage: "url(kvarnfallet.webp)", backgroundPosition: "center 50%" }}
         >
           <div className="w-[40%] min-w-[250px] bg-stone-50 p-24 text-center shadow-lg lg:p-32">
             <h2>Vigsel</h2>
@@ -101,7 +113,7 @@ function App() {
 
         <div
           className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(/tyg.png)" }}
+          style={{ backgroundImage: "url(/tyg.webp)" }}
         >
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <h2>Middag och fest</h2>
@@ -200,13 +212,13 @@ function App() {
 
         <div
           className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(/tapet.jpg)" }}
+          style={{ backgroundImage: "url(/tapet.webp)" }}
         >
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
               <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
                 <img
-                  src="/huset.png"
+                  src="/huset.webp"
                   alt="Huset"
                   className="h-full w-full object-cover shadow-md"
                 />
@@ -245,7 +257,7 @@ function App() {
         <div className="relative -mx-16 flex flex-col gap-16 p-32 lg:-mx-32 lg:flex-row lg:gap-32 lg:p-64">
           <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
             <img
-              src="/toast.JPG"
+              src="/toast.webp"
               alt="Toastmaster"
               className="h-full w-full object-cover shadow-md"
             />
@@ -255,7 +267,7 @@ function App() {
             <div className="flex items-center gap-12">
               <h2>Toastmaster</h2>
               <img
-                src="/hortensia.png"
+                src="/hortensia.webp"
                 alt=""
                 className="pointer-events-none h-auto w-40 lg:hidden"
               />
@@ -277,7 +289,7 @@ function App() {
           </div>
 
           <img
-            src="/hortensia.png"
+            src="/hortensia.webp"
             className="pointer-events-none absolute right-[40px] -bottom-15 hidden w-42 opacity-30 lg:block"
           />
         </div>
@@ -290,7 +302,7 @@ function App() {
               <div className="flex items-center gap-12">
                 <h2>Värdpar</h2>
                 <img
-                  src="/hortensia.png"
+                  src="/hortensia.webp"
                   alt=""
                   className="pointer-events-none h-auto w-40 lg:hidden"
                 />
@@ -308,7 +320,7 @@ function App() {
 
             <div className="flex-shrink-0 lg:w-[300px]">
               <img
-                src="/vardpar.JPG"
+                src="/vardpar.webp"
                 alt="Värdpar"
                 className="h-full w-full object-cover shadow-md"
               />
@@ -316,7 +328,7 @@ function App() {
           </div>
 
           <img
-            src="/hortensia.png"
+            src="/hortensia.webp"
             className="pointer-events-none absolute bottom-0 left-36 hidden w-42 scale-x-[-1] opacity-30 lg:block"
           />
         </div>
@@ -324,7 +336,7 @@ function App() {
         <div className="h-16" />
 
         <div
-          style={{ backgroundImage: "url(/tyg.png)" }}
+          style={{ backgroundImage: "url(/tyg.webp)" }}
           className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
         >
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
@@ -386,9 +398,30 @@ function App() {
           <div className="h-16" />
           <p>
             Med bokningskoden{" "}
-            <code className="rounded bg-stone-100 px-8 py-4 font-mono text-sm">
-              VIKTORHANNA2026
-            </code>{" "}
+            <button
+              onClick={copyDiscountCode}
+              className="group relative inline-flex items-center gap-8 rounded bg-stone-100 px-8 py-4 font-mono text-sm transition-all hover:bg-stone-200 hover:shadow-md focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none active:scale-95"
+              title="Klicka för att kopiera"
+            >
+              <span>VIKTORHANNA2026</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-16 w-16 opacity-0 transition-opacity group-hover:opacity-60"
+              >
+                {copied ? (
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                ) : (
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+                )}
+              </svg>
+              {copied && (
+                <span className="absolute -top-32 left-1/2 -translate-x-1/2 rounded bg-stone-800 px-8 py-4 text-xs whitespace-nowrap text-white shadow-lg">
+                  Kopierad!
+                </span>
+              )}
+            </button>{" "}
             får ni 20% rabatt på boende under bröllopshelgen.
           </p>
         </div>
@@ -397,7 +430,7 @@ function App() {
 
         <div
           className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(/tapet.jpg)" }}
+          style={{ backgroundImage: "url(/tapet.webp)" }}
         >
           <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
             <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
@@ -405,10 +438,10 @@ function App() {
                 <h2>Barn</h2>
                 <div className="h-16" />
                 <p>
-                  Vi älskar barn, både våra egna och era! Men just denna dag vill vi skapa en kväll
-                  fylld av kärlek, fest och avkoppling för de vuxna. Därför ber vi er att lämna de
-                  små hemma och istället njuta av en barnfri kväll tillsammans med oss, med undantag
-                  för ammande barn som givetvis är välkomna.
+                  Vi älskar barn, både våra egna och era! Men just denna dag vill vi fira med våra
+                  vuxna vänner. Därför ber vi er att lämna de små hemma och istället njuta av en
+                  barnfri kväll tillsammans med oss, med undantag för ammande barn som givetvis är
+                  välkomna.
                 </p>
                 <div className="h-16" />
                 <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
@@ -416,7 +449,7 @@ function App() {
 
               <div className="flex-shrink-0 lg:w-[300px]">
                 <img
-                  src="/barnen.png"
+                  src="/barnen.webp"
                   alt="Barn"
                   className="h-full w-full object-cover shadow-md"
                 />
