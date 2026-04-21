@@ -31,9 +31,9 @@ function App() {
             <div className="h-16" />
             <p>
               En högerswipe på Tinder mitt i Corona-pandemin var startskottet. En första dejt på
-              Bitza vid Hornstull strand och några glas vin senare …. När chocken lagt sig att Hanna
-              inte bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna. Efter boende, barn
-              och bil gör vi nu slag i saken och gifter oss!
+              Bitza vid Hornstull strand och några glas vin senare kändes allt rätt. När chocken
+              lagt sig att Hanna inte bodde i Stockholm gick flyttlasset rätt raskt till Eskilstuna.
+              Efter boende, barn och bil gör vi nu slag i saken och gifter oss!
             </p>
             <div className="h-16" />
             <p>
@@ -118,7 +118,7 @@ function App() {
               <strong>Plats:</strong> Elite Hotell Stadshotellet, Hamngatan 11, Eskilstuna
             </p>
             <p>
-              <strong>Tid:</strong> 13:00
+              <strong>Tid:</strong> 13:15
             </p>
             <div className="h-16" />
 
