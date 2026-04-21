@@ -1,27 +1,15 @@
-import { useState } from "react"
 import { Form } from "./components/form"
 
 const CARD_WIDTH = 800
 
 function App() {
-  const [copied, setCopied] = useState(false)
-
-  const copyDiscountCode = async () => {
-    try {
-      await navigator.clipboard.writeText("VIKTORHANNA2026")
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error("Failed to copy:", err)
-    }
-  }
   return (
-    <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pb-32 lg:pt-32 lg:pb-64">
+    <div className="relative flex min-h-screen flex-col items-center overflow-x-hidden px-0 pb-32 md:px-16 md:pt-32 md:pb-64">
       <div
-        className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-stone-50 p-16 pt-0 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] lg:w-[1000px] lg:rounded-lg lg:border lg:p-32 lg:pt-0 lg:pb-0`}
+        className={`relative flex w-full flex-col overflow-hidden rounded-none border-y border-stone-200 bg-stone-50 p-16 pt-0 pb-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3),0_10px_20px_-10px_rgba(0,0,0,0.2)] md:max-w-[1000px] md:rounded-lg md:border md:p-32 md:pt-0 md:pb-0`}
       >
         <div
-          className="-mx-16 bg-cover bg-center p-16 pt-32 lg:-mx-32 lg:p-64"
+          className="-mx-16 bg-cover bg-center p-16 pt-32 md:-mx-32 md:p-64"
           style={{ backgroundImage: "url(/tapet.webp)" }}
         >
           <div className="flex justify-center">
@@ -36,7 +24,7 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="relative -mx-16 p-32 lg:-mx-32 lg:p-64">
+        <div className="relative -mx-16 p-32 md:-mx-32 md:p-64">
           <div className="relative z-10">
             <h2>Nu blir det bröllop!</h2>
 
@@ -72,63 +60,40 @@ function App() {
         </div>
 
         <div
-          className="-mx-16 bg-cover p-32 shadow-md lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(/kvarnfallet.webp)", backgroundPosition: "center 50%" }}
+          className="-mx-16 bg-cover p-32 shadow-md md:-mx-32 md:p-64"
+          style={{ backgroundImage: "url(/kvarnfallet.webp)", backgroundPosition: "60% 50%" }}
         >
-          <div className="w-[40%] min-w-[250px] bg-stone-50 p-24 text-center shadow-lg lg:p-32">
+          <div className="w-[30%] min-w-[180px] bg-stone-50 p-8 text-center shadow-lg md:p-32">
             <h2>Vigsel</h2>
             <div className="h-16" />
-            <p>
-              <strong>8 augusti 2026</strong>
-            </p>
-            <p>
-              <strong>14:00</strong>
-            </p>
+            <p style={{ fontVariantCaps: "small-caps" }}>Lördag 8:e augusti</p>
+            <p style={{ fontVariantCaps: "small-caps" }}>14:00</p>
             <div className="h-8" />
-            <p>
-              <strong>Kvarnfallet, Hällby 307, Arboga</strong>
-            </p>
+            <p style={{ fontVariantCaps: "small-caps" }}>Kvarnfallet, Hällby 307, Arboga</p>
             <div className="h-16" />
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Kvarnfallet+Hällby+307+Arboga"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-8 rounded-md text-blue-600 transition-colors hover:text-blue-800 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none"
-              title="Öppna i Google Maps"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-32 w-32"
-              >
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-              </svg>
-              <span className="text-sm">Öppna i Google Maps</span>
-            </a>
           </div>
         </div>
 
         <div className="h-16" />
 
         <div
-          className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
+          className="-mx-16 bg-cover bg-center p-32 md:-mx-32 md:p-64"
           style={{ backgroundImage: "url(/tyg.webp)" }}
         >
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+          <div className="bg-stone-50 p-24 shadow-lg md:p-32">
             <h2>Middag och fest</h2>
 
             <div className="h-16" />
             <p>
               Efter vigsel och mingel längs vattnet bjuder vi in till middag på restaurang
-              Kvarnfallet. Vi hoppas på en kväll fylld av kärlek, skratt och gemenskap. Om ni önskar
-              förgylla middagen med ett tal eller annat inslag, ta kontakt med våra toastmasters. Se
-              vidare information under Toastmasters, längre ned på denna sida.
+              Kvarnfallet. Vi hoppas på en kväll fylld av kärlek, skratt och gemenskap. Är ni
+              intresserade av att hålla tal, bjuda på ett spex eller överraska oss på något annat
+              sätt? Hör av er till våra toastmasters – mer info om dem hittar ni längre ned!
             </p>
             <div className="h-16" />
 
             <p>
-              Lagom till att middagen är avrundad och solen gått ned höjer vi volymen och slår
+              Lagom till att middagen är avrundad och solen gått ned vrider vi upp volymen och slår
               klackarna i taket!
             </p>
           </div>
@@ -136,21 +101,25 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64">
+        <div className="-mx-16 bg-cover bg-center p-32 md:-mx-32 md:p-64">
           <h2>Transport</h2>
           <p>
-            Kvarnfallet ligger circa 30 minuter väster om Eskilsuna. Ni tar er enkelt dit med
-            abonnerad buss, med följande alternativ:
+            Kvarnfallet ligger 30 minuter väster om Eskilsuna. Ni tar er enkelt dit med vår
+            abonnerade buss, med följande alternativ:
           </p>
 
           <div className="h-16" />
 
-          <div className="border-1 border-blue-300 bg-stone-50 p-24 shadow-lg lg:p-32">
+          <div className="border-1 border-blue-300 bg-stone-50 p-24 shadow-lg md:p-32">
             <h3>Till Kvarnfallet</h3>
             <div className="h-16" />
 
-            <p>Plats: Elite Hotell Stadshotellet, Hamngatan 11, Eskilstuna</p>
-            <p>Tid: 14:00</p>
+            <p>
+              <strong>Plats:</strong> Elite Hotell Stadshotellet, Hamngatan 11, Eskilstuna
+            </p>
+            <p>
+              <strong>Tid:</strong> 13:00
+            </p>
             <div className="h-16" />
 
             <p>
@@ -169,35 +138,34 @@ function App() {
 
           <div className="h-16" />
 
-          <div className="border-1 border-blue-300 bg-stone-50 p-24 shadow-lg lg:p-32">
+          <div className="border-1 border-blue-300 bg-stone-50 p-24 shadow-lg md:p-32">
             <h3>Från Kvarnfallet</h3>
             <div className="h-16" />
 
             <p>
               Busstransporter kommer att avgå från Kvarnfallet till Eskilstuna vid två olika
-              tidpunkter under kvällen. Bussen kommer att stanna vid Elite Stadshoteller i
-              Eskilstuna.{" "}
+              tidpunkter under kvällen. Bussen kommer att stanna vid Elite Stadshotellet i
+              Eskilstuna.
             </p>
             <div className="h-16" />
 
             <p>
               Baren stänger kl 01:30 och kvällen börjar då lida mot sitt slut. Vi önskar såklart att
-              ni vill sjunga i kör till kvällens sista låt på dansgolvet tillsammans med oss, men
-              vill man av någon anledning komma i säng något tidigare finns även en tidigare buss
-              att åka med.
+              ni vill sjunga i kör till Stad i ljus på dansgolvet tillsammans med oss, men vill man
+              av någon anledning komma i säng något tidigare finns även en tidigare buss att åka
+              med.
             </p>
             <div className="h-16" />
 
             <p>
-              <strong>Alternativ 1:</strong>
+              <strong>Alternativ 1:</strong> Avgångstid kl 00:00
             </p>
-            <p>Avgångstid kl 00:00</p>
 
             <div className="h-16" />
             <p>
-              <strong>Alternativ 2:</strong>
+              <strong>Alternativ 2:</strong> Avgångstid kl 02:00
             </p>
-            <p>Avgångstid kl 02:00</p>
+
             <div className="h-16" />
 
             <p>
@@ -211,12 +179,12 @@ function App() {
         <div className="h-16" />
 
         <div
-          className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
+          className="-mx-16 bg-cover bg-center p-32 md:-mx-32 md:p-64"
           style={{ backgroundImage: "url(/tapet.webp)" }}
         >
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
-            <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
-              <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
+          <div className="bg-stone-50 p-24 shadow-lg md:p-32">
+            <div className="flex flex-col gap-16 md:flex-row md:gap-32">
+              <div className="order-2 flex-shrink-0 md:order-1 md:w-[300px]">
                 <img
                   src="/huset.webp"
                   alt="Huset"
@@ -224,7 +192,7 @@ function App() {
                 />
               </div>
 
-              <div className="order-1 flex-1 lg:order-2">
+              <div className="order-1 flex-1 md:order-2">
                 <h2>Fredag</h2>
                 <div className="h-16" />
                 <p>
@@ -234,7 +202,7 @@ function App() {
                 </p>
                 <div className="h-16" />
                 <p>
-                  Vi bjuder därmed in enklare mat, dryck och trevligt häng i vår trädgård på
+                  Vi bjuder därmed in till enklare mat, dryck och trevligt häng i vår trädgård på
                   fredagskvällen - både för långväga gäster och vänner i närområdet. Denna kväll är
                   även barn varmt välkomna.
                 </p>
@@ -254,8 +222,8 @@ function App() {
 
         <div className="h-16" />
 
-        <div className="relative -mx-16 flex flex-col gap-16 p-32 lg:-mx-32 lg:flex-row lg:gap-32 lg:p-64">
-          <div className="order-2 flex-shrink-0 lg:order-1 lg:w-[300px]">
+        <div className="relative -mx-16 flex flex-col gap-16 p-32 md:-mx-32 md:flex-row md:gap-32 md:p-64">
+          <div className="order-2 flex-shrink-0 md:order-1 md:w-[300px]">
             <img
               src="/toast.webp"
               alt="Toastmaster"
@@ -263,63 +231,76 @@ function App() {
             />
           </div>
 
-          <div className="order-1 flex-1 lg:order-2">
+          <div className="order-1 flex-1 md:order-2">
             <div className="flex items-center gap-12">
               <h2>Toastmaster</h2>
               <img
                 src="/hortensia.webp"
                 alt=""
-                className="pointer-events-none h-auto w-40 lg:hidden"
+                className="pointer-events-none h-auto w-40 md:hidden"
               />
             </div>
             <div className="h-16" />
             <p>
               För att guida oss genom middagen och se till att kvällen fylls av skratt, glädje och
               kanske en och annan anekdot, har vi äran att ha vårt fantastiska toastpar Filip och
-              Stina! Detta radarpar… bla bla bla
+              Stina! Stina arbetar till vardags som kirurg, så hon förstår värdet av precision och
+              att hålla huvudet kallt under press, precis som en toastmaster behöver. Filip, som har
+              skjutit fler hjortar än antalet inbjudna gäster, är lika hemma i jaktmarken som vid
+              festbordet och gör duon perfekt. Tillsammans är de ett radarpar som ser till att
+              kvällen blir minnesvärd för alla rätt anledningar!
             </p>
             <div className="h-16" />
             <p>
               Om ni vill hålla tal, bjuda på ett spex eller överaska oss på något annat sätt under
-              middagen, vänligen kontakta Filip och Stina senast 20e juni så att de kan pussla ihop
+              middagen, vänligen kontakta Filip och Stina senast 20:e juni så att de kan pussla ihop
               kvällens program.
             </p>
             <div className="h-16" />
-            <p>Ni når toastmasters på "xxx" eller "070.."</p>
+            <p>
+              Ni når toastmasters på hannaviktor2026@gmail.com eller på telefon{" "}
+              <span className="whitespace-nowrap">072 - 718 14 18</span>.
+            </p>
           </div>
 
           <img
             src="/hortensia.webp"
             alt=""
-            className="pointer-events-none absolute right-[40px] -bottom-15 hidden w-42 opacity-30 lg:block"
+            className="pointer-events-none absolute right-[40px] -bottom-15 hidden w-42 opacity-30 md:block"
           />
         </div>
 
         <div className="h-16" />
 
-        <div className="relative -mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64">
-          <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+        <div className="relative -mx-16 bg-cover bg-center p-32 md:-mx-32 md:p-64">
+          <div className="flex flex-col gap-16 md:flex-row md:gap-32">
             <div className="flex-1">
               <div className="flex items-center gap-12">
                 <h2>Värdpar</h2>
                 <img
                   src="/hortensia.webp"
                   alt=""
-                  className="pointer-events-none h-auto w-40 lg:hidden"
+                  className="pointer-events-none h-auto w-40 md:hidden"
                 />
               </div>
               <div className="h-16" />
               <p>
-                Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Detta radarpar kommer
-                att finnas på plats under busstransporten till Kvarnfallet och hjälpa er komma till
-                rätt plats. Det är även Marie och Frida ni kontaktar om ni har frågor generellt om
-                bröllopet.
+                Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Marie, före detta
+                sportjournalist, står i klassrummet samt doktorerar, och Frida, som har gått
+                domarbanan och nu håller koll på regeringskansliet. Tillsammans besitter de alla
+                kompetenser som behövs för att se till att dagen ska flyta på och kan lätt
+                improvisera vid behov. De kommer att finnas på plats under busstransporten till
+                Kvarnfallet och hjälpa er komma till rätt plats. Det är de ni kontaktar om ni har
+                frågor generellt om bröllopet.
               </p>
               <div className="h-16" />
-              <p>Ni når vårt värdpar på "mail" eller "070"</p>
+              <p>
+                Ni når vårt värdpar på mail@mail.com eller{" "}
+                <span className="whitespace-nowrap">123 - 123 12 12</span>.
+              </p>
             </div>
 
-            <div className="flex-shrink-0 lg:w-[300px]">
+            <div className="flex-shrink-0 md:w-[300px]">
               <img
                 src="/vardpar.webp"
                 alt="Värdpar"
@@ -331,7 +312,7 @@ function App() {
           <img
             src="/hortensia.webp"
             alt=""
-            className="pointer-events-none absolute bottom-0 left-36 hidden w-42 scale-x-[-1] opacity-30 lg:block"
+            className="pointer-events-none absolute bottom-0 left-36 hidden w-42 scale-x-[-1] opacity-30 md:block"
           />
         </div>
 
@@ -339,9 +320,9 @@ function App() {
 
         <div
           style={{ backgroundImage: "url(/tyg.webp)" }}
-          className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
+          className="-mx-16 bg-cover bg-center p-32 md:-mx-32 md:p-64"
         >
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+          <div className="bg-stone-50 p-24 shadow-lg md:p-32">
             <h2>Klädsel</h2>
             <div className="h-16" />
             <p>
@@ -356,13 +337,13 @@ function App() {
               </a>
               . Då vigseln och mycket aktivitet kommer att ske utomhus kan det vara bra att planera
               lite för det och ta med ett paraply samt eventuellt något varmt att ta på sig om vi
-              skulle ha otur med vädret 🤞.
+              skulle ha otur med vädret. 🤞
             </p>
           </div>
 
           <div className="h-16" />
 
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
+          <div className="bg-stone-50 p-24 shadow-lg md:p-32">
             <h2>Present</h2>
             <div className="h-16" />
             <p>
@@ -371,13 +352,15 @@ function App() {
               jätteglada för ett bidrag till vår bröllopsresa.
             </p>
             <div className="h-16" />
-            <p>Bidrag kan swishas till 070 - 389 69 77.</p>
+            <p>
+              Bidrag kan swishas till <span className="whitespace-nowrap">070 - 389 69 77</span>.
+            </p>
           </div>
         </div>
 
         <div className="h-16" />
 
-        <div className="-mx-16 p-32 lg:-mx-32 lg:p-64">
+        <div className="-mx-16 p-32 md:-mx-32 md:p-64">
           <h2>Boende</h2>
           <div className="h-16" />
           <p>
@@ -398,44 +381,17 @@ function App() {
             </a>
           </p>
           <div className="h-16" />
-          <p>
-            Med bokningskoden{" "}
-            <button
-              onClick={copyDiscountCode}
-              className="group relative inline-flex items-center gap-8 rounded bg-stone-100 px-8 py-4 font-mono text-sm transition-all hover:bg-stone-200 hover:shadow-md focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:outline-none active:scale-95"
-              title="Klicka för att kopiera"
-            >
-              <span>VIKTORHANNA2026</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-16 w-16 opacity-0 transition-opacity group-hover:opacity-60"
-              >
-                {copied ? (
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                ) : (
-                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
-                )}
-              </svg>
-              {copied && (
-                <span className="absolute -top-32 left-1/2 -translate-x-1/2 rounded bg-stone-800 px-8 py-4 text-xs whitespace-nowrap text-white shadow-lg">
-                  Kopierad!
-                </span>
-              )}
-            </button>{" "}
-            får ni 20% rabatt på boende under bröllopshelgen.
-          </p>
+          <p>Med gruppkoden VIKTORHANNA2026 får ni rabatt på boende under bröllopshelgen.</p>
         </div>
 
         <div className="h-16" />
 
         <div
-          className="-mx-16 bg-cover bg-center p-32 lg:-mx-32 lg:p-64"
+          className="-mx-16 bg-cover bg-center p-32 md:-mx-32 md:p-64"
           style={{ backgroundImage: "url(/tapet.webp)" }}
         >
-          <div className="bg-stone-50 p-24 shadow-lg lg:p-32">
-            <div className="flex flex-col gap-16 lg:flex-row lg:gap-32">
+          <div className="bg-stone-50 p-24 shadow-lg md:p-32">
+            <div className="flex flex-col gap-16 md:flex-row md:gap-32">
               <div className="flex-1">
                 <h2>Barn</h2>
                 <div className="h-16" />
@@ -449,7 +405,7 @@ function App() {
                 <p>På fredagskvällen hänger vi dock gärna med er och era barn!</p>
               </div>
 
-              <div className="flex-shrink-0 lg:w-[300px]">
+              <div className="flex-shrink-0 md:w-[300px]">
                 <img
                   src="/barnen.webp"
                   alt="Barn"
@@ -460,7 +416,7 @@ function App() {
           </div>
         </div>
 
-        <div className="relative -mx-16 p-32 lg:-mx-32 lg:p-64">
+        <div className="relative -mx-16 p-32 md:-mx-32 md:p-64">
           <h2>O.S.A.</h2>
           <Form />
         </div>

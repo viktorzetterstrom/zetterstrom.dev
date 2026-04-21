@@ -119,7 +119,7 @@ export const Form = () => {
               required
               className="h-20 w-20 cursor-pointer accent-blue-600 focus-visible:outline-none"
             />
-            <span className="flex-1">Ja, jag/vi kan komma</span>
+            <span className="flex-1">Ja, absolut!</span>
           </label>
 
           <label className="flex cursor-pointer items-center gap-12 border border-stone-300 bg-stone-50 p-16 transition-all hover:border-stone-400 hover:shadow-sm has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
@@ -194,14 +194,14 @@ export const Form = () => {
               onChange={handleChange}
               className="mt-4 h-20 w-20 cursor-pointer rounded-none accent-blue-600 focus-visible:outline-none"
             />
-            <span>Ja, vi kommer på fredagshäng i Eskilstuna</span>
+            <span>Ja, vi kommer på fredagshäng i Eskilstuna!</span>
           </label>
         </div>
       </div>
 
       <div>
         <label htmlFor="allergies" className="mb-8 block font-semibold">
-          Allergier eller andra önskemål
+          Allergier eller andra matpreferenser
         </label>
         <textarea
           id="allergies"
@@ -215,7 +215,7 @@ export const Form = () => {
 
       <div>
         <label htmlFor="songRequests" className="mb-8 block font-semibold">
-          Vill du/ni önska några låtar till festen?
+          Vilka låtar kan du inte vara utan på festen?
         </label>
         <textarea
           id="songRequests"
