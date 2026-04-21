@@ -118,7 +118,7 @@ function App() {
               <strong>Plats:</strong> Elite Hotell Stadshotellet, Hamngatan 11, Eskilstuna
             </p>
             <p>
-              <strong>Tid:</strong> 13:15
+              <strong>Tid:</strong> 13:00
             </p>
             <div className="h-16" />
 
