@@ -295,8 +295,8 @@ function App() {
               </p>
               <div className="h-16" />
               <p>
-                Ni når vårt värdpar på mail@mail.com eller{" "}
-                <span className="whitespace-nowrap">123 - 123 12 12</span>.
+                Ni når vårt värdpar på mmariecarlsson@gmail.com eller på telefon
+                <span className="whitespace-nowrap">073 - 560 60 04</span>.
               </p>
             </div>
 
