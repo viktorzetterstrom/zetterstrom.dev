@@ -73,7 +73,7 @@ function App() {
 
         <div
           className="-mx-16 bg-cover p-32 shadow-md lg:-mx-32 lg:p-64"
-          style={{ backgroundImage: "url(kvarnfallet.webp)", backgroundPosition: "center 50%" }}
+          style={{ backgroundImage: "url(/kvarnfallet.webp)", backgroundPosition: "center 50%" }}
         >
           <div className="w-[40%] min-w-[250px] bg-stone-50 p-24 text-center shadow-lg lg:p-32">
             <h2>Vigsel</h2>
@@ -290,6 +290,7 @@ function App() {
 
           <img
             src="/hortensia.webp"
+            alt=""
             className="pointer-events-none absolute right-[40px] -bottom-15 hidden w-42 opacity-30 lg:block"
           />
         </div>
@@ -329,6 +330,7 @@ function App() {
 
           <img
             src="/hortensia.webp"
+            alt=""
             className="pointer-events-none absolute bottom-0 left-36 hidden w-42 scale-x-[-1] opacity-30 lg:block"
           />
         </div>

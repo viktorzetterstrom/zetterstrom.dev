@@ -70,7 +70,7 @@ export const Form = () => {
         <label htmlFor="name" className="mb-8 block font-semibold">
           Namn <span className="text-red-600">*</span>
         </label>
-        <p className="mb-16 text-sm text-neutral-600 italic">
+        <p id="name-description" className="mb-16 text-sm text-neutral-600 italic">
           Det går bra att ange flera namn i samma inskick.
         </p>
 
@@ -81,6 +81,7 @@ export const Form = () => {
           value={formData.name}
           onChange={handleChange}
           required
+          aria-describedby="name-description"
           className="w-full border border-stone-300 bg-white px-16 py-12 font-serif text-neutral-700 shadow-sm transition-all focus:border-blue-400 focus:ring-2 focus:ring-blue-200 focus:outline-none"
         />
       </div>
@@ -139,7 +140,7 @@ export const Form = () => {
       <div>
         <label className="mb-12 block font-semibold">Transport</label>
         <div className="space-y-12 border border-stone-200 bg-stone-50 p-16">
-          <p className="mb-16 text-sm text-neutral-600 italic">
+          <p id="transport-description" className="mb-16 text-sm text-neutral-600 italic">
             För att vi ska kunna planera bokning av transporter behöver vi veta redan nu om ni vill
             åka med bokad buss till och/eller från Kvarnfallet.
           </p>
@@ -150,6 +151,7 @@ export const Form = () => {
               name="transportToKvarnfallet"
               checked={formData.transportToKvarnfallet}
               onChange={handleChange}
+              aria-describedby="transport-description"
               className="mt-4 h-20 w-20 cursor-pointer rounded-none accent-blue-600 focus-visible:outline-none"
             />
             <span>Till Kvarnfallet från Eskilstuna</span>
@@ -161,6 +163,7 @@ export const Form = () => {
               name="transportFrom00"
               checked={formData.transportFrom00}
               onChange={handleChange}
+              aria-describedby="transport-description"
               className="mt-4 h-20 w-20 cursor-pointer rounded-none accent-blue-600 focus-visible:outline-none"
             />
             <span>Till Eskilstuna från Kvarnfallet kl 00:00</span>
@@ -172,6 +175,7 @@ export const Form = () => {
               name="transportFrom02"
               checked={formData.transportFrom02}
               onChange={handleChange}
+              aria-describedby="transport-description"
               className="mt-4 h-20 w-20 cursor-pointer rounded-none accent-blue-600 focus-visible:outline-none"
             />
             <span>Till Eskilstuna från Kvarnfallet kl 02:00</span>
