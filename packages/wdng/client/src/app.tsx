@@ -38,7 +38,7 @@ function App() {
             <div className="h-16" />
             <p>
               Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. På denna
-              hemsida finner ni all information ni behöver inför bröllopet!
+              hemsida finner ni all information ni behöver inför bröllopet.
             </p>
             <div className="h-16" />
             <p>
@@ -66,7 +66,7 @@ function App() {
           <div className="w-[30%] min-w-[180px] bg-stone-50 p-8 text-center shadow-lg md:p-32">
             <h2>Vigsel</h2>
             <div className="h-16" />
-            <p style={{ fontVariantCaps: "small-caps" }}>Lördag 8:e augusti</p>
+            <p style={{ fontVariantCaps: "small-caps" }}>Lördag 8 augusti</p>
             <p style={{ fontVariantCaps: "small-caps" }}>14:00</p>
             <div className="h-8" />
             <p style={{ fontVariantCaps: "small-caps" }}>Kvarnfallet, Hällby 307, Arboga</p>
@@ -88,7 +88,7 @@ function App() {
               Efter vigsel och mingel längs vattnet bjuder vi in till middag på restaurang
               Kvarnfallet. Vi hoppas på en kväll fylld av kärlek, skratt och gemenskap. Är ni
               intresserade av att hålla tal, bjuda på ett spex eller överraska oss på något annat
-              sätt? Hör av er till våra toastmasters – mer info om dem hittar ni längre ned!
+              sätt? Hör av er till våra toastmasters.
             </p>
             <div className="h-16" />
 
@@ -118,14 +118,14 @@ function App() {
               <strong>Plats:</strong> Elite Hotell Stadshotellet, Hamngatan 11, Eskilstuna
             </p>
             <p>
-              <strong>Tid:</strong> 13:00
+              <strong>Avgångstid:</strong> 13:00
             </p>
             <div className="h-16" />
 
             <p>
               Vårt värdpar för kvällen kommer att möta upp er vid bussen och se till så ni kommer på
               ordentligt. Kom gärna en stund innan utsatt avgångstid för att säkerställa att ni inte
-              missar bussen!
+              missar bussen.
             </p>
             <div className="h-16" />
 
@@ -150,20 +150,20 @@ function App() {
             <div className="h-16" />
 
             <p>
-              Baren stänger kl 01:30 och kvällen börjar då lida mot sitt slut. Vi önskar såklart att
-              ni vill sjunga i kör till Stad i ljus på dansgolvet tillsammans med oss, men vill man
-              av någon anledning komma i säng något tidigare finns även en tidigare buss att åka
+              Baren stänger kl 01:00 och kvällen börjar då lida mot sitt slut. Vi önskar såklart att
+              ni vill sjunga i kör till "Stad i ljus" på dansgolvet tillsammans med oss, men vill
+              man av någon anledning komma i säng något tidigare finns även en tidigare buss att åka
               med.
             </p>
             <div className="h-16" />
 
             <p>
-              <strong>Alternativ 1:</strong> Avgångstid kl 00:00
+              <strong>Alternativ 1:</strong> Avgångstid 23:30
             </p>
 
             <div className="h-16" />
             <p>
-              <strong>Alternativ 2:</strong> Avgångstid kl 02:00
+              <strong>Alternativ 2:</strong> Avgångstid 01:30
             </p>
 
             <div className="h-16" />
@@ -202,19 +202,19 @@ function App() {
                 </p>
                 <div className="h-16" />
                 <p>
-                  Vi bjuder därmed in till enklare mat, dryck och trevligt häng i vår trädgård på
+                  Vi bjuder in till enklare mat, dryck och trevligt häng i vår trädgård på
                   fredagskvällen - både för långväga gäster och vänner i närområdet. Denna kväll är
                   även barn varmt välkomna.
                 </p>
                 <div className="h-16" />
                 <p>
-                  <strong>Plats:</strong> Örlingsgatan 12, Eskilstuna
+                  <strong>Plats:</strong> Öhrlingsgatan 12, Eskilstuna
                 </p>
                 <p>
-                  <strong>Tid:</strong> Kl 17:00 - 20:00
+                  <strong>Tid:</strong> 17:00 - 20:00
                 </p>
                 <div className="h-16" />
-                <p>Därefter behöver i alla fall brudparet förbereda sig inför morgondagen!</p>
+                <p>Därefter behöver i alla fall brudparet förbereda sig inför morgondagen. :)</p>
               </div>
             </div>
           </div>
@@ -285,9 +285,8 @@ function App() {
               </div>
               <div className="h-16" />
               <p>
-                Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Marie, före detta
-                sportjournalist, står i klassrummet samt doktorerar, och Frida, som har gått
-                domarbanan och nu håller koll på regeringskansliet. Tillsammans besitter de alla
+                Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Marie, styr i
+                klassrummet, och Frida på regeringskansliet. Tillsammans besitter de alla
                 kompetenser som behövs för att se till att dagen ska flyta på och kan lätt
                 improvisera vid behov. De kommer att finnas på plats under busstransporten till
                 Kvarnfallet och hjälpa er komma till rätt plats. Det är de ni kontaktar om ni har
@@ -295,7 +294,7 @@ function App() {
               </p>
               <div className="h-16" />
               <p>
-                Ni når vårt värdpar på mmariecarlsson@gmail.com eller på telefon
+                Ni når vårt värdpar på mmariecarlsson@gmail.com eller på telefon{" "}
                 <span className="whitespace-nowrap">073 - 560 60 04</span>.
               </p>
             </div>
