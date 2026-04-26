@@ -104,7 +104,7 @@ function App() {
         <div className="-mx-16 bg-cover bg-center p-32 md:-mx-32 md:p-64">
           <h2>Transport</h2>
           <p>
-            Kvarnfallet ligger 30 minuter väster om Eskilsuna. Ni tar er enkelt dit med vår
+            Kvarnfallet ligger 30 minuter väster om Eskilstuna. Ni tar er enkelt dit med vår
             abonnerade buss, med följande alternativ:
           </p>
 
@@ -252,7 +252,7 @@ function App() {
             </p>
             <div className="h-16" />
             <p>
-              Om ni vill hålla tal, bjuda på ett spex eller överaska oss på något annat sätt under
+              Om ni vill hålla tal, bjuda på ett spex eller överraska oss på något annat sätt under
               middagen, vänligen kontakta Filip och Stina senast 20:e juni så att de kan pussla ihop
               kvällens program.
             </p>

@@ -166,7 +166,7 @@ export const Form = () => {
               aria-describedby="transport-description"
               className="mt-4 h-20 w-20 cursor-pointer rounded-none accent-blue-600 focus-visible:outline-none"
             />
-            <span>Till Eskilstuna från Kvarnfallet kl 00:00</span>
+            <span>Till Eskilstuna från Kvarnfallet kl 23:30</span>
           </label>
 
           <label className="-m-8 flex cursor-pointer items-start gap-12 rounded-md p-8 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-blue-400 has-[:focus-visible]:ring-offset-2">
@@ -178,7 +178,7 @@ export const Form = () => {
               aria-describedby="transport-description"
               className="mt-4 h-20 w-20 cursor-pointer rounded-none accent-blue-600 focus-visible:outline-none"
             />
-            <span>Till Eskilstuna från Kvarnfallet kl 02:00</span>
+            <span>Till Eskilstuna från Kvarnfallet kl 01:30</span>
           </label>
         </div>
       </div>
