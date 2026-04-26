@@ -37,7 +37,7 @@ function App() {
             </p>
             <div className="h-16" />
             <p>
-              Välkomna att fira med oss den 8e augusti på Kvarnfallet vid Hjälmare kanal. På denna
+              Välkomna att fira med oss den 8:e augusti på Kvarnfallet vid Hjälmare kanal. På denna
               hemsida finner ni all information ni behöver inför bröllopet.
             </p>
             <div className="h-16" />
