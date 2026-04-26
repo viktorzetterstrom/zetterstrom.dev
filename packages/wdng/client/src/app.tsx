@@ -285,11 +285,11 @@ function App() {
               </div>
               <div className="h-16" />
               <p>
-                Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Marie, styr i
-                klassrummet, och Frida på regeringskansliet. Tillsammans besitter de alla
-                kompetenser som behövs för att se till att dagen ska flyta på och kan lätt
-                improvisera vid behov. De kommer att finnas på plats under busstransporten till
-                Kvarnfallet och hjälpa er komma till rätt plats. Det är de ni kontaktar om ni har
+                Helgens värdpar Marie och Frida är två kvinnor med järnkoll. Marie styr i
+                klassrummet och Frida på regeringskansliet. Tillsammans besitter de alla kompetenser
+                som behövs för att se till att dagen ska flyta på och kan lätt improvisera vid
+                behov. De kommer att finnas på plats under busstransporten till Kvarnfallet och
+                hjälpa er att vara på rätt plats vid rätt tid. Det är även de ni kontaktar om ni har
                 frågor generellt om bröllopet.
               </p>
               <div className="h-16" />
