@@ -416,7 +416,10 @@ function App() {
         </div>
 
         <div className="relative -mx-16 p-32 md:-mx-32 md:p-64">
-          <h2>O.S.A.</h2>
+          <h2>Kan du komma?</h2>
+          <p id="name-description" className="mb-16 text-sm text-neutral-600 italic">
+            Svara senast 31:a maj.
+          </p>
           <Form />
         </div>
       </div>
